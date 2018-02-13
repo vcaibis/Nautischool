@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#CAC7C8</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorDarkGrey">#CAC7C8</color>
+    <color name="colorDIST">#E5B3BB</color>
+    <color name="colorDISTselected">#B88EA3</color>
+    <color name="colorBlack">#000000</color>
+    <color name="color16">#C53249</color>
+    <color name="color16Selected">#EF6345</color>
+    <color name="colorScreen">#90EE90</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorLogin">#3979F5</color>
+
+</resources>

@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">VHF-DSC-School</string>
+    <string name="stringPTT">PTT</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_1">1</string>
+    <string name="logo">Logo</string>
+    <string name="abc">ABC</string>
+    <string name="def">DEF</string>
+    <string name="_4">4</string>
+    <string name="_6">6</string>
+    <string name="_5">5</string>
+    <string name="ghi">GHI</string>
+    <string name="jkl">JKL</string>
+    <string name="mno">MNO</string>
+    <string name="pqrs">PQRS</string>
+    <string name="tuv">TUV</string>
+    <string name="wxyz">WXYZ</string>
+    <string name="c">C</string>
+    <string name="_0">0</string>
+    <string name="e">E</string>
+
+    <string name="_1_25">1/25</string>
+    <string name="d_w">D/W</string>
+
+    <string name="vol">Vol</string>
+    <string name="sq">SQ</string>
+    <string name="dist">DIST</string>
+    <string name="www_nautischool">www.nautischool</string>
+    <string name="vhf_dsc_school">VHF-DSC-School</string>
+    <string name="hi">Hi</string>
+    <string name="user">User</string>
+    <string name="_16">16</string>
+    <string name="rx">Rx</string>
+    <string name="dsc">DSC</string>
+    <string name="t_w">T/W</string>
+    <string name="m_s">M/S</string>
+    <string name="scan">Scan</string>
+    <string name="intWord">INT</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="cancel">Cancel</string>
+    <string name="please_contact">To sign up and get your login, please contact</string>
+    <string name="info_nautischool_ch">info@nautischool.ch</string>
+    <string name="todo">Logo</string>
+
+</resources>
