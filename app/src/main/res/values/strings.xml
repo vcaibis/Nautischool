@@ -45,4 +45,10 @@
     <string name="info_nautischool_ch">info@nautischool.ch</string>
     <string name="todo">Logo</string>
 
+    <!-- For login-->
+    <string name="user1_login">user1</string>
+    <string name="user1_password">1234</string>
+    <string name="server">85.1.228.64</string>
+    <string name="server_host">nautischool</string>
+
 </resources>
