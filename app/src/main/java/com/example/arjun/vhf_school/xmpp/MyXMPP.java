@@ -65,9 +65,7 @@ public class MyXMPP {
 
     }
     public void init() {
-//        gson = new Gson();
-//        mMessageListener = new MMessageListener(context);
-//        mChatManagerListener = new ChatManagerListenerImpl();
+
         initialiseConnection();
     }
 
