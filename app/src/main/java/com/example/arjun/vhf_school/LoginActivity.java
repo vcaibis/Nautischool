@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.arjun.vhf_school.xmpp.LocalBinder;
 import com.example.arjun.vhf_school.xmpp.MyService;
+import com.example.arjun.vhf_school.xmpp.MyXMPP;
 import com.example.arjun.vhf_school.xmpp.SettingsPrefs;
 
 public class LoginActivity extends AppCompatActivity {
@@ -100,6 +101,13 @@ public class LoginActivity extends AppCompatActivity {
 
         // launch the service
         doBindService();
+
+        if(!MyXMPP.connected) return false;
+
+
+        if(!MyXMPP.connection.isConnected()) return false;
+        if(!MyXMPP.connection.isAuthenticated()) return false;
+
         return true;
     }
 
