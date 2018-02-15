@@ -245,7 +245,8 @@
                 android:gravity="center"
                 android:text="@string/_16"
                 android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:onClick="ClickButtonChannel_16"/>
 
             <Button
                 android:id="@+id/push_button1_25"
@@ -269,7 +270,8 @@
                 android:gravity="center"
                 android:text="@string/d_w"
                 android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:onClick="ClickDualWatchButton"/>
 
 
             <ImageButton
@@ -356,7 +358,7 @@
 
         <!-- Row 1 -->
         <Button
-            android:id="@+id/push_buttonNo1"
+            android:id="@+id/NumPad1"
             android:layout_width="50dp"
             android:layout_column="0"
             android:layout_margin="5dp"
@@ -367,10 +369,11 @@
             android:text="@string/_1"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:onClick="ClickNumPad1"/>
 
         <Button
-            android:id="@+id/push_buttonNo2"
+            android:id="@+id/NumPad2"
             android:layout_width="50dp"
             android:layout_column="1"
             android:layout_margin="5dp"
@@ -381,10 +384,11 @@
             android:text="@string/_2"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad2"/>
 
         <Button
-            android:id="@+id/push_buttonNo3"
+            android:id="@+id/NumPad3"
             android:layout_width="50dp"
             android:layout_column="2"
             android:layout_margin="5dp"
@@ -395,7 +399,8 @@
             android:text="@string/_3"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad3"/>
 
         <!-- Row 2 -->
         <TextView
@@ -418,7 +423,7 @@
 
         <!-- Row 3 -->
         <Button
-            android:id="@+id/push_buttonNo4"
+            android:id="@+id/NumPad4"
             android:layout_width="50dp"
             android:layout_column="0"
             android:layout_margin="5dp"
@@ -429,10 +434,11 @@
             android:text="@string/_4"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad4"/>
 
         <Button
-            android:id="@+id/push_buttonNo5"
+            android:id="@+id/NumPad5"
             android:layout_width="50dp"
             android:layout_column="1"
             android:layout_margin="5dp"
@@ -443,10 +449,11 @@
             android:text="@string/_5"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad5"/>
 
         <Button
-            android:id="@+id/push_buttonNo6"
+            android:id="@+id/NumPad6"
             android:layout_width="50dp"
             android:layout_column="2"
             android:layout_margin="5dp"
@@ -457,7 +464,8 @@
             android:text="@string/_6"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad6"/>
 
         <!-- Row 4-->
         <TextView
@@ -487,7 +495,7 @@
 
         <!-- Row 5 -->
         <Button
-            android:id="@+id/push_buttonNo7"
+            android:id="@+id/NumPad7"
             android:layout_width="50dp"
             android:layout_column="0"
             android:layout_margin="5dp"
@@ -498,10 +506,11 @@
             android:text="@string/_4"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad7"/>
 
         <Button
-            android:id="@+id/push_buttonNo8"
+            android:id="@+id/NumPad8"
             android:layout_width="50dp"
             android:layout_column="1"
             android:layout_margin="5dp"
@@ -512,10 +521,11 @@
             android:text="@string/_5"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad8"/>
 
         <Button
-            android:id="@+id/push_buttonNo9"
+            android:id="@+id/NumPad9"
             android:layout_width="50dp"
             android:layout_column="2"
             android:layout_margin="5dp"
@@ -526,7 +536,8 @@
             android:text="@string/_6"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad9"/>
 
         <!-- Row 6-->
         <TextView
@@ -555,7 +566,7 @@
 
         <!-- Row 7 -->
         <Button
-            android:id="@+id/push_buttonNoC"
+            android:id="@+id/NumPadCancel"
             android:layout_width="50dp"
             android:layout_column="0"
             android:layout_margin="5dp"
@@ -566,10 +577,11 @@
             android:text="@string/c"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPadCancel"/>
 
         <Button
-            android:id="@+id/push_buttonNo0"
+            android:id="@+id/NumPad0"
             android:layout_width="50dp"
             android:layout_column="1"
             android:layout_margin="5dp"
@@ -580,10 +592,11 @@
             android:text="@string/_0"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPad0"/>
 
         <Button
-            android:id="@+id/push_buttonNoE"
+            android:id="@+id/NumPadEnter"
             android:layout_width="50dp"
             android:layout_column="2"
             android:layout_margin="5dp"
@@ -594,7 +607,8 @@
             android:text="@string/e"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:onClick="ClickNumPadEnter"/>
 
     </GridLayout>
 
@@ -604,8 +618,8 @@
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/relativeLayout2"
-        android:layout_toStartOf="@+id/relativeLayout2"
+        android:layout_toEndOf="@+id/twelvebtns"
+        android:layout_toRightOf="@+id/twelvebtns"
         android:background="@color/colorBlack"
         android:columnCount="1"
         android:rowCount="5">
@@ -613,12 +627,14 @@
         <TextView
             android:id="@+id/text_view_vol"
             android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_row="0"
             android:text="@string/vol"
             android:textColor="@color/colorWhite"
-            android:textSize="12sp" android:layout_marginEnd="10dp" />
+            android:textSize="12sp" />
+
         <Button
             android:id="@+id/push_buttonVol"
             android:layout_width="80dp"
@@ -628,7 +644,7 @@
             android:background="@drawable/button_bg_round" />
 
         <Button
-            android:id="@+id/push_buttonDIST"
+            android:id="@+id/DistressButton"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -638,7 +654,8 @@
             android:background="@drawable/distbutton"
             android:text="@string/dist"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:onClick="ClickDistressButton"/>
 
 
         <TextView
@@ -658,7 +675,7 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_row="1"
-            android:background="@drawable/button_bg_round"/>
+            android:background="@drawable/button_bg_round" />
 
     </GridLayout>
 
