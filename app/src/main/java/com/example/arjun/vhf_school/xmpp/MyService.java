@@ -29,10 +29,10 @@ public class MyService extends Service {
         cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 //       xmpp = MyXMPP.getInstance(MyService.this, getString(R.strings.server), getString(R.string.user1_login), getString(R.string.user1_password));
 
-        SharedPreferences settings = getSharedPreferences(MyXMPP.PREFS_NAME, 0);
-        String server = settings.getString("server","85.1.228.64");
-        String user = settings.getString("user","user2");
-        String password = settings.getString("password","1234");
+        SettingsPrefs settings = new SettingsPrefs(this);
+        String server = settings.getServer();
+        String user = settings.getUser();
+        String password = settings.getPassword();
 
         xmpp = MyXMPP.getInstance(MyService.this,server, user,password);
         xmpp.connect("onCreate");
