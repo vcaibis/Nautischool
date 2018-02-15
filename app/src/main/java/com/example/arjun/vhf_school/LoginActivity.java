@@ -18,9 +18,9 @@ import com.example.arjun.vhf_school.xmpp.LocalBinder;
 import com.example.arjun.vhf_school.xmpp.MyService;
 
 public class LoginActivity extends AppCompatActivity {
-    //EditText username = (EditText)findViewById(R.id.edit_text_username);
-    //EditText password = (EditText)findViewById(R.id.edit_text_password);
-    private static final String TAG = "MainActivity";
+    EditText username = (EditText)findViewById(R.id.edit_text_username);
+    EditText password = (EditText)findViewById(R.id.edit_text_password);
+    private static final String TAG = "LoginActivity";
     private boolean mBounded;
     private MyService mService;
     private final ServiceConnection mConnection = new ServiceConnection() {
@@ -54,7 +54,25 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Function to log the user
+     * @param view
+     */
     public void login(View view) {
+
+        String sUsername = username.getText().toString();
+        String sPassword = password.getText().toString();
+
+        if(sUsername.isEmpty()){
+            username.setError("Enter a username");
+            return;
+        }
+        if(sPassword.isEmpty()){
+            password.setError("Enter a password");
+            return;
+        }
+
+
         //if (username.getText().toString().equals("Tom") && password.getText().toString().equals("123")) {
 
             Toast.makeText(LoginActivity.this,"Username and password is correct",
@@ -68,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
         //}
     }
     public void cancel(View view) {
+
 
     }
     @Override
@@ -90,5 +109,6 @@ public class LoginActivity extends AppCompatActivity {
     public MyService getmService() {
         return mService;
     }
+
 
 }

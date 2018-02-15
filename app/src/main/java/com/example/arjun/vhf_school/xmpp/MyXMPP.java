@@ -37,8 +37,7 @@ public class MyXMPP {
     public static XMPPTCPConnection connection;
     public static MyXMPP instance = null;
     public static boolean instanceCreated = false;
-    final static String WATERPLACE = "Leman@conference.nautischool";
-
+    public static final String WATERPLACE = "Leman@conference.nautischool";
     private MyService context;
     private String serverAddress;
     private String loginUser;
