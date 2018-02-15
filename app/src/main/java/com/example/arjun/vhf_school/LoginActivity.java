@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
             password.setError("Enter a password");
             return;
         }
+        
        if(!sUsername.isEmpty()&& !sPassword.isEmpty()){
            doBindService();
            Toast.makeText(LoginActivity.this,"Username and password is correct",
