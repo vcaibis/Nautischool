@@ -27,7 +27,7 @@ public class MyService extends Service {
         super.onCreate();
         cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 //       xmpp = MyXMPP.getInstance(MyService.this, getString(R.strings.server), getString(R.string.user1_login), getString(R.string.user1_password));
-        xmpp = MyXMPP.getInstance(MyService.this,"server", "user1", "1234");
+        xmpp = MyXMPP.getInstance(MyService.this,"server", "user2", "1234");
         xmpp.connect("onCreate");
     }
 
