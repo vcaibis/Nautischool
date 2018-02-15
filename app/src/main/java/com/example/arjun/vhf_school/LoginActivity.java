@@ -66,21 +66,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     public void login(View view) {
 
-        String sUsername = username.getText().toString();
-        String sPassword = password.getText().toString();
-
-        if(sUsername.isEmpty()){
-            username.setError("Enter a username");
-            return;
-        }
-        if(sPassword.isEmpty()){
-            password.setError("Enter a password");
-            return;
-        }
-        
-       if(!sUsername.isEmpty()&& !sPassword.isEmpty()){
-
-           doBindService();
+       if(testLogin()){
            Toast.makeText(LoginActivity.this,"Username and password is correct",
                    Toast.LENGTH_LONG).show();
            startActivity(new Intent(LoginActivity.this, mainActivity.class));
@@ -88,6 +74,28 @@ public class LoginActivity extends AppCompatActivity {
            Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show();
        }
     }
+
+    private boolean testLogin() {
+        String sUsername = username.getText().toString();
+        String sPassword = password.getText().toString();
+
+        if(sUsername.isEmpty()){
+            username.setError("Enter a username");
+            return false;
+        }
+        if(sPassword.isEmpty()){
+            password.setError("Enter a password");
+            return false;
+        }
+        SettingsPrefs settings = new SettingsPrefs(this);
+        settings.setUser(sUsername);
+        settings.setPassword(sPassword);
+        settings.save();
+        // lunch the service
+        doBindService();
+        return true;
+    }
+
     public void cancel(View view) {
 
 

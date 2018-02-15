@@ -59,4 +59,8 @@ public class SettingsPrefs {
         user = settings.getString("user","user2");
         password = settings.getString("password","1234");
     }
+
+    public void save() {
+
+    }
 }
