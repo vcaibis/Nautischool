@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        doBindService();
+        //doBindService();
 
 
     }
@@ -71,19 +71,14 @@ public class LoginActivity extends AppCompatActivity {
             password.setError("Enter a password");
             return;
         }
-
-
-        //if (username.getText().toString().equals("Tom") && password.getText().toString().equals("123")) {
-
-            Toast.makeText(LoginActivity.this,"Username and password is correct",
-                    Toast.LENGTH_LONG).show();
-            startActivity(new Intent(LoginActivity.this, mainActivity.class));
-        //} else {
-            //wrong password
-           // Toast.makeText(LoginActivity.this,"Username and password is NOT correct",
-          //          Toast.LENGTH_LONG).show();
-            //password.setText("");
-        //}
+       if(!sUsername.isEmpty()&& !sPassword.isEmpty()){
+           doBindService();
+           Toast.makeText(LoginActivity.this,"Username and password is correct",
+                   Toast.LENGTH_LONG).show();
+           startActivity(new Intent(LoginActivity.this, mainActivity.class));
+        }else{
+            Toast.makeText(this,"Login Failed", Toast.LENGTH_LONG).show();
+        }
     }
     public void cancel(View view) {
 
