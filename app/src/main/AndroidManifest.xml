@@ -11,10 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".mainActivity"
-            android:screenOrientation="landscape">
-        </activity>
+
 
 
         <activity android:name=".LoginActivity" android:screenOrientation="landscape">
@@ -22,6 +19,10 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".mainActivity"
+            android:screenOrientation="landscape">
         </activity>
         <service
             android:name=".xmpp.MyService"
