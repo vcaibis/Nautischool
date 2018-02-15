@@ -18,8 +18,8 @@ import com.example.arjun.vhf_school.xmpp.LocalBinder;
 import com.example.arjun.vhf_school.xmpp.MyService;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText username = (EditText)findViewById(R.id.edit_text_username);
-    EditText password = (EditText)findViewById(R.id.edit_text_password);
+    EditText username ;
+    EditText password ;
     private static final String TAG = "LoginActivity";
     private boolean mBounded;
     private MyService mService;
@@ -49,6 +49,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Define variables
+        username = (EditText)findViewById(R.id.edit_text_username);
+        password = (EditText)findViewById(R.id.edit_text_password);
         //doBindService();
 
 
@@ -76,9 +79,9 @@ public class LoginActivity extends AppCompatActivity {
            Toast.makeText(LoginActivity.this,"Username and password is correct",
                    Toast.LENGTH_LONG).show();
            startActivity(new Intent(LoginActivity.this, mainActivity.class));
-        }else{
-            Toast.makeText(this,"Login Failed", Toast.LENGTH_LONG).show();
-        }
+        }else {
+           Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show();
+       }
     }
     public void cancel(View view) {
 
