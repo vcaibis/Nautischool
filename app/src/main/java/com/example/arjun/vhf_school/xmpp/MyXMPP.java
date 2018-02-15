@@ -43,10 +43,10 @@ public class MyXMPP {
     private String loginUser;
     private String passwordUser;
 
-    public MyXMPP(MyService context, String serverAdress, String logiUser,
+    public MyXMPP(MyService context, String serverAdress, String loginUser,
                   String passwordUser) {
         this.serverAddress = serverAdress;
-        this.loginUser = logiUser;
+        this.loginUser = loginUser;
         this.passwordUser = passwordUser;
         this.context = context;
         init();
@@ -211,7 +211,6 @@ public class MyXMPP {
                 });
             Log.d("xmpp", "ConnectionClosedOn Error!");
             connected = false;
-
             loggedin = false;
         }
 
@@ -239,7 +238,6 @@ public class MyXMPP {
                 });
             Log.d("xmpp", "ReconnectionFailed!");
             connected = false;
-
             loggedin = false;
         }
 
@@ -257,8 +255,8 @@ public class MyXMPP {
                     }
                 });
             Log.d("xmpp", "ReconnectionSuccessful");
-            connected = true;
 
+            connected = true;
             loggedin = false;
         }
 
@@ -299,11 +297,11 @@ public class MyXMPP {
         // Get the MultiUserChatManager
         MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(connection);
 
-// Create a MultiUserChat using an XMPPConnection for a room
+        // Create a MultiUserChat using an XMPPConnection for a room
         MultiUserChat muc2 = manager.getMultiUserChat(WATERPLACE);
 
-// User2 joins the new room
-// The room service will decide the amount of history to send
+        // User joins the room
+        // The room service will decide the amount of history to send
         try {
             muc2.join(connection.getUser());
             muc2.sendMessage("Coucou. Je suis "+connection.getUser());

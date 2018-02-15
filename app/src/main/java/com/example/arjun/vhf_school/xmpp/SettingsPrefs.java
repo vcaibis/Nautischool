@@ -11,11 +11,15 @@ import android.preference.PreferenceManager;
 
 public class SettingsPrefs {
     public static final String PREFS_NAME = "MyPrefsXMPP";
+    public static final String PREF_SERVER = "server";
+    public static final String PREF_USER = "user";
+    public static final String PREF_PASSWORD = "password";
 
     private Context context;
     private String server;
     private String user;
     private String password;
+    private SharedPreferences settings;
 
     public SettingsPrefs(Context context) {
         this.context = context;
@@ -54,13 +58,20 @@ public class SettingsPrefs {
     }
 
     private void getMySharedPreferences(){
-        SharedPreferences settings =  context.getSharedPreferences(PREFS_NAME, 0);
-        server = settings.getString("server","85.1.228.64");
-        user = settings.getString("user","user2");
-        password = settings.getString("password","1234");
+        settings =  context.getSharedPreferences(PREFS_NAME, 0);
+
+        server = settings.getString(PREF_SERVER,"85.1.228.64");
+        user = settings.getString(PREF_USER,"user2");
+        password = settings.getString(PREF_PASSWORD,"1234");
     }
 
     public void save() {
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREF_SERVER, server);
+        editor.putString(PREF_USER, user);
+        editor.putString(PREF_PASSWORD, password);
 
+        // Commit the edits!
+        editor.commit();
     }
 }

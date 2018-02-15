@@ -6,7 +6,6 @@ package com.example.arjun.vhf_school.xmpp;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.IBinder;
 
@@ -27,8 +26,8 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-//       xmpp = MyXMPP.getInstance(MyService.this, getString(R.strings.server), getString(R.string.user1_login), getString(R.string.user1_password));
 
+        // read connexion settings from SharedPreferences
         SettingsPrefs settings = new SettingsPrefs(this);
         String server = settings.getServer();
         String user = settings.getUser();
