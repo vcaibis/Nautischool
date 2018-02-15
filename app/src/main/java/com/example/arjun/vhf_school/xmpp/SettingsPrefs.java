@@ -52,10 +52,11 @@ public class SettingsPrefs {
     public void setPassword(String password) {
         this.password = password;
     }
+
     private void getMySharedPreferences(){
         SharedPreferences settings =  context.getSharedPreferences(PREFS_NAME, 0);
-        String server = settings.getString("server","85.1.228.64");
-        String user = settings.getString("user","user2");
-        String password = settings.getString("password","1234");
+        server = settings.getString("server","85.1.228.64");
+        user = settings.getString("user","user2");
+        password = settings.getString("password","1234");
     }
 }

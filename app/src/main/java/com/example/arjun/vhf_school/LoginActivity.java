@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.arjun.vhf_school.xmpp.LocalBinder;
 import com.example.arjun.vhf_school.xmpp.MyService;
+import com.example.arjun.vhf_school.xmpp.SettingsPrefs;
 
 public class LoginActivity extends AppCompatActivity {
     EditText username ;
@@ -52,8 +53,10 @@ public class LoginActivity extends AppCompatActivity {
         //Define variables
         username = (EditText)findViewById(R.id.edit_text_username);
         password = (EditText)findViewById(R.id.edit_text_password);
-        //doBindService();
 
+        SettingsPrefs settings = new SettingsPrefs(this);
+        username.setText(settings.getUser());
+        password.setText(settings.getPassword());
 
     }
 
@@ -76,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         
        if(!sUsername.isEmpty()&& !sPassword.isEmpty()){
+
            doBindService();
            Toast.makeText(LoginActivity.this,"Username and password is correct",
                    Toast.LENGTH_LONG).show();
