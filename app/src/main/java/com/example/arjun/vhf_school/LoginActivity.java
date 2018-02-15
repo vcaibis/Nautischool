@@ -67,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View view) {
 
        if(testLogin()){
+
            Toast.makeText(LoginActivity.this,"Username and password is correct",
                    Toast.LENGTH_LONG).show();
            startActivity(new Intent(LoginActivity.this, mainActivity.class));
@@ -75,6 +76,10 @@ public class LoginActivity extends AppCompatActivity {
        }
     }
 
+    /**
+     * Function to test the EditText values
+     * @return false if empty
+     */
     private boolean testLogin() {
         String sUsername = username.getText().toString();
         String sPassword = password.getText().toString();
@@ -87,11 +92,13 @@ public class LoginActivity extends AppCompatActivity {
             password.setError("Enter a password");
             return false;
         }
+        //Set the preferences
         SettingsPrefs settings = new SettingsPrefs(this);
         settings.setUser(sUsername);
         settings.setPassword(sPassword);
         settings.save();
-        // lunch the service
+
+        // launch the service
         doBindService();
         return true;
     }
