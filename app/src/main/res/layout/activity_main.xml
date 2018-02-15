@@ -283,7 +283,8 @@
                 android:adjustViewBounds="true"
                 android:background="@drawable/button_bg_round"
                 android:scaleType="fitCenter"
-                android:src="@drawable/lamp" />
+                android:src="@drawable/lamp"
+                android:onClick="ClickChangeLight"/>
 
         </GridLayout>
 

@@ -59,4 +59,7 @@ public class mainActivity extends AppCompatActivity {
 
     public void ClickButtonChannel_16(View view) {
     }
+
+    public void ClickChangeLight(View view) {
+    }
 }
