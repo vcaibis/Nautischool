@@ -12,7 +12,7 @@ public class mainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
+    //test
     public void ClickNumPad1(View view) {
         Toast toast = Toast.makeText(getApplicationContext(), "this is button 1", Toast.LENGTH_LONG);
         toast.show();
