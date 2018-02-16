@@ -31,8 +31,9 @@ import java.io.IOException;
 
 public class MyXMPP {
     public static boolean connected = false;
-    public static boolean loggedin = false;
-    public static boolean isconnecting = false;
+    public static boolean loggedIn = false;
+    public static boolean isConnecting = false;
+    public static boolean isJoined = false;
     public static boolean isToasted = true;
     public static XMPPTCPConnection connection;
     public static MyXMPP instance = null;
@@ -95,7 +96,7 @@ public class MyXMPP {
             protected synchronized Boolean doInBackground(Void... arg0) {
                 if (connection.isConnected())
                     return false;
-                isconnecting = true;
+                isConnecting = true;
                 if (isToasted)
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
 
@@ -150,7 +151,7 @@ public class MyXMPP {
                                 });
                     Log.e("connect(" + caller + ")", "XMPPException: " + e.getMessage());
                 }
-                return isconnecting = false;
+                return isConnecting = false;
             }
         };
         connectionThread.execute();
@@ -165,6 +166,7 @@ public class MyXMPP {
         } catch (XMPPException | SmackException | IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
@@ -193,7 +195,7 @@ public class MyXMPP {
                 });
             Log.d("xmpp", "ConnectionCLosed!");
             connected = false;
-            loggedin = false;
+            loggedIn = false;
         }
 
         @Override
@@ -211,7 +213,7 @@ public class MyXMPP {
                 });
             Log.d("xmpp", "ConnectionClosedOn Error!");
             connected = false;
-            loggedin = false;
+            loggedIn = false;
         }
 
         @Override
@@ -219,7 +221,7 @@ public class MyXMPP {
 
             Log.d("xmpp", "Reconnectingin " + arg0);
 
-            loggedin = false;
+            loggedIn = false;
         }
 
         @Override
@@ -238,7 +240,7 @@ public class MyXMPP {
                 });
             Log.d("xmpp", "ReconnectionFailed!");
             connected = false;
-            loggedin = false;
+            loggedIn = false;
         }
 
         @Override
@@ -257,14 +259,15 @@ public class MyXMPP {
             Log.d("xmpp", "ReconnectionSuccessful");
 
             connected = true;
-            loggedin = false;
+            loggedIn = false;
         }
 
         @Override
         public void authenticated(XMPPConnection arg0, boolean arg1) {
             Log.d("xmpp", "Authenticated!");
-            loggedin = true;
-//            ChatManager.getInstanceFor(connection).addChatListener(
+            loggedIn = true;
+
+            //            ChatManager.getInstanceFor(connection).addChatListener(
 //                    mChatManagerListener);
 
             new Thread(new Runnable() {
@@ -304,7 +307,9 @@ public class MyXMPP {
         // The room service will decide the amount of history to send
         try {
             muc2.join(connection.getUser());
-            muc2.sendMessage("Coucou. Je suis "+connection.getUser());
+            isJoined = muc2.isJoined();
+
+//            muc2.sendMessage("Coucou. Je suis "+connection.getUser());
             listeningForMessages(muc2);
             Log.w("Join a Room"," room joined");
 

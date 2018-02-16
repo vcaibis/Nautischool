@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
         username.setText(settings.getUser());
         password.setText(settings.getPassword());
 
+ //       doBindService();
+
     }
 
     /**
@@ -102,17 +105,20 @@ public class LoginActivity extends AppCompatActivity {
         // launch the service
         doBindService();
 
-        if(!MyXMPP.connected) return false;
-
-
-        if(!MyXMPP.connection.isConnected()) return false;
-        if(!MyXMPP.connection.isAuthenticated()) return false;
+//        int cpt = 0;
+//        while(!(MyXMPP.connected && MyXMPP.isJoined) && cpt < 100000){
+//            cpt++;
+//        }
+//        if(!MyXMPP.connected) return false;
+//        if(!MyXMPP.isJoined) return false;
 
         return true;
     }
 
     public void cancel(View view) {
-
+        doUnbindService();
+        MyXMPP.instance = null;
+        MyXMPP.instanceCreated = false;
 
     }
     @Override
