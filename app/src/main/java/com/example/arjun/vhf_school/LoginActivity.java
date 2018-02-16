@@ -4,7 +4,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.util.Log;
 import android.view.View;
 
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.arjun.vhf_school.xmpp.LocalBinder;
 import com.example.arjun.vhf_school.xmpp.MyService;
@@ -53,14 +51,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //Define variables
-        username = (EditText)findViewById(R.id.edit_text_username);
-        password = (EditText)findViewById(R.id.edit_text_password);
+        username = findViewById(R.id.edit_text_username);
+        password = findViewById(R.id.edit_text_password);
 
         SettingsPrefs settings = new SettingsPrefs(this);
         username.setText(settings.getUser());
         password.setText(settings.getPassword());
-
- //       doBindService();
 
     }
 
@@ -71,12 +67,7 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View view) {
 
        if(testLogin()){
-
-           Toast.makeText(LoginActivity.this,"Username and password is correct",
-                   Toast.LENGTH_LONG).show();
            startActivity(new Intent(LoginActivity.this, mainActivity.class));
-        }else {
- //          Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show();
        }
     }
 
@@ -104,13 +95,6 @@ public class LoginActivity extends AppCompatActivity {
 
         // launch the service
         doBindService();
-
-//        int cpt = 0;
-//        while(!(MyXMPP.connected && MyXMPP.isJoined) && cpt < 100000){
-//            cpt++;
-//        }
-//        if(!MyXMPP.connected) return false;
-//        if(!MyXMPP.isJoined) return false;
 
         return true;
     }

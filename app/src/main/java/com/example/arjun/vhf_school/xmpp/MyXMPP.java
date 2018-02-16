@@ -21,6 +21,7 @@ import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Stanza;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
+import org.jivesoftware.smackx.muc.DiscussionHistory;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 import org.jivesoftware.smackx.muc.MultiUserChatManager;
 import org.jivesoftware.smackx.receipts.DeliveryReceiptManager;
@@ -267,10 +268,7 @@ public class MyXMPP {
             Log.d("xmpp", "Authenticated!");
             loggedIn = true;
 
-            //            ChatManager.getInstanceFor(connection).addChatListener(
-//                    mChatManagerListener);
-
-            new Thread(new Runnable() {
+             new Thread(new Runnable() {
 
                 @Override
                 public void run() {
@@ -299,17 +297,15 @@ public class MyXMPP {
     public void joinRoom(){
         // Get the MultiUserChatManager
         MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(connection);
-
         // Create a MultiUserChat using an XMPPConnection for a room
         MultiUserChat muc2 = manager.getMultiUserChat(WATERPLACE);
-
         // User joins the room
-        // The room service will decide the amount of history to send
         try {
-            muc2.join(connection.getUser());
+            DiscussionHistory discHistory = new DiscussionHistory();
+            discHistory.setMaxStanzas(0);
+            muc2.join(connection.getUser(),"",discHistory,1000);
             isJoined = muc2.isJoined();
-
-//            muc2.sendMessage("Coucou. Je suis "+connection.getUser());
+            // create listening for room
             listeningForMessages(muc2);
             Log.w("Join a Room"," room joined");
 
@@ -329,8 +325,17 @@ public class MyXMPP {
     private void listeningForMessages(MultiUserChat muc) {
         muc.addMessageListener(new MessageListener() {
             @Override
-            public void processMessage(Message message) {
-                // Do your action with the message
+            public void processMessage(final Message message) {
+                                // Do your action with the message
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (message.getBody()!= null){
+                            Toast.makeText(context, message.getFrom()+" :    " + message.getBody().toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
                 Log.w("Listening","Message receveid :" + message.toString());
             }
 
