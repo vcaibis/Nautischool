@@ -24,7 +24,7 @@ public class mainActivity extends AppCompatActivity {
             cpt++;
         }
         if(!(MyXMPP.connected && MyXMPP.isJoined)){
-            Toast.makeText(this, "mainActivity : Login Failed", Toast.LENGTH_LONG).show();
+ //           Toast.makeText(this, "mainActivity : Login Failed", Toast.LENGTH_LONG).show();
             startActivity(new Intent(mainActivity.this, LoginActivity.class));
         }
 
