@@ -29,6 +29,7 @@ public class SettingsPrefTest {
 
     @Mock
     Context context;
+    //test
 
     /**
      * Function to test the User
