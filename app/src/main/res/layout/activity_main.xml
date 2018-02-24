@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,182 +11,201 @@
 
 
     <!--Screen and buttons below it-->
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/screenButtons"
-        android:layout_width="305dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_width="261dp"
+        android:layout_height="218dp"
+        android:layout_marginTop="8dp"
+        android:columnCount="1"
+        android:orientation="horizontal"
+        android:rowCount="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-      <!--Screen-->
-        <RelativeLayout
+        <!--Screen-->
+        <android.support.constraint.ConstraintLayout
             android:id="@+id/screen"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/underScreen"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/layout_screen">
+            android:layout_width="0dp"
+            android:layout_height="208dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/layout_screen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/text_view_school"
-                android:layout_width="match_parent"
+                android:layout_width="104dp"
                 android:layout_height="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="@string/vhf_dsc_school"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <RelativeLayout
-                android:id="@+id/displayScreen"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/text_view_school"
-                android:layout_marginBottom="0dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginStart="15dp"
-                android:background="@color/colorScreen"
-                android:orientation="vertical">
+                android:id="@+id/relativeLayout"
+                android:layout_width="0dp"
+                android:layout_height="165dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/layout_screen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_school">
 
-                <TextView
-                    android:id="@+id/text_view_channel_number"
-                    android:layout_width="74dp"
-                    android:layout_height="185dp"
+                <RelativeLayout
+                    android:id="@+id/displayScreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_gravity="center"
-                    android:gravity="bottom"
-                    android:text="@string/_16"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="50sp" />
-
-
-                <GridLayout
-                    android:id="@+id/screenDisplay"
-                    android:layout_width="195dp"
-                    android:layout_height="190dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginRight="3dp"
-                    android:layout_toEndOf="@+id/text_view_channel_number"
-                    android:layout_toRightOf="@+id/text_view_channel_number"
-                    android:background="@color/colorScreen"
-                    android:columnCount="3"
-                    android:rowCount="4">
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/led_layout"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/text_view_Message1"
-                        android:layout_width="115dp"
-                        android:layout_height="180dp"
-                        android:layout_column="0"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="5dp"
-                        android:layout_rowSpan="4"
+                        android:id="@+id/text_view_channel_number"
+                        android:layout_width="74dp"
+                        android:layout_height="185dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        android:gravity="bottom"
+                        android:text="@string/_16"
+                        android:textAlignment="center"
                         android:textColor="@color/colorBlack"
-                        android:textSize="30sp" />
+                        android:textSize="50sp" />
 
 
-                    <TextView
-                        android:id="@+id/text_view_INT"
-                        android:layout_height="46dp"
-                        android:layout_column="1"
-                        android:layout_gravity="start"
-                        android:layout_row="0"
-                        android:text="@string/intWord"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="17sp" />
+                    <GridLayout
+                        android:id="@+id/screenDisplay"
+                        android:layout_width="195dp"
+                        android:layout_height="190dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="3dp"
+                        android:layout_toEndOf="@+id/text_view_channel_number"
+                        android:layout_toRightOf="@+id/text_view_channel_number"
+                        android:columnCount="3"
+                        android:rowCount="4">
 
-                    <TextView
-                        android:id="@+id/text_view_Hi"
-                        android:layout_height="46dp"
-                        android:layout_column="1"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="5dp"
-                        android:layout_row="1"
-                        android:text="@string/hi"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="17sp" />
+                        <TextView
+                            android:id="@+id/text_view_Message1"
+                            android:layout_width="80dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="5dp"
+                            android:layout_rowSpan="4"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="30sp" />
 
-                    <TextView
-                        android:id="@+id/text_view_User"
-                        android:layout_height="47dp"
-                        android:layout_column="1"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="15dp"
-                        android:layout_row="2"
-                        android:text="@string/user"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="17sp" />
 
-                    <TextView
-                        android:id="@+id/text_view_Rx"
-                        android:layout_column="1"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="5dp"
-                        android:layout_row="3"
-                        android:text="@string/rx"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="17sp" />
+                        <TextView
+                            android:id="@+id/text_view_INT"
+                            android:layout_height="46dp"
+                            android:layout_column="1"
+                            android:layout_gravity="start"
+                            android:layout_row="0"
+                            android:text="@string/intWord"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
 
-                    <TextView
-                        android:id="@+id/text_view_DSC"
-                        android:layout_height="46dp"
-                        android:layout_column="2"
-                        android:layout_gravity="end"
-                        android:layout_row="0"
-                        android:text="@string/dsc"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="17sp" />
+                        <TextView
+                            android:id="@+id/text_view_Hi"
+                            android:layout_height="46dp"
+                            android:layout_column="1"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="5dp"
+                            android:layout_row="1"
+                            android:text="@string/hi"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
 
-                    <TextView
-                        android:id="@+id/text_view_TW"
-                        android:layout_height="46dp"
-                        android:layout_column="2"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="5dp"
-                        android:layout_row="1"
-                        android:text="@string/t_w"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="17sp" />
+                        <TextView
+                            android:id="@+id/text_view_User"
+                            android:layout_height="47dp"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="15dp"
+                            android:layout_row="2"
+                            android:text="@string/user"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
 
-                    <TextView
-                        android:id="@+id/text_view_MS"
-                        android:layout_height="47dp"
-                        android:layout_column="2"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="15dp"
-                        android:layout_row="2"
-                        android:text="@string/m_s"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="17sp" />
+                        <TextView
+                            android:id="@+id/text_view_Rx"
+                            android:layout_column="1"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="5dp"
+                            android:layout_row="3"
+                            android:text="@string/rx"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
 
-                    <TextView
-                        android:id="@+id/text_view_Scan"
-                        android:layout_column="2"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="5dp"
-                        android:layout_row="3"
-                        android:text="@string/scan"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="17sp" />
+                        <TextView
+                            android:id="@+id/text_view_DSC"
+                            android:layout_height="46dp"
+                            android:layout_column="2"
+                            android:layout_gravity="end"
+                            android:layout_row="0"
+                            android:text="@string/dsc"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
 
-                </GridLayout>
+                        <TextView
+                            android:id="@+id/text_view_TW"
+                            android:layout_height="46dp"
+                            android:layout_column="2"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="5dp"
+                            android:layout_row="1"
+                            android:text="@string/t_w"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
 
+                        <TextView
+                            android:id="@+id/text_view_MS"
+                            android:layout_height="47dp"
+                            android:layout_column="2"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="15dp"
+                            android:layout_row="2"
+                            android:text="@string/m_s"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/text_view_Scan"
+                            android:layout_column="2"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="5dp"
+                            android:layout_row="3"
+                            android:text="@string/scan"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
+
+                    </GridLayout>
+
+                </RelativeLayout>
             </RelativeLayout>
 
 
@@ -198,115 +217,135 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_gravity="center"
+                android:layout_marginBottom="1dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="1dp"
                 android:text="@string/www_nautischool"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
-        </RelativeLayout>
+        </android.support.constraint.ConstraintLayout>
 
 
         <!--Buttons under the screen -->
-        <GridLayout
-            android:id="@+id/underScreen"
-            android:layout_width="305dp"
-            android:layout_height="105dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/colorBlack"
-            android:columnCount="5"
-            android:rowCount="2">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <GridLayout
+        android:id="@+id/underScreen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorBlack"
+        android:columnCount="5"
+        android:rowCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screenButtons"
+        app:layout_constraintVertical_bias="0.0">
 
 
-            <ImageButton
-                android:id="@+id/buttonSound"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_column="0"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
-                android:layout_rowSpan="2"
-                android:background="@drawable/button_bg_round"
-                android:padding="10dp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:src="@drawable/signal" />
+        <ImageButton
+            android:id="@+id/buttonSound"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_rowSpan="2"
+            android:adjustViewBounds="true"
+            android:background="@drawable/button_bg_round"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/signal" />
 
 
-            <Button
-                android:id="@+id/push_button16"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:background="@drawable/button16"
-                android:gravity="center"
-                android:text="@string/_16"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp"
-                android:onClick="ClickButtonChannel_16"/>
+        <Button
+            android:id="@+id/push_button16"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:background="@drawable/button16"
+            android:gravity="center"
+            android:onClick="ClickButtonChannel_16"
+            android:text="@string/_16"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/push_button1_25"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_column="2"
-                android:layout_row="1"
-                android:background="@drawable/button_bg_round"
-                android:gravity="center"
-                android:text="@string/_1_25"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
+        <Button
+            android:id="@+id/push_button1_25"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_column="2"
+            android:layout_row="1"
+            android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:text="@string/_1_25"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/push_buttonD_W"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_column="3"
-                android:layout_row="0"
-                android:background="@drawable/button_bg_round"
-                android:gravity="center"
-                android:text="@string/d_w"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp"
-                android:onClick="ClickDualWatchButton"/>
-
-
-            <ImageButton
-                android:id="@+id/push_button_lamp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_column="4"
-                android:layout_row="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/button_bg_round"
-                android:scaleType="fitCenter"
-                android:src="@drawable/lamp"
-                android:onClick="ClickChangeLight"/>
-
-        </GridLayout>
-
-    </RelativeLayout>
+        <Button
+            android:id="@+id/push_buttonD_W"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_column="3"
+            android:layout_row="0"
+            android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickDualWatchButton"
+            android:text="@string/d_w"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
 
+        <ImageButton
+            android:id="@+id/push_button_lamp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_column="4"
+            android:layout_row="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/button_bg_round"
+            android:onClick="ClickChangeLight"
+            android:scaleType="fitCenter"
+            android:src="@drawable/lamp" />
 
+    </GridLayout>
     <!--4 Buttons on the right side of the screen-->
     <GridLayout
         android:id="@+id/fourbtns"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/screenButtons"
         android:layout_toRightOf="@+id/screenButtons"
         android:background="@color/colorBlack"
         android:columnCount="1"
-        android:rowCount="5">
+        android:rowCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/screenButtons"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/push_button1"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="3dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/button_bg_round"
@@ -314,38 +353,46 @@
 
         <Button
             android:id="@+id/push_button2"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="3dp"
             android:background="@drawable/button_bg_round"
             android:padding="15dp" />
 
         <Button
             android:id="@+id/push_button3"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="3dp"
             android:background="@drawable/button_bg_round"
             android:padding="15dp" />
 
         <Button
             android:id="@+id/push_button4"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="3dp"
             android:background="@drawable/button_bg_round"
             android:padding="15dp" />
 
     </GridLayout>
-
     <!-- 12 BUTTONS -->
     <GridLayout
         android:id="@+id/twelvebtns"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/fourbtns"
         android:layout_toRightOf="@+id/fourbtns"
         android:background="@color/colorBlack"
         android:columnCount="3"
-        android:rowCount="8">
+        android:rowCount="8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fourbtns"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <!-- Row 0 -->
         <ImageView
@@ -360,113 +407,119 @@
         <!-- Row 1 -->
         <Button
             android:id="@+id/NumPad1"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="0"
             android:layout_margin="5dp"
             android:layout_row="1"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPad1"
             android:text="@string/_1"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPad1"/>
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/NumPad2"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="1"
             android:layout_margin="5dp"
             android:layout_row="1"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPad2"
             android:text="@string/_2"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPad2"/>
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/NumPad3"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="2"
             android:layout_margin="5dp"
             android:layout_row="1"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPad3"
             android:text="@string/_3"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPad3"/>
+            android:textSize="30sp" />
 
         <!-- Row 2 -->
         <TextView
             android:layout_column="1"
             android:layout_gravity="center"
             android:layout_row="2"
+            android:gravity="center"
             android:text="@string/abc"
             android:textColor="@color/colorWhite"
-            android:textSize="12sp"
-            android:gravity="center" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_column="2"
             android:layout_gravity="center"
             android:layout_row="2"
+            android:gravity="center"
             android:text="@string/def"
             android:textColor="@color/colorWhite"
-            android:textSize="12sp"
-            android:gravity="center" />
+            android:textSize="12sp" />
 
         <!-- Row 3 -->
         <Button
             android:id="@+id/NumPad4"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="0"
             android:layout_margin="5dp"
             android:layout_row="3"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPad4"
             android:text="@string/_4"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPad4"/>
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/NumPad5"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="1"
             android:layout_margin="5dp"
             android:layout_row="3"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPad5"
             android:text="@string/_5"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPad5"/>
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/NumPad6"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="2"
             android:layout_margin="5dp"
             android:layout_row="3"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPad6"
             android:text="@string/_6"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPad6"/>
+            android:textSize="30sp" />
 
         <!-- Row 4-->
         <TextView
@@ -497,48 +550,51 @@
         <!-- Row 5 -->
         <Button
             android:id="@+id/NumPad7"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="0"
             android:layout_margin="5dp"
             android:layout_row="5"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
-            android:text="@string/_4"
-            android:textColor="@color/colorWhite"
-            android:textSize="30sp"
             android:gravity="center"
-            android:onClick="ClickNumPad7"/>
+            android:onClick="ClickNumPad7"
+            android:text="@string/_7"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/NumPad8"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="1"
             android:layout_margin="5dp"
             android:layout_row="5"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
-            android:text="@string/_5"
-            android:textColor="@color/colorWhite"
-            android:textSize="30sp"
             android:gravity="center"
-            android:onClick="ClickNumPad8"/>
+            android:onClick="ClickNumPad8"
+            android:text="@string/_8"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/NumPad9"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="2"
             android:layout_margin="5dp"
             android:layout_row="5"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
-            android:text="@string/_6"
-            android:textColor="@color/colorWhite"
-            android:textSize="30sp"
             android:gravity="center"
-            android:onClick="ClickNumPad9"/>
+            android:onClick="ClickNumPad9"
+            android:text="@string/_9"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp" />
 
         <!-- Row 6-->
         <TextView
@@ -568,62 +624,70 @@
         <!-- Row 7 -->
         <Button
             android:id="@+id/NumPadCancel"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="0"
             android:layout_margin="5dp"
             android:layout_row="7"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPadCancel"
             android:text="@string/c"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPadCancel"/>
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/NumPad0"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="1"
             android:layout_margin="5dp"
             android:layout_row="7"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPad0"
             android:text="@string/_0"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPad0"/>
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/NumPadEnter"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_column="2"
             android:layout_margin="5dp"
             android:layout_row="7"
-            android:width="50dp"
-            android:height="50dp"
+            android:width="40dp"
+            android:height="40dp"
             android:background="@drawable/button_bg_round"
+            android:gravity="center"
+            android:onClick="ClickNumPadEnter"
             android:text="@string/e"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:onClick="ClickNumPadEnter"/>
+            android:textSize="30sp" />
 
     </GridLayout>
-
     <!--3 Buttons for volume and screen color-->
     <GridLayout
         android:id="@+id/threebtns"
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/twelvebtns"
         android:layout_toRightOf="@+id/twelvebtns"
         android:background="@color/colorBlack"
         android:columnCount="1"
-        android:rowCount="5">
+        android:rowCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/twelvebtns"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/text_view_vol"
@@ -638,25 +702,25 @@
 
         <Button
             android:id="@+id/push_buttonVol"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_row="1"
             android:background="@drawable/button_bg_round" />
 
         <Button
             android:id="@+id/DistressButton"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:layout_marginTop="10dp"
             android:layout_row="1"
             android:background="@drawable/distbutton"
+            android:onClick="ClickDistressButton"
             android:text="@string/dist"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
-            android:onClick="ClickDistressButton"/>
+            android:textSize="30sp" />
 
 
         <TextView
@@ -672,8 +736,8 @@
 
         <Button
             android:id="@+id/push_buttonSQ"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_row="1"
             android:background="@drawable/button_bg_round" />
@@ -681,28 +745,39 @@
     </GridLayout>
 
     <RelativeLayout
-        android:layout_width="40dp"
-        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout2"
+        android:layout_width="50dp"
+        android:layout_height="287dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorWhite"
-        android:id="@+id/relativeLayout2">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toEndOf="@+id/threebtns"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
 
         <!--Button PTT-->
+
         <Button
             android:id="@+id/buttonPTT"
-            android:layout_width="40dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:text="@string/stringPTT"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp" />
-
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="693dp"
+            tools:layout_editor_absoluteY="16dp" />
     </RelativeLayout>
 
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
 

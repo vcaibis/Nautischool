@@ -26,7 +26,7 @@
     <string name="vol">Vol</string>
     <string name="sq">SQ</string>
     <string name="dist">DIST</string>
-    <string name="www_nautischool">www.nautischool</string>
+    <string name="www_nautischool">www.nautischool.ch</string>
     <string name="vhf_dsc_school">VHF-DSC-School</string>
     <string name="hi">Hi</string>
     <string name="user">User</string>
@@ -50,5 +50,8 @@
     <string name="user1_password">1234</string>
     <string name="server">85.1.228.64</string>
     <string name="server_host">nautischool</string>
+    <string name="_9">9</string>
+    <string name="_8">8</string>
+    <string name="_7">7</string>
 
 </resources>
