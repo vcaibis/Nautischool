@@ -776,7 +776,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="12sp"
             tools:layout_editor_absoluteX="693dp"
-            tools:layout_editor_absoluteY="16dp" />
+            tools:layout_editor_absoluteY="16dp"/>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
