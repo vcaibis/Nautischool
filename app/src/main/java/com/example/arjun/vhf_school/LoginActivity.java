@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.example.arjun.vhf_school.xmpp.LocalBinder;
@@ -49,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         //Define variables
         username = findViewById(R.id.edit_text_username);
         password = findViewById(R.id.edit_text_password);
