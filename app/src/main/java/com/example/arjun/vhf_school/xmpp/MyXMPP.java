@@ -91,7 +91,6 @@ public class MyXMPP {
 
 
     public void connect(final String caller) {
-
         AsyncTask<Void, Void, Boolean> connectionThread = new AsyncTask<Void, Void, Boolean>() {
             @Override
             protected synchronized Boolean doInBackground(Void... arg0) {
