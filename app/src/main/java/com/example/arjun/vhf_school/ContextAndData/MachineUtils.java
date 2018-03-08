@@ -53,7 +53,7 @@ public class MachineUtils {
     };
 
 
-
+    /*
     //Detect if the label is High or low power
     public static String powerLabel(MachineContext context ){
         machineData = context.machineData;
@@ -131,9 +131,10 @@ public class MachineUtils {
         }
     }
     //pas compris le but de ça - Helder
-    /*// Replace a subrange of characters in a given string
-    public static String replaceSubrange(String of, int at,String  with){
-        return of.replacingCharacters(in: of.index(of.startIndex, offsetBy: at)..<of.index(of.startIndex, offsetBy: at + with.characters.count), with: with)
-    }
+    // Replace a subrange of characters in a given string
+    // public static String replaceSubrange(String of, int at,String  with){
+    //    return of.replacingCharacters(in: of.index(of.startIndex, offsetBy: at)..<of.index(of.startIndex, offsetBy: at + with.characters.count), with: with)
+    //}
 */
+
 }
