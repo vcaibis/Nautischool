@@ -21,7 +21,9 @@ public class MyService extends Service {
         return new LocalBinder<MyService>(this);
     }
 
-
+    /**
+     * Fonction
+     */
     @Override
     public void onCreate() {
         super.onCreate();

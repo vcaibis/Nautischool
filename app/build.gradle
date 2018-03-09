@@ -19,6 +19,7 @@ android {
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
     }
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/layout/layout-sw360'] } }
 }
 
 dependencies {
@@ -35,4 +36,7 @@ dependencies {
     compile "org.igniterealtime.smack:smack-tcp:4.1.0-rc1"
     compile "org.igniterealtime.smack:smack-android-extensions:4.1.0-rc1"
 
+    //SSP - SSDP for layout
+    compile 'com.intuit.ssp:ssp-android:1.0.5'
+    compile 'com.intuit.sdp:sdp-android:1.0.5'
 }

@@ -1,5 +1,6 @@
 package com.example.arjun.vhf_school;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,38 @@ public class mainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_sw360);
+
+        //Disable native home barre and notification barre for win place
+        this.getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        /*Configuration config = getResources().getConfiguration();
+        if (config.smallestScreenWidthDp >= 360)
+        {
+            setContentView(R.layout.activity_main_sw360);
+        }
+        if (config.smallestScreenWidthDp >= 380)
+        {
+            setContentView(R.layout.activity_main_sw380);
+        }
+        if (config.smallestScreenWidthDp >= 600)
+        {
+            setContentView(R.layout.activity_main_sw600);
+        }
+        if (config.smallestScreenWidthDp >= 720)
+        {
+            setContentView(R.layout.activity_main_sw720);
+        }
+        else
+        {
+            setContentView(R.layout.activity_main);
+        }*/
 
     }
     //test

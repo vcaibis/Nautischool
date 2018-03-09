@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Function to test the EditText values
+     * And Start the BindService
      * @return false if empty
      */
     private boolean testLogin() {
