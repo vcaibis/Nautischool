@@ -8,4 +8,6 @@ package com.example.arjun.vhf_school.ContextAndData;
  * NOT STATIC GLOBAL variables, méthodes
  */
 public class MachineData {
+
 }
+
