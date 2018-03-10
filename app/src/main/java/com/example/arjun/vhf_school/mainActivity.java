@@ -1,5 +1,6 @@
 package com.example.arjun.vhf_school;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -112,4 +113,14 @@ public class mainActivity extends AppCompatActivity {
     public void ClickChangeLight(View view) {
     }
 
- }
+    public void btnMenu_onClick(View view) {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void btnSettings_onClick(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+}

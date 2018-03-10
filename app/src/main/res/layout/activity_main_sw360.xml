@@ -20,7 +20,7 @@
 
     <LinearLayout
         android:id="@+id/menuBar"
-        android:layout_width="@dimen/_580sdp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_20sdp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
@@ -31,13 +31,48 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
+            android:id="@+id/text_view_Ship_station_mode"
+            android:layout_width="504dp"
             android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+
             android:layout_weight="1"
-            android:text="LALALALA" />
+            android:text="Marine VHF-DSC radio simulator - Ship station mode"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp" />
+
+
+        <ImageButton
+            android:id="@+id/buttonSettings"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginBottom="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:onClick="btnSettings_onClick"
+            android:scaleType="fitCenter"
+            android:src="@drawable/settings" />
+
+
+        <Button
+            android:id="@+id/push_buttonMenu"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:onClick="btnMenu_onClick"
+            android:scaleType="fitCenter"
+            android:text="Menu"
+            android:textColor="@color/colorMenu"
+            android:textSize="17sp" />
+
+
     </LinearLayout>
 
     <RelativeLayout
@@ -57,7 +92,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rightLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuBar">
+        app:layout_constraintTop_toBottomOf="@+id/menuBar"
+        android:layout_marginRight="8dp">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -80,7 +116,8 @@
                 android:rowCount="2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/fourbtns"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginRight="8dp">
 
 
                 <ImageButton
@@ -168,7 +205,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_marginRight="8dp">
 
                 <TextView
                     android:id="@+id/text_view_vol"
@@ -238,7 +276,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/threebtns"
                 app:layout_constraintStart_toEndOf="@+id/fourbtns"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_school" />
+                app:srcCompat="@drawable/logo_school"
+                android:layout_marginRight="8dp" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/screen"
@@ -802,7 +841,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menuBar"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="NotSibling">
 
         <Button
             android:id="@+id/buttonPTT"

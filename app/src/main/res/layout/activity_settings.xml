@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arjun.vhf_school.SettingsActivity"
+    android:orientation="vertical">
+
+
+    
+    <!-- Settings Bar  -->
+    <LinearLayout
+        android:id="@+id/settingsBar"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBackMain"
+            android:layout_width="15dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:onClick="btnbackMain_onClick"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back" />
+
+        <Button
+            android:id="@+id/push_buttonMenu"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:onClick="btnbackMain_onClick2"
+            android:scaleType="fitCenter"
+            android:text="@string/back"
+            android:textColor="@color/colorMenu"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/text_view_Settings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+    <!-- First part-->
+    <TextView
+        android:id="@+id/text_view_modes"
+        android:layout_width="fill_parent"
+        android:layout_height="39dp"
+        android:background="@color/colorDarkGrey"
+        android:gravity="bottom"
+        android:padding="4dip"
+        android:text="@string/modes" />
+
+
+    <!--Checked View-->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ListView
+        android:id="@+id/android:list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </ListView>
+
+</RelativeLayout>
+
+    <!-- Second part -->
+
+    <TextView
+        android:id="@+id/text_view_various_settings"
+        android:layout_width="fill_parent"
+        android:layout_height="39dp"
+        android:background="@color/colorDarkGrey"
+        android:gravity="bottom"
+        android:padding="4dip"
+        android:text="@string/modes" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/listSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" >
+        </ListView>
+
+    </RelativeLayout>
+
+    <!--Third part-->
+    <TextView
+        android:id="@+id/text_view_account"
+        android:layout_width="fill_parent"
+        android:layout_height="39dp"
+        android:background="@color/colorDarkGrey"
+        android:gravity="bottom"
+        android:padding="4dip"
+        android:text="Account" />
+
+    <Button
+        android:id="@+id/push_buttonConnection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@null"
+        android:onClick="btn_login_onClick"
+        android:scaleType="fitCenter"
+        android:text="Connection"
+        android:textColor="@color/colorMenu"
+        android:textSize="17sp" />
+
+
+</LinearLayout>

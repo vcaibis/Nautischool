@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Nautischool.iml" filepath="$PROJECT_DIR$/Nautischool.iml" />
+      <module fileurl="file://C:\Users\dbk\AndroidStudioProjects\Nautischool_new\Nautischool.iml" filepath="C:\Users\dbk\AndroidStudioProjects\Nautischool_new\Nautischool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nautischool_new.iml" filepath="$PROJECT_DIR$/Nautischool_new.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\dbk\AndroidStudioProjects\Nautischool_new\app\app.iml" filepath="C:\Users\dbk\AndroidStudioProjects\Nautischool_new\app\app.iml" />
     </modules>
   </component>
 </project>

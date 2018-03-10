@@ -53,5 +53,13 @@
     <string name="_9">9</string>
     <string name="_8">8</string>
     <string name="_7">7</string>
+    <string name="back">Back</string>
+    <string name="modes">MODES</string>
+    <string name="settings">Settings</string>
+    <string name="ship_station">Ship Station</string>
+    <string name="various_settings">VARIOUS SETTINGS</string>
+    <string name="simulate_receving_messages">Simulate receving messages</string>
+    <string name="receive_dsc_message">RECEIVE DSC MESSAGE</string>
+    <string name="receive_vocal_message">RECEIVE VOCAL MESSAGE</string>
 
 </resources>
