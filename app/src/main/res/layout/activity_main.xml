@@ -527,16 +527,13 @@
                 android:layout_height="0dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_toEndOf="@+id/screenButtons"
-                android:layout_toRightOf="@+id/screenButtons"
+                android:layout_marginTop="8dp"
                 android:background="@color/colorBlack"
                 android:columnCount="1"
                 android:rowCount="5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/twelvebtns"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <Button
                     android:id="@+id/push_button1"
