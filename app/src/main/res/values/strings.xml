@@ -61,5 +61,10 @@
     <string name="simulate_receving_messages">Simulate receving messages</string>
     <string name="receive_dsc_message">RECEIVE DSC MESSAGE</string>
     <string name="receive_vocal_message">RECEIVE VOCAL MESSAGE</string>
+    <string name="lbl_vessel_name">Vessel name: </string>
+    <string name="lbl_call_sign">Call sign: </string>
+    <string name="lbl_mmsi">MMSI: </string>
+    <string name="lbl_mmsi_grp">Group MMSI: </string>
+    <string name="lbl_gps">GPS:</string>
 
 </resources>

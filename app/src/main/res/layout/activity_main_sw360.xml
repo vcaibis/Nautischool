@@ -19,39 +19,39 @@
     <!--Screen and buttons below it-->
 
     <LinearLayout
-        android:id="@+id/menuBar"
+        android:id="@+id/topMenuBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_20sdp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:orientation="horizontal"
+        android:padding="@dimen/_1sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/text_view_Ship_station_mode"
-            android:layout_width="504dp"
+            android:layout_width="@dimen/_500sdp"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-
             android:layout_weight="1"
+            android:gravity="left|center"
             android:text="Marine VHF-DSC radio simulator - Ship station mode"
             android:textColor="@color/colorBlack"
-            android:textSize="17sp" />
+            android:textSize="@dimen/_12sdp" />
 
 
         <ImageButton
             android:id="@+id/buttonSettings"
-            android:layout_width="25dp"
+            android:layout_width="@dimen/_20sdp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-
             android:layout_marginBottom="1dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:background="@null"
+            android:gravity="center"
             android:onClick="btnSettings_onClick"
             android:scaleType="fitCenter"
             android:src="@drawable/settings" />
@@ -59,18 +59,19 @@
 
         <Button
             android:id="@+id/push_buttonMenu"
-            android:layout_width="70dp"
+            android:layout_width="@dimen/_70sdp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@null"
+            android:gravity="center"
             android:onClick="btnMenu_onClick"
             android:scaleType="fitCenter"
             android:text="Menu"
             android:textColor="@color/colorMenu"
-            android:textSize="17sp" />
+            android:textSize="@dimen/_12sdp" />
 
 
     </LinearLayout>
@@ -79,8 +80,7 @@
         android:id="@+id/leftLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_below="@+id/menuBar"
-        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/topMenuBar"
 
 
         android:layout_marginEnd="8dp"
@@ -89,11 +89,12 @@
         android:paddingLeft="-5dp"
         android:paddingRight="-5dp"
         android:paddingTop="-5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/downMenuBar"
         app:layout_constraintEnd_toStartOf="@+id/rightLayout"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuBar"
-        android:layout_marginRight="8dp">
+        app:layout_constraintTop_toBottomOf="@+id/topMenuBar"
+        app:layout_constraintVertical_bias="1.0">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -103,94 +104,136 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true">
 
-            <GridLayout
+            <!-- 12 BUTTONS -->
+            <!--3 Buttons for volume and screen color-->
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/underScreen"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
                 android:background="@color/colorBlack"
                 android:columnCount="5"
                 android:rowCount="2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/fourbtns"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginRight="8dp">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
 
 
                 <ImageButton
                     android:id="@+id/buttonSound"
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
                     android:layout_column="0"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
                     android:layout_rowSpan="2"
                     android:adjustViewBounds="true"
                     android:background="@drawable/button_bg_round"
                     android:padding="@dimen/_10sdp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/signal" />
+                    android:src="@drawable/signal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
 
                 <Button
                     android:id="@+id/push_button16"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_column="1"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
                     android:layout_row="0"
                     android:background="@drawable/button16"
                     android:gravity="center"
                     android:onClick="ClickButtonChannel_16"
                     android:text="@string/_16"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_20ssp" />
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/push_button1_25"
+                    app:layout_constraintStart_toEndOf="@+id/buttonSound"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <Button
                     android:id="@+id/push_buttonD_W"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_column="3"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
                     android:layout_row="0"
                     android:background="@drawable/button_bg_round"
                     android:gravity="center"
                     android:onClick="ClickDualWatchButton"
                     android:text="@string/d_w"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/push_button_lamp"
+                    app:layout_constraintStart_toEndOf="@+id/push_button1_25"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <Button
                     android:id="@+id/push_button1_25"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_column="2"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
                     android:layout_row="1"
                     android:background="@drawable/button_bg_round"
                     android:gravity="center"
                     android:text="@string/_1_25"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/push_buttonD_W"
+                    app:layout_constraintStart_toEndOf="@+id/push_button16"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
 
                 <ImageButton
                     android:id="@+id/push_button_lamp"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_column="4"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
                     android:layout_row="1"
                     android:adjustViewBounds="true"
                     android:background="@drawable/button_bg_round"
                     android:onClick="ClickChangeLight"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/lamp" />
+                    android:src="@drawable/lamp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/push_buttonD_W"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
-            </GridLayout>
+            </android.support.constraint.ConstraintLayout>
 
-            <!-- 12 BUTTONS -->
-            <!--3 Buttons for volume and screen color-->
             <GridLayout
                 android:id="@+id/threebtns"
                 android:layout_width="@dimen/_47sdp"
@@ -199,14 +242,14 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@color/colorBlack"
                 android:columnCount="1"
                 android:rowCount="5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                android:layout_marginRight="8dp">
+                app:layout_constraintVertical_bias="0.0">
 
                 <TextView
                     android:id="@+id/text_view_vol"
@@ -267,7 +310,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_columnSpan="3"
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="4dp"
@@ -276,14 +319,12 @@
                 app:layout_constraintEnd_toStartOf="@+id/threebtns"
                 app:layout_constraintStart_toEndOf="@+id/fourbtns"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_school"
-                android:layout_marginRight="8dp" />
+                app:srcCompat="@drawable/logo_school" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/screen"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
                 android:background="@drawable/layout_screen"
                 app:layout_constraintBottom_toTopOf="@+id/underScreen"
                 app:layout_constraintEnd_toStartOf="@+id/fourbtns"
@@ -292,28 +333,26 @@
 
                 <TextView
                     android:id="@+id/text_view_school"
-                    android:layout_width="104dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
                     android:text="@string/vhf_dsc_school"
                     android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/_15ssp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout"
-                    android:layout_width="@dimen/_260sdp"
-                    android:layout_height="@dimen/_140sdp"
-                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@drawable/layout_screen"
+                    app:layout_constraintBottom_toTopOf="@+id/text_view_website"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_view_school">
@@ -465,24 +504,20 @@
 
                 <TextView
                     android:id="@+id/text_view_website"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_15sdp"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="@dimen/_1sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_1sdp"
                     android:text="@string/www_nautischool"
                     android:textAlignment="center"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_12ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -835,13 +870,12 @@
         android:layout_height="0dp"
 
         android:layout_centerVertical="true"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/constraintLayout"
         android:layout_toRightOf="@+id/constraintLayout"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/downMenuBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menuBar"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/topMenuBar"
         tools:ignore="NotSibling">
 
         <Button
@@ -850,7 +884,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:background="@drawable/ptt_rounded"
             android:text="@string/stringPTT"
@@ -860,8 +894,122 @@
             tools:layout_editor_absoluteY="@dimen/_0sdp" />
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/downMenuBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_15sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal"
+        android:padding="@dimen/_1sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <!--Button PTT-->
+        <TextView
+            android:id="@+id/lbl_vessel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/lbl_vessel_name"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+
+        <TextView
+            android:id="@+id/lbl_vessel_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="Spinaker"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/lbl_call_sign"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/lbl_call_sign"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/lbl_call_sigm_name"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="S5L12"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/lbl_mmsi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/lbl_mmsi"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/lbl_mmsi_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="123456789"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/lbl_mmsi_grp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/lbl_mmsi_grp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/lbl_mmsi_grp_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="027811100"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/lbl_gps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/lbl_gps"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+        <TextView
+            android:id="@+id/lbl_mmsi_gps_loc"
+            android:layout_width="@dimen/_500sdp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="46°47N 0007°09E"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_7sdp" />
+
+
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
