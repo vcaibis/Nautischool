@@ -6,8 +6,8 @@ package com.example.arjun.vhf_school.ContextAndData.data;
 
 public class DSCName {
     // All the DSC type name
-        final static String INDIVIDUAL = "Individual";
-        final static String GROUPCALL = "Group Call";
-        final static String SHIPS = "All ships";
-        final static String DISTRESS = "Distress";
+    public final static String INDIVIDUAL = "Individual";
+    public final static String GROUPCALL = "Group Call";
+    public final static String SHIPS = "All ships";
+    public final static String DISTRESS = "Distress";
 }
