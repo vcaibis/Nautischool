@@ -18,7 +18,7 @@ public class mainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_sw360);
+        setContentView(R.layout.activity_main);
 
         //Disable native home barre and notification barre for win place
         this.getWindow().getDecorView().setSystemUiVisibility(
