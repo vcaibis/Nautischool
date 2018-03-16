@@ -11,7 +11,7 @@ import java.util.Timer;
 /**
  * Simulateur (context du pattern)
  */
-public class MachineContext {
+public class MachineContext implements MachineControls{
 
     // MARK: - Attributes
 
@@ -25,10 +25,11 @@ public class MachineContext {
     private MachineState currentState = null;
     private Timer timer = new Timer();
 
-    public void init() {
+    public MachineContext() {
         MachineState offState = new OffState(this);
         setState(offState);
     }
+
     // change the state ot the context
     public void setState(MachineState state) {
         currentState = state ;
@@ -67,5 +68,65 @@ public class MachineContext {
 
     public void setTimer(Timer timer) {
         this.timer = timer;
+    }
+
+    @Override
+    public void alphanumeric(int sender) {
+        currentState.alphanumeric(sender);
+    }
+
+    @Override
+    public void sixteen() {
+        currentState.sixteen();
+    }
+
+    @Override
+    public void dualwatch() {
+        currentState.dualwatch();
+    }
+
+    @Override
+    public void light() {
+        currentState.light();
+    }
+
+    @Override
+    public void power() {
+        currentState.power();
+    }
+
+    @Override
+    public void softkey(int sender, boolean longClick) {
+        currentState.softkey(sender,longClick);
+    }
+
+    @Override
+    public void cancel() {
+        currentState.cancel();
+    }
+
+    @Override
+    public void enter() {
+        currentState.enter();
+    }
+
+    @Override
+    public void distress(boolean touchDown) {
+        currentState.distress(touchDown);
+    }
+
+    @Override
+    public void volume(int sender) {
+        currentState.volume(sender);
+    }
+
+    @Override
+    public void squelch(int sender) {
+        currentState.squelch(sender);
+    }
+
+    @Override
+    public void ptt() {
+        currentState.ptt();
     }
 }
