@@ -52,8 +52,16 @@ public class MachineContext implements MachineControls{
     public void stopTimer(){
         // to use a timer or a thread ?
     }
+
+    public void notifyControllerChannelLabelsChanged() {
+  //      NotificationCenter.default.post(name: MachineContext.channelLabelsChanged, object: nil)
+    }
+    public void playSound(int soundID) {
+ //       let soundDataDict:[String: Int] = ["soundID": soundID];
+ //       NotificationCenter.default.post(name: MachineContext.playSound, object: nil, userInfo: soundDataDict)
+    }
     // Generic method when the sixteen button is pressed
-    public void  sixteenButtonPressed() {
+    public void sixteenButtonPressed() {
         stopTimer();
         machineData.workingChannel = "16";
         machineData.isHighPower = true;
@@ -69,6 +77,37 @@ public class MachineContext implements MachineControls{
             if (machineData.workingChannel != "16") {
                 setState(new DualWatchState(this));
             }
+        }
+    }
+
+    // Generic method when the light button is pressed
+    public void lightButtonPressed() {
+        machineData.screenColor = !machineData.screenColor;
+   //     NotificationCenter.default.post(name: MachineContext.screenColorChanged, object: nil)
+    }
+
+    // Navigate to the MenuDSCState
+    public void navigateBackToMenuDSCState() {
+//        setState(new MenuDSCState(this));
+    }
+    // Generic method when the squelch is changed
+    public void squelchChanged(int sender) {
+        machineData.previousSquelch = machineData.squelch;
+        machineData.squelch = sender;
+        if (machineData.squelch < 0.0 && machineData.previousSquelch >= 0.0) {
+            playSound(2);
+        } else if (machineData.squelch >= 0.0 && machineData.previousSquelch < 0.0) {
+            playSound( -2);
+        }
+    }
+    // Generic method when the volume is changed
+    public void volumeChanged(int sender) {
+        machineData.volume = sender;
+        if (machineData.volume == 0 ) {
+            stopTimer();
+            playSound( -2);
+            playSound( -1);
+            setState(new OffState(this));
         }
     }
     // Generic method when the distress button is pressed
