@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.arjun.vhf_school.ContextAndData.MachineContext;
 import com.example.arjun.vhf_school.xmpp.MyXMPP;
 
 import org.jivesoftware.smack.SmackException;
@@ -15,6 +16,8 @@ import org.jivesoftware.smackx.muc.MultiUserChatManager;
 
 public class mainActivity extends AppCompatActivity {
 //    static Context context;
+    MachineContext radio = new MachineContext();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +57,8 @@ public class mainActivity extends AppCompatActivity {
     }
     //test
     public void ClickNumPad1(View view) {
-
+String x = radio.getScreenLabels().left1;
+/*
         MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(MyXMPP.connection);
         // Create a MultiUserChat using an XMPPConnection for a room
         MultiUserChat muc2 = manager.getMultiUserChat(MyXMPP.WATERPLACE);
@@ -65,6 +69,7 @@ public class mainActivity extends AppCompatActivity {
         } catch (SmackException.NotConnectedException e) {
             e.printStackTrace();
         }
+*/
 
     }
 
@@ -108,6 +113,7 @@ public class mainActivity extends AppCompatActivity {
     }
 
     public void ClickButtonChannel_16(View view) {
+
     }
 
     public void ClickChangeLight(View view) {

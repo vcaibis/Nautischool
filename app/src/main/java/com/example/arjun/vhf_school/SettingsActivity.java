@@ -11,12 +11,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class SettingsActivity extends ListActivity {
-         String[] listModes = {
-                "Ship Station",
-                "Exams",
-                "Tutorial",
-                "Expert MRCC"
-        };
+    String[] listModes = {
+            "Ship Station",
+            "Exams",
+            "Tutorial",
+            "Expert MRCC"
+    };
 
     String[] listvariousSettings = {
             "Credit",
@@ -26,43 +26,40 @@ public class SettingsActivity extends ListActivity {
 
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_settings);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
 
-            // -- Display mode of the ListView
+        // -- Display mode of the ListView
 
-            ListView firstListView = getListView();
+        ListView firstListView = getListView();
 
-            setListAdapter(new ArrayAdapter<String>(this,
-            android.R.layout.simple_list_item_checked,listModes));
+        setListAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_checked,listModes));
 
-            firstListView.setChoiceMode(firstListView.CHOICE_MODE_SINGLE);
-
-
-             ListView settingsSecondList = (ListView) findViewById(R.id.listSecond);
-             settingsSecondList.setAdapter( new ArrayAdapter<String>(this,
-                     R.layout.single_row, R.id.textViewSettingsSecond, listvariousSettings ));
+        firstListView.setChoiceMode(firstListView.CHOICE_MODE_SINGLE);
 
 
-        }
+        ListView settingsSecondList = (ListView) findViewById(R.id.listSecond);
+        settingsSecondList.setAdapter( new ArrayAdapter<String>(this,
+                R.layout.single_row, R.id.textViewSettingsSecond, listvariousSettings ));
 
 
+    }
 
 
-        public void onListItemClick(ListView firstListView, View v,int position,long id) {
-            CheckedTextView item = (CheckedTextView) v;
-            Toast.makeText(this, listModes[position] + " checked : " +
-                    item.isChecked(), Toast.LENGTH_SHORT).show();
-        }
+    public void onListItemClick(ListView firstListView, View v,int position,long id) {
+        CheckedTextView item = (CheckedTextView) v;
 
-        public void btnbackMain_onClick(View view) {
-            startActivity(new Intent(SettingsActivity.this, mainActivity.class));
-            //Intent intent = new Intent(this, mainActivity.class);
-            //startActivity(intent);
+    }
 
-        }
+    public void btnbackMain_onClick(View view) {
+        startActivity(new Intent(SettingsActivity.this, mainActivity.class));
+        //Intent intent = new Intent(this, mainActivity.class);
+        //startActivity(intent);
+
+    }
 
 
     public void btn_login_onClick(View view) {

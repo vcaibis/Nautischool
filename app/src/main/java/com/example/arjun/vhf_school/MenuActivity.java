@@ -9,15 +9,15 @@ import android.widget.ListView;
 
 public class MenuActivity extends AppCompatActivity {
 
-   String[] dcsMessageslist = {
-            "Distress alert(CH16)",
+    String[] dcsMessageslist = {
+            "Distress alert (CH16)",
             "Routine alert (CH08)",
             "Group alert (CH06)"
     };
 
-   String[] vocalMessageslist = {
-            "Safety(CH16)",
-            "Routine(CH08)"
+    String[] vocalMessageslist = {
+            "Safety (CH16)",
+            "Routine (CH08)"
     };
 
     @Override
@@ -31,9 +31,8 @@ public class MenuActivity extends AppCompatActivity {
                 R.layout.single_row_menu, R.id.text_view_message, dcsMessageslist ));
 
 
-        //ListView menuSecondList = (ListView) findViewById(R.id.list_vocal_messages);
-        //menuFirstList.setAdapter( new ArrayAdapter<String>(this,
-          //      R.layout.single_row_menu_vocal, R.id.text_view_messages_vocal, vocalMessageslist));
+        ListView menuSecondList = (ListView) findViewById(R.id.list_vocal_messages);
+        menuSecondList.setAdapter( new ArrayAdapter<String>(this, R.layout.single_row_menu_vocal, R.id.text_view_messages_vocal, vocalMessageslist));
 
 
     }
