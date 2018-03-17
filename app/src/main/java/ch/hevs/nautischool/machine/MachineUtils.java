@@ -53,7 +53,7 @@ public class MachineUtils {
     };
 
 
-    /*
+/*
     //Detect if the label is High or low power
     public static String powerLabel(MachineContext context ){
         machineData = context.machineData;
@@ -65,7 +65,7 @@ public class MachineUtils {
             return "Hi";
         }
     }
-
+/*
     // Detect if the power value is high or low
     public static Boolean powerValue(MachineContext context ){
         machineData = context.machineData;
