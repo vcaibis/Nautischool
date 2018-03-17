@@ -1,4 +1,4 @@
-package com.example.arjun.vhf_school;
+package ch.hevs.nautischool;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -7,9 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
-
-import com.example.arjun.vhf_school.ContextAndData.MachineContext;
-import com.example.arjun.vhf_school.xmpp.MyXMPP;
 
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
