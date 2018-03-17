@@ -17,7 +17,7 @@ public class MenuActivity extends AppCompatActivity {
 
     String[] vocalMessageslist = {
             "Safety (CH16)",
-            "Routine (CH08)"
+            "Routine (CH08)"//5
     };
 
     @Override
