@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.arjun.vhf_school.SettingsActivity"
+    tools:context="com.example.arjun.nautischool.ch.example.arjun.nautischool.SettingsActivity"
     android:orientation="vertical">
 
 
