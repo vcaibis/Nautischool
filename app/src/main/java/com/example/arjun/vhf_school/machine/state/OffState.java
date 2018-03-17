@@ -1,8 +1,8 @@
-package com.example.arjun.vhf_school.ContextAndData.state;
+package com.example.arjun.vhf_school.machine.state;
 
-import com.example.arjun.vhf_school.ContextAndData.MachineContext;
-import com.example.arjun.vhf_school.ContextAndData.MachineState;
-import com.example.arjun.vhf_school.ContextAndData.ScreenLabels;
+import com.example.arjun.vhf_school.machine.MachineContext;
+import com.example.arjun.vhf_school.machine.MachineState;
+import com.example.arjun.vhf_school.machine.ScreenLabels;
 
 /**
  * Created by GCI on 16.03.2018.

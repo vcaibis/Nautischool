@@ -1,18 +1,11 @@
 package com.example.arjun.vhf_school;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.arjun.vhf_school.ContextAndData.MachineContext;
-import com.example.arjun.vhf_school.xmpp.MyXMPP;
-
-import org.jivesoftware.smack.SmackException;
-import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smackx.muc.MultiUserChat;
-import org.jivesoftware.smackx.muc.MultiUserChatManager;
+import com.example.arjun.vhf_school.machine.MachineContext;
 
 public class mainActivity extends AppCompatActivity {
 //    static Context context;

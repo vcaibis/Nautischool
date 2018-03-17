@@ -1,18 +1,13 @@
-package com.example.arjun.vhf_school.ContextAndData.state;
+package com.example.arjun.vhf_school.machine.state.dsc.menu2;
 
-import com.example.arjun.vhf_school.ContextAndData.MachineContext;
-import com.example.arjun.vhf_school.ContextAndData.MachineState;
+import com.example.arjun.vhf_school.machine.MachineContext;
+import com.example.arjun.vhf_school.machine.MachineState;
 
 /**
- * Created by Helder on 17.03.2018.
+ * Created by GCI on 17.03.2018.
  */
 
-public class ReceiveState implements MachineState {
-
-    public ReceiveState(MachineContext context) {
-        init(context);
-    }
-
+public class Menu2State implements MachineState {
     @Override
     public void alphanumeric(int sender) {
 

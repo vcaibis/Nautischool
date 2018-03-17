@@ -1,14 +1,14 @@
-package com.example.arjun.vhf_school.ContextAndData;
+package com.example.arjun.vhf_school.machine;
 
 /**
  * Created by Helder on 02.03.2018.
  */
 
-import com.example.arjun.vhf_school.ContextAndData.data.Contact;
-import com.example.arjun.vhf_school.ContextAndData.data.DSCMessage;
-import com.example.arjun.vhf_school.ContextAndData.data.DSCName;
-import com.example.arjun.vhf_school.ContextAndData.data.DSCType;
-import com.example.arjun.vhf_school.ContextAndData.data.DistressType;
+import com.example.arjun.vhf_school.machine.data.Contact;
+import com.example.arjun.vhf_school.machine.data.DSCMessage;
+import com.example.arjun.vhf_school.machine.data.DSCName;
+import com.example.arjun.vhf_school.machine.data.DSCType;
+import com.example.arjun.vhf_school.machine.data.DistressType;
 
 import java.util.ArrayList;
 import java.util.List;

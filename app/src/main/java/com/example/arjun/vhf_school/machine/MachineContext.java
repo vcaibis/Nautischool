@@ -1,10 +1,13 @@
-package com.example.arjun.vhf_school.ContextAndData;
+package com.example.arjun.vhf_school.machine;
 
 /**
  * Created by Helder on 02.03.2018.
  */
 
-import com.example.arjun.vhf_school.ContextAndData.state.OffState;
+import com.example.arjun.vhf_school.machine.state.receive.DualWatchState;
+import com.example.arjun.vhf_school.machine.state.OffState;
+import com.example.arjun.vhf_school.machine.state.receive.ReceiveState;
+import com.example.arjun.vhf_school.machine.state.distress.DistressState;
 
 import java.util.Timer;
 
@@ -54,9 +57,25 @@ public class MachineContext implements MachineControls{
         stopTimer();
         machineData.workingChannel = "16";
         machineData.isHighPower = true;
-  //      setState(new ReceiveState(this));
+        setState(new ReceiveState(this));
     }
 
+    // Generic method when the d/w button is pressed
+    public void dualWatchButtonPressed() {
+        if (machineData.currentMode == MachineData.MACHINEMODE_DUALWATCH) {
+            stopTimer();
+            setState(new ReceiveState(this));
+        } else {
+            if (machineData.workingChannel != "16") {
+                setState(new DualWatchState(this));
+            }
+        }
+    }
+    // Generic method when the distress button is pressed
+    public void distressButtonPressed() {
+        stopTimer();
+        setState(new DistressState(this));
+    }
 
 
         // getter and setter
