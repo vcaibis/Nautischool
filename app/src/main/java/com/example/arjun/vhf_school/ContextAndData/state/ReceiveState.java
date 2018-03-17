@@ -9,6 +9,9 @@ import com.example.arjun.vhf_school.ContextAndData.MachineState;
 
 public class ReceiveState implements MachineState {
 
+    public ReceiveState(MachineContext context) {
+        init(context);
+    }
 
     @Override
     public void alphanumeric(int sender) {

@@ -8,6 +8,11 @@ import com.example.arjun.vhf_school.ContextAndData.MachineState;
  */
 
 public class DualWatchState implements MachineState {
+
+    public DualWatchState(MachineContext context) {
+        init(context);
+    }
+
     @Override
     public void alphanumeric(int sender) {
 
