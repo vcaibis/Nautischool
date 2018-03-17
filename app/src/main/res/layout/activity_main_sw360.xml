@@ -367,7 +367,7 @@
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:layout_marginRight="@dimen/_15sdp"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:background="@drawable/led_layout"
+                        android:background="@drawable/led_layout_on"
                         android:orientation="vertical">
 
                         <TextView

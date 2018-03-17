@@ -9,7 +9,8 @@
     <color name="colorBlack">#000000</color>
     <color name="color16">#fefefe</color>
     <color name="color16Selected">#EF6345</color>
-    <color name="colorScreen">#90EE90</color>
+    <color name="colorScreenOn">#90EE90</color>
+    <color name="colorScreenOff">#83a165</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorLogin">#3979F5</color>
     <color name="colorMenu">#3BA6E7</color>

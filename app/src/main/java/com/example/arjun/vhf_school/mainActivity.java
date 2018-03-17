@@ -2,9 +2,11 @@ package com.example.arjun.vhf_school;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.example.arjun.vhf_school.ContextAndData.MachineContext;
 import com.example.arjun.vhf_school.xmpp.MyXMPP;
@@ -16,7 +18,7 @@ import org.jivesoftware.smackx.muc.MultiUserChatManager;
 
 public class mainActivity extends AppCompatActivity {
 //    static Context context;
-   // MachineContext radio = new MachineContext();
+    // MachineContext radio = new MachineContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +26,13 @@ public class mainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Disable native home barre and notification barre for win place
-//        this.getWindow().getDecorView().setSystemUiVisibility(
-//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-//                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-//                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        this.getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         /*Configuration config = getResources().getConfiguration();
         if (config.smallestScreenWidthDp >= 360)
@@ -55,6 +57,7 @@ public class mainActivity extends AppCompatActivity {
         }*/
 
     }
+
     //test
     public void ClickNumPad1(View view) {
 //String x = radio.getScreenLabels().left1;
@@ -74,7 +77,10 @@ public class mainActivity extends AppCompatActivity {
     }
 
     public void ClickNumPad2(View view) {
+        RelativeLayout r = findViewById(R.id.bigchannel);
+        r.setVisibility(View.GONE);
     }
+
 
     public void ClickNumPad3(View view) {
     }
@@ -117,7 +123,13 @@ public class mainActivity extends AppCompatActivity {
     }
 
     public void ClickChangeLight(View view) {
+        RelativeLayout r = findViewById(R.id.displayScreen);
+        int colorId = r.getSolidColor();
 
+        if (colorId == R.color.colorScreenOff) {
+            r.setBackgroundColor(R.drawable.led_layout_on);
+        } else
+            r.setBackgroundColor(R.drawable.led_layout_off);
     }
 
     public void btnMenu_onClick(View view) {
