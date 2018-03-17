@@ -9,7 +9,7 @@ import com.example.arjun.vhf_school.machine.MachineContext;
 
 public class mainActivity extends AppCompatActivity {
 //    static Context context;
-    MachineContext radio = new MachineContext();
+   // MachineContext radio = new MachineContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +17,13 @@ public class mainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Disable native home barre and notification barre for win place
-        this.getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+//        this.getWindow().getDecorView().setSystemUiVisibility(
+//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+//                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         /*Configuration config = getResources().getConfiguration();
         if (config.smallestScreenWidthDp >= 360)
@@ -50,7 +50,7 @@ public class mainActivity extends AppCompatActivity {
     }
     //test
     public void ClickNumPad1(View view) {
-String x = radio.getScreenLabels().left1;
+//String x = radio.getScreenLabels().left1;
 /*
         MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(MyXMPP.connection);
         // Create a MultiUserChat using an XMPPConnection for a room
@@ -110,6 +110,7 @@ String x = radio.getScreenLabels().left1;
     }
 
     public void ClickChangeLight(View view) {
+
     }
 
     public void btnMenu_onClick(View view) {

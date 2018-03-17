@@ -8,6 +8,7 @@ import com.example.arjun.vhf_school.machine.MachineState;
  */
 
 public class ReceiveState implements MachineState {
+    MachineContext context;
 
     public ReceiveState(MachineContext context) {
         init(context);
@@ -75,7 +76,7 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void init(MachineContext context) {
-
+        this.context = context;
     }
 
     @Override
