@@ -26,6 +26,7 @@ public class MachineContext implements MachineControls{
     private Timer timer = new Timer();
 
     public MachineContext() {
+        initialize();
         MachineState offState = new OffState(this);
         setState(offState);
     }
@@ -41,6 +42,24 @@ public class MachineContext implements MachineControls{
        machineData.initialize();
     }
 
+    // Timer to change the current channel (D/W, scan, ms)
+    public void startTimer(double seconds, boolean repeats) {
+        // to use a timer or a thread ?
+    }
+    public void stopTimer(){
+        // to use a timer or a thread ?
+    }
+    // Generic method when the sixteen button is pressed
+    public void  sixteenButtonPressed() {
+        stopTimer();
+        machineData.workingChannel = "16";
+        machineData.isHighPower = true;
+  //      setState(new ReceiveState(this));
+    }
+
+
+
+        // getter and setter
     public ScreenLabels getScreenLabels() {
         return screenLabels;
     }
