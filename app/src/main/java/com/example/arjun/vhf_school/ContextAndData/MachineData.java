@@ -33,64 +33,64 @@ public class MachineData {
                     "81", "82", "83", "84", "85", "86", "87", "88"};
     String contrasts[] = {"MIN", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "MAX"};
     String [] distressType = DistressType.getAllValues();
-//    String DSCType[][] = {
-//                    {"Routine to", ""},
-//                    {"All ships", "Safety"},
-//                    {"All ships", "Urgency"}
-//            };
+    String mDSCType[][] = {
+                    {"Routine to", ""},
+                    {"All ships", "Safety"},
+                    {"All ships", "Urgency"}
+            };
 
     // All states
-    private double volume;
-    private double squelch;
-    private double previousSquelch;
-    private String workingChannel = "16";
-    private String userChannel = "16";
-    private boolean isHighPower = true;
-    private String currentMode = MACHINEMODE_RECEIVE;
-    private boolean isBeepOn = true;
-    private int contrast;   // index du tableau de contrasts
-    private boolean screenColor = true;
+    public double volume;
+    public double squelch;
+    public double previousSquelch;
+    public String workingChannel = "16";
+    public String userChannel = "16";
+    public boolean isHighPower = true;
+    public String currentMode = MACHINEMODE_RECEIVE;
+    public boolean isBeepOn = true;
+    public int contrast;   // index du tableau de contrasts
+    public boolean screenColor = true;
 
     // Dualwatch state
-    private String dualWatchChannel = "16";
+    public String dualWatchChannel = "16";
 
     // Triwatch state
-    private String triWatchChannel = "16";
-    private String selectingChan = "16";
+    public String triWatchChannel = "16";
+    public String selectingChan = "16";
 
     // Memory scan state
-    private boolean memoryScanChannels[] = new boolean[channels.length];    // same length of channel array
-    private int memoryScanNumber = 0;
+    public boolean memoryScanChannels[] = new boolean[channels.length];    // same length of channel array
+    public int memoryScanNumber = 0;
 
     // Scan state
-    private boolean scanChannels[] = new boolean[channels.length];    // same length of channel array
-    private int scanNumber;
+    public boolean scanChannels[] = new boolean[channels.length];    // same length of channel array
+    public int scanNumber;
 
     // MMSI state
-    private String mmsi = "278111222";
-    private String groupMMSI = "027811100";
+    public String mmsi = "278111222";
+    public String groupMMSI = "027811100";
 
     // Position
-    private String latitude = "No position";
-    private String longitude = "Available";
-    private String utc = "88:88 UTC";
+    public String latitude = "No position";
+    public String longitude = "Available";
+    public String utc = "88:88 UTC";
 
 
-    private List<DSCMessage> alertLogs;
+    public List<DSCMessage> alertLogs;
     //Pas plutot un Array de Contacts
     //Contact contacts[]= {Contact(name: "MrcKoper", mmsi: "002780200"), Contact(name: "Splitradio", mmsi: "002380100"), Contact(name: "Spinaker", mmsi: "027811100")}
-    private List<Contact> contacts;
-    private int currentContact = 0;
+    public List<Contact> contacts;
+    public int currentContact = 0;
 
-    private int currentType = 0;
-    private String currentChannel = "16";
+    public int currentType = 0;
+    public String currentChannel = "16";
 
-    private String currentMMSI = "---------";
-    private boolean currentIsMMSI = false;
-    private int currentDistressType = 0;
+    public String currentMMSI = "---------";
+    public boolean currentIsMMSI = false;
+    public int currentDistressType = 0;
 
-    private DSCMessage receivedDSC;
-    private DSCMessage toSendDSC;
+    public DSCMessage receivedDSC;
+    public DSCMessage toSendDSC;
 
     // Initialize the array and data
     public MachineData() {
