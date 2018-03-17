@@ -9,11 +9,6 @@ package com.example.arjun.vhf_school.ContextAndData;
  */
 public interface MachineState extends MachineControls{
 
-    // Handle the alphanumerical buttons
- //   void alphanumeric(int sender);
-
-
-
     // Used to give the context
     void init(MachineContext context);
 
