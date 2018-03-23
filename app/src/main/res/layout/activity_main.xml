@@ -353,6 +353,8 @@
                     android:id="@+id/relativeLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
                     android:background="@drawable/layout_screen"
                     app:layout_constraintBottom_toTopOf="@+id/text_view_website"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -372,7 +374,7 @@
                         android:background="@drawable/led_layout_off"
                         android:orientation="vertical">
 
-                        <include layout="@layout/bigchannel"/>
+                        <include layout="@layout/bigchannel" />
 
                     </RelativeLayout>
                 </RelativeLayout>
