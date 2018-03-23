@@ -11,6 +11,8 @@ import ch.hevs.nautischool.machine.state.distress.DistressState;
 
 import java.util.Timer;
 
+import static ch.hevs.nautischool.machine.MachineData.MACHINEMODE_RECEIVE;
+
 /**
  * Simulateur (context du pattern)
  */
@@ -110,6 +112,32 @@ public class MachineContext implements MachineControls{
             setState(new OffState(this));
         }
     }
+
+    // Check if change state is needed
+    public void  didReceivedAck() {
+//        if (currentState instanceof CallWaitAckState) {
+//            currentState.didReceiveDSC();
+//            machineData.currentMode = MACHINEMODE_RECEIVE;
+//            setState(new ReceiveState(this));
+//        }
+    }
+    // Generic method when the ptt is pressed
+    public void pttPressed() {
+        stopTimer();
+//        setState(new TransmitState(this));
+    }
+    // Change the state to ReceivedDSCState
+    public void  didReceivedDSC() {
+        currentState.didReceiveDSC();
+        stopTimer();
+        machineData.currentMode = MACHINEMODE_RECEIVE;
+//        setState(new ReceiveDSCState(this));
+    }
+
+
+
+
+
     // Generic method when the distress button is pressed
     public void distressButtonPressed() {
         stopTimer();
