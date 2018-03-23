@@ -19,15 +19,15 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void alphanumeric(int sender) {
-        //context.machineData.selectingChan = " \(sender.description)";
-        //context.setState( SelectChanState(context));
+        context.getMachineData().selectingChan = ""+sender;
+//        context.setState(new SelectChanState(context));
     }
 
     @Override
     public void sixteen() {
-        //context.machineData.workingChannel = userChannelOrSixteen(machineData: context.machineData);
-        //context.machineData.isHighPower = true;
-        //context.setState(state: self);
+        context.getMachineData().workingChannel = userChannelOrSixteen(context.getMachineData());
+        context.getMachineData().isHighPower = true;
+        context.setState(this);
     }
 
     @Override
