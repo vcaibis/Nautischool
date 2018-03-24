@@ -293,7 +293,7 @@ public class MyXMPP {
         }
     }
 
-    public void joinRoom(){
+    public void joinRoom() throws XMPPException {
         // Get the MultiUserChatManager
         MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(connection);
         // Create a MultiUserChat using an XMPPConnection for a room
@@ -313,8 +313,6 @@ public class MyXMPP {
         } catch (XMPPException.XMPPErrorException e) {
             e.printStackTrace();
         } catch (NotConnectedException e) {
-            e.printStackTrace();
-        } catch (XMPPException e) {
             e.printStackTrace();
         }
 
