@@ -66,5 +66,11 @@
     <string name="lbl_mmsi">MMSI: </string>
     <string name="lbl_mmsi_grp">Group MMSI: </string>
     <string name="lbl_gps">GPS:</string>
+    <string name="rad">Rad</string>
+    <string name="Position">No Position</string>
+    <string name="available">Available</string>
+    <string name="call">Call</string>
+    <string name="log">Log</string>
+    <string name="menu">Menu</string>
 
 </resources>
