@@ -66,14 +66,16 @@ public class MachineUtils {
         }
     }
 /*
+
+ */
     // Detect if the power value is high or low
-    public static Boolean powerValue(MachineContext context ){
-        machineData = context.machineData;
+    public Boolean powerValue(MachineContext context ){
+        machineData = context.getMachineData();
         return !machineData.isHighPower &&
                 machineData.workingChannel != "15" &&
                 machineData.workingChannel != "17";
     }
-
+/*
     // Detect if the working channel is the user channel
     public static String userLabel(MachineContext context ){
         machineData = context.machineData;

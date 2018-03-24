@@ -1,5 +1,7 @@
 package ch.hevs.nautischool.machine.state.receive;
 
+import java.util.Arrays;
+
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
@@ -43,70 +45,79 @@ public class ReceiveState implements MachineState {
     @Override
     public void power() {
         //context.getMachineData().isHighPower = MachineUtils.powerValue(context);
-        //context.setState(this.context);
+        context.setState(this);
     }
 
     @Override
     public void softkey(int sender, boolean longClick) {
         MachineData machineData = context.getMachineData();
-/*
+        int index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
+
         if (longClick) {
             switch (sender) {
                 case 2:
                     machineData.userChannel = machineData.workingChannel;
                     context.getScreenLabels().mid2 = "User";
                     context.getScreenLabels().mid3 = "Sel";
-
+                    break;
                 case 3:
-                    let index = machineData.channels.index(of: machineData.workingChannel);
+
                     context.getScreenLabels().mid2 = "M/S";
-                    if (machineData.memoryScanChannels[index!]) {
+                    if (!machineData.memoryScanChannels[index]) {
                         context.getScreenLabels().mid3 = "Del";
                         machineData.memoryScanNumber -= 1;
                     }
                     else {
-                    context.screenLabels.mid3 = "Sel";
+                    context.getScreenLabels().mid3 = "Sel";
                     machineData.memoryScanNumber += 1;
                 }
-                machineData.memoryScanChannels[index!] = !machineData.memoryScanChannels[index!];
 
+                    if(!machineData.memoryScanChannels[index]){
+                        //machineData.memoryScanChannels[index!] = !machineData.memoryScanChannels[index!];
+                        index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
+                    }
+                break;
                 default:
-                    let index = machineData.channels.index(of: machineData.workingChannel);
-                    context.screenLabels.mid2 = "Scan";
-                    if (machineData.scanChannels[index!]) {
-                    context.screenLabels.mid3 = "Inh";
+
+                    context.getScreenLabels().mid2 = "Scan";
+                    if (!machineData.scanChannels[index]) {
+                    context.getScreenLabels().mid3 = "Inh";
                     machineData.scanNumber -= 1;
                 } else {
-                    context.screenLabels.mid3 = "Ena";
+                    context.getScreenLabels().mid3 = "Ena";
                     machineData.scanNumber += 1;
                 }
-                machineData.scanChannels[index!] = !machineData.scanChannels[index!];
+                    if(!machineData.memoryScanChannels[index]){
+                        //machineData.memoryScanChannels[index!] = !machineData.memoryScanChannels[index!];
+                        index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
+                    }
+                    break;
             }
 
             context.notifyControllerChannelLabelsChanged();
-            context.startTimer(seconds: 2.0, repeats: false);
+            context.startTimer( 2.0,  false);
 
         } else {
             switch (sender) {
                 case 1:
-                    context.setState(state: MenuDSCState(context));
-
+                    //context.setState( context.get);
+                    //MenuDSCState(context)
                 case 2:
                     if (machineData.workingChannel != "16" && machineData.userChannel != machineData.workingChannel && machineData.userChannel != "16") {
-                    context.setState(state: TriWatchState(context);
+                    //context.setState( TriWatchState(context));
                 }
 
                 case 3:
                     if (machineData.memoryScanNumber > 1) {
-                    context.setState(state: MemoryScanState(context));
+                    //context.setState(MemoryScanState(context));
                 }
 
                 default:
                     if (machineData.scanNumber > 1) {
-                    context.setState(state: ScanState(context));
+                    //context.setState(ScanState(context));
                 }
             }
-        }*/
+        }
     }
 
     @Override
@@ -172,6 +183,7 @@ public class ReceiveState implements MachineState {
         screenLabels.message1 = " ";
         screenLabels.message2 = " ";
         screenLabels.message3 = " ";
+        context.setScreenLabels(screenLabels);
     }
 
     @Override

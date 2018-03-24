@@ -25,7 +25,7 @@ public class MachineData {
     public final static String MACHINEMODE_SCAN = "Scan";
     public final static String MACHINEMODE_TRANSMIT = "Tx";
 
-    String channels[] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+    public String channels[] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
                     "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
                     "21", "22", "23", "24", "25", "26", "27", "28",
                     "61", "62", "63", "64", "65", "66", "67", "68", "69",
