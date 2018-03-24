@@ -5,6 +5,8 @@ package ch.hevs.nautischool.machine;
  */
 //TODO: Helder
 
+import java.util.Arrays;
+
 /**
  * STATIC GLOBAL variables, méthodes
  */
@@ -95,10 +97,11 @@ public class MachineUtils {
             return machineData.dualWatchChannel;
         }
     }
-
+*/
     // Find the next channel in the memory scan
     public static String nextChannelInMemoryScan(MachineData machineData ){
-        int index = machineData.channels.index(machineData.workingChannel);
+        int index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
+        //Arrays.asList(machineData.channels).indexOf(machineData.workingChannel)
         for (int i = 1; i < machineData.channels.length; i++) {
             for (int j = (i + index); j < machineData.channels.length; j++) {
                 if (machineData.memoryScanChannels[j]) {
@@ -108,7 +111,7 @@ public class MachineUtils {
         }
         return ""; // Should never happen
     }
-
+/*
     // Find the next channel in the scan
     public static String nextChannelInScan(MachineData machineData ){
         int index = machineData.channels.index(machineData.workingChannel);
