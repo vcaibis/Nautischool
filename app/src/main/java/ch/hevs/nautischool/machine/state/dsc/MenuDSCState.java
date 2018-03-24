@@ -26,17 +26,17 @@ public class MenuDSCState  implements MachineState {
 
     @Override
     public void sixteen() {
-
+        context.sixteenButtonPressed();
     }
 
     @Override
     public void dualwatch() {
-
+        context.dualWatchButtonPressed();
     }
 
     @Override
     public void light() {
-
+        context.lightButtonPressed();
     }
 
     @Override
@@ -95,22 +95,22 @@ public class MenuDSCState  implements MachineState {
 
     @Override
     public void distress(boolean touchDown) {
-
+        context.distressButtonPressed();
     }
 
     @Override
     public void volume(int sender) {
-
+        context.volumeChanged(sender);
     }
 
     @Override
     public void squelch(int sender) {
-
+        context.squelchChanged(sender);
     }
 
     @Override
     public void ptt() {
-
+        context.pttPressed();
     }
 
     @Override
@@ -151,7 +151,7 @@ public class MenuDSCState  implements MachineState {
 
     @Override
     public void updateTimerEnded() {
-
+        context.getScreenLabels().smallChan = context.getMachineData().workingChannel;
     }
 
     @Override
