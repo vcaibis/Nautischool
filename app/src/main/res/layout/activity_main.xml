@@ -375,7 +375,7 @@
                         android:orientation="vertical">
 
                         <include layout="@layout/bigchannel"
-                            android:visibility="invisible"/>
+                            android:visibility="visible"/>
                         <include layout="@layout/smallchannel"
                             android:visibility="invisible"/>
 
