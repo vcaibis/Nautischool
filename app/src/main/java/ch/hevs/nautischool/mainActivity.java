@@ -13,9 +13,11 @@ import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 import org.jivesoftware.smackx.muc.MultiUserChatManager;
 
+import ch.hevs.nautischool.machine.MachineContext;
+
 public class mainActivity extends AppCompatActivity {
 //    static Context context;
-    // MachineContext radio = new MachineContext();
+     //MachineContext radio = new MachineContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,7 @@ public class mainActivity extends AppCompatActivity {
 
     //test
     public void ClickNumPad1(View view) {
-//String x = radio.getScreenLabels().left1;
+        //String x = radio.getScreenLabels().left1;
 /*
         MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(MyXMPP.connection);
         // Create a MultiUserChat using an XMPPConnection for a room
@@ -74,8 +76,12 @@ public class mainActivity extends AppCompatActivity {
     }
 
     public void ClickNumPad2(View view) {
-        RelativeLayout r = findViewById(R.id.bigchannel);
-        r.setVisibility(View.GONE);
+        RelativeLayout bigC = findViewById(R.id.bigchannel);
+        RelativeLayout smallC = findViewById(R.id.smallChan);
+
+        bigC.setVisibility(View.GONE);
+        smallC.setVisibility(View.VISIBLE);
+
     }
 
 

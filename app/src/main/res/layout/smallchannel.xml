@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bigchannel"
+    android:id="@+id/smallChan"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,14 +11,39 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/bigChan"
+            android:id="@+id/smallC"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
             android:text="@string/_16"
-            android:textSize="@dimen/_80sdp"
+            android:textSize="@dimen/_54sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/left1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_80sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@string/Position"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/mid2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_60sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@string/available"
+            android:textSize="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+<!--
         <TextView
             android:id="@+id/mid1"
             android:layout_width="wrap_content"
@@ -49,11 +74,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_30sdp"
             android:layout_marginLeft="@dimen/_90sdp"
-            android:layout_marginStart="@dimen/_110sdp"
-            android:text="@string/user"
-            android:textSize="@dimen/_16sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="@dimen/_110sdp"
+        android:text="@string/user"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+        !-->
 
         <TextView
             android:id="@+id/mid4"
@@ -74,7 +100,7 @@
             android:layout_marginBottom="@dimen/_70sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp"
-            android:text="@string/dsc"
+            android:text="@string/rad"
             android:textSize="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -86,7 +112,7 @@
             android:layout_marginBottom="@dimen/_50sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp"
-            android:text="@string/t_w"
+            android:text="@string/call"
             android:textSize="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -98,7 +124,7 @@
             android:layout_marginBottom="@dimen/_30sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp"
-            android:text="@string/m_s"
+            android:text="@string/log"
             android:textSize="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -110,7 +136,7 @@
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp"
-            android:text="@string/scan"
+            android:text="@string/menu"
             android:textSize="@dimen/_16sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
