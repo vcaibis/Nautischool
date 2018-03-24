@@ -61,6 +61,12 @@ public class mainActivity extends AppCompatActivity {
 
     public void radioToScreen(View view) {
         ScreenLabels sc = radio.getScreenLabels();
+        TextView bigChan = (TextView)findViewById(R.id.bigChan);
+        TextView smallChan = (TextView)findViewById(R.id.smallChan);
+
+        bigChan.setText(sc.bigChan);
+        smallChan.setText(sc.smallChan);
+
         TextView right1 = (TextView)findViewById(R.id.right1);
         TextView right2 = (TextView)findViewById(R.id.right2);
         TextView right3 = (TextView)findViewById(R.id.right3);
@@ -117,11 +123,7 @@ public class mainActivity extends AppCompatActivity {
     }
 
     public void ClickNumPad2(View view) {
-        RelativeLayout bigC = findViewById(R.id.bigchannel);
-        RelativeLayout smallC = findViewById(R.id.smallChan);
 
-        bigC.setVisibility(View.GONE);
-        smallC.setVisibility(View.VISIBLE);
 
     }
 

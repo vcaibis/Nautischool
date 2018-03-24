@@ -374,10 +374,7 @@
                         android:background="@drawable/led_layout_off"
                         android:orientation="vertical">
 
-                        <include layout="@layout/bigchannel"
-                            android:visibility="gone"/>
-                        <include layout="@layout/smallchannel"
-                            android:visibility="gone"/>
+                        <include layout="@layout/screenlayout"/>
 
 
                     </RelativeLayout>
