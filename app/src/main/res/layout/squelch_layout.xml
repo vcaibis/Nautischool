@@ -38,7 +38,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:scaleType="fitCenter"
-        tools:srcCompat="@drawable/volume_lownew" />
+        app:srcCompat="@drawable/volume_lownew" />
 
     <ImageView
         android:id="@+id/imageViewVH"
@@ -51,7 +51,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:scaleType="fitCenter"
-        tools:srcCompat="@drawable/volume_h" />
+        app:srcCompat="@drawable/volume_h" />
 
     <SeekBar
         android:id="@+id/seekBarSquelch"
