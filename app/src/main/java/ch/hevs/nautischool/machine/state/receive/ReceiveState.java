@@ -7,7 +7,7 @@ import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
-import ch.hevs.nautischool.machine.state.dsc.call.SelectChanState;
+import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
 
 /**
  * Created by Helder on 17.03.2018.
@@ -23,7 +23,7 @@ public class ReceiveState implements MachineState {
     @Override
     public void alphanumeric(int sender) {
         context.getMachineData().selectingChan = ""+sender;
-        context.setState(new SelectChanState(context));
+//        context.setState(new SelectChanState(context));
     }
 
     @Override
@@ -53,7 +53,6 @@ public class ReceiveState implements MachineState {
     public void softkey(int sender, boolean longClick) {
         MachineData machineData = context.getMachineData();
         int index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
-
         if (longClick) {
             switch (sender) {
                 case 2:
@@ -101,21 +100,20 @@ public class ReceiveState implements MachineState {
         } else {
             switch (sender) {
                 case 1:
-                    //context.setState( context.get);
-                    //MenuDSCState(context)
+                    context.setState(new MenuDSCState(context));
                 case 2:
                     if (machineData.workingChannel != "16" && machineData.userChannel != machineData.workingChannel && machineData.userChannel != "16") {
-                    //context.setState( TriWatchState(context));
+                    context.setState(new TriWatchState(context));
                 }
 
                 case 3:
                     if (machineData.memoryScanNumber > 1) {
-                    //context.setState(MemoryScanState(context));
+                    context.setState(new MemoryScanState(context));
                 }
 
                 default:
                     if (machineData.scanNumber > 1) {
-                    //context.setState(ScanState(context));
+                  //  context.setState(new ScanState(context));
                 }
             }
         }
