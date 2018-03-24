@@ -1,8 +1,10 @@
 package ch.hevs.nautischool.machine.state;
 
 import ch.hevs.nautischool.machine.MachineContext;
+import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
+import ch.hevs.nautischool.machine.state.receive.ReceiveState;
 
 /**
  * Created by GCI on 16.03.2018.
@@ -62,6 +64,20 @@ public class OffState implements MachineState {
 
     @Override
     public void volume(int sender) {
+        context.getMachineData().volume = sender;
+        context.setState(new ReceiveState(context));
+/*
+        let machineData = context.machineData
+
+        machineData.volume = sender.actualAngle()
+        if machineData.volume != sender.startAngle {
+            if machineData.previousSquelch < 0.0 && machineData.squelch < 0.0 {
+                context.playSound(soundID: 2)
+            }
+            context.setState(state: ReceiveState(context: context))
+        }
+*/
+
 
     }
 
