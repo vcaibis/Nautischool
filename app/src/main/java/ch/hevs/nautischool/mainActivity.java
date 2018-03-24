@@ -1,12 +1,16 @@
 package ch.hevs.nautischool;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.jivesoftware.smack.SmackException;
@@ -20,6 +24,11 @@ import ch.hevs.nautischool.machine.ScreenLabels;
 public class mainActivity extends AppCompatActivity {
 //    static Context context;
      MachineContext radio = new MachineContext();
+
+    private SharedPreferences prefsV;
+    private SharedPreferences prefsS;
+    private SeekBar seekBarV;
+    private SeekBar seekBarS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -234,4 +243,82 @@ public class mainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
+
+
+    public void onClickVolume(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogViewVolume = inflater.inflate(R.layout.volume_layout,null);
+
+        builder.setView(dialogViewVolume);
+
+        /*
+        //---get the SharedPreferences object---
+        //prefs = getSharedPreferences(prefName, MODE_PRIVATE);
+        prefsV = getPreferences(MODE_PRIVATE);
+        seekBarV = (SeekBar) findViewById(R.id.seekBarVolume);
+        SharedPreferences.Editor editor = prefsS.edit();
+
+        editor.commit();
+*/
+        final AlertDialog dialog = builder.create();
+
+        dialog.show();
+
+
+    }
+
+    public void onClickSquelch(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogViewSquelch = inflater.inflate(R.layout.squelch_layout,null);
+
+
+        builder.setView(dialogViewSquelch);
+
+        /*
+
+        //---get the SharedPreferences object---
+        //prefs = getSharedPreferences(prefName, MODE_PRIVATE);
+        prefsS = getPreferences(MODE_PRIVATE);
+        seekBarS = (SeekBar) findViewById(R.id.seekBarSquelch);
+
+        SharedPreferences.Editor editor = prefsS.edit();
+
+        editor.commit();
+        //---load the SharedPreferences object---
+        //SharedPreferences prefsV = getSharedPreferences(prefName, MODE_PRIVATE);
+        prefsS = getPreferences(MODE_PRIVATE);
+
+        int fontSize = prefsS.getInt("KEY_PROGRESS_VALUE", 30);
+
+        seekBarS.setProgress((int) fontSize);
+
+        seekBarS.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+
+
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            public void onProgressChanged(SeekBar seekBar) {
+            }
+        });
+*/
+
+        final AlertDialog dialog = builder.create();
+
+        dialog.show();
+
+    }
+
+
+
 }

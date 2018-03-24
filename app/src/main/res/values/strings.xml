@@ -72,5 +72,7 @@
     <string name="call">Call</string>
     <string name="log">Log</string>
     <string name="menu">Menu</string>
+    <string name="volume">Volume</string>
+    <string name="squelch">Squelch</string>
 
 </resources>
