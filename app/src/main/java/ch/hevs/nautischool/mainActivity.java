@@ -107,12 +107,24 @@ public class mainActivity extends AppCompatActivity {
 
 
 
-        /*radio.getCurrentState();
-        radio.getMachineData();
-        radio.getTimer();*/
+//        radio.getCurrentState();
+//        radio.getMachineData();
+//        radio.getTimer();
     }
     public void sk1(View view) {
         radio.softkey(1, false);
+        radioToScreen(view);
+    }
+    public void sk2(View view) {
+        radio.softkey(2, false);
+        radioToScreen(view);
+    }
+    public void sk3(View view) {
+        radio.softkey(3, false);
+        radioToScreen(view);
+    }
+    public void sk4(View view) {
+        radio.softkey(4, false);
         radioToScreen(view);
     }
     //test
@@ -123,52 +135,93 @@ public class mainActivity extends AppCompatActivity {
     }
 
     public void ClickNumPad2(View view) {
-
+    radio.alphanumeric(2);
+        radioToScreen(view);
 
     }
 
     public void ClickNumPad3(View view) {
+        radio.alphanumeric(3);
+        radioToScreen(view);
+
     }
 
     public void ClickNumPad4(View view) {
+        radio.alphanumeric(4);
+        radioToScreen(view);
+
     }
 
     public void ClickNumPad5(View view) {
+        radio.alphanumeric(5);
+        radioToScreen(view);
+
     }
 
     public void ClickNumPad6(View view) {
+        radio.alphanumeric(6);
+        radioToScreen(view);
+
     }
 
     public void ClickNumPad7(View view) {
+        radio.alphanumeric(7);
+        radioToScreen(view);
+
     }
 
     public void ClickNumPad8(View view) {
+        radio.alphanumeric(8);
+        radioToScreen(view);
+
     }
 
     public void ClickNumPad9(View view) {
+        radio.alphanumeric(9);
+        radioToScreen(view);
+
     }
 
     public void ClickNumPadCancel(View view) {
+        radio.cancel();
+        radioToScreen(view);
+
     }
 
     public void ClickNumPad0(View view) {
+        radio.alphanumeric(0);
+        radioToScreen(view);
+
     }
 
     public void ClickNumPadEnter(View view) {
+        radio.enter();
+        radioToScreen(view);
+
     }
 
     public void ClickDistressButton(View view) {
+        radio.distressButtonPressed();
+        radioToScreen(view);
+
     }
 
     public void ClickDualWatchButton(View view) {
+        radio.dualWatchButtonPressed();
+        radioToScreen(view);
+
     }
 
     public void ClickButtonChannel_16(View view) {
         radio.sixteenButtonPressed();
+        radioToScreen(view);
 
     }
 
     public void ClickChangeLight(View view) {
+        radio.lightButtonPressed();
+        radioToScreen(view);
+
     }
 
     public void btnMenu_onClick(View view) {

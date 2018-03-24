@@ -430,7 +430,9 @@
                     android:layout_height="@dimen/_40sdp"
                     android:layout_margin="@dimen/_3sdp"
                     android:background="@drawable/button_bg_round"
-                    android:padding="@dimen/_15sdp" />
+                    android:padding="@dimen/_15sdp"
+                    android:onClick="sk2"/>
+
 
                 <Button
                     android:id="@+id/sk3"
@@ -438,7 +440,9 @@
                     android:layout_height="@dimen/_40sdp"
                     android:layout_margin="@dimen/_3sdp"
                     android:background="@drawable/button_bg_round"
-                    android:padding="@dimen/_15sdp" />
+                    android:padding="@dimen/_15sdp"
+                    android:onClick="sk3"/>
+
 
                 <Button
                     android:id="@+id/sk14"
@@ -446,7 +450,9 @@
                     android:layout_height="@dimen/_40sdp"
                     android:layout_margin="@dimen/_3sdp"
                     android:background="@drawable/button_bg_round"
-                    android:padding="@dimen/_15sdp" />
+                    android:padding="@dimen/_15sdp"
+                    android:onClick="sk4"/>
+
 
             </GridLayout>
 

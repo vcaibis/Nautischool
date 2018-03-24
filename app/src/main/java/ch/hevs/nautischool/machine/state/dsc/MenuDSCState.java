@@ -77,7 +77,7 @@ public class MenuDSCState  implements MachineState {
 
     @Override
     public void init(MachineContext context) {
-
+        this.context = context;
     }
 
     @Override
