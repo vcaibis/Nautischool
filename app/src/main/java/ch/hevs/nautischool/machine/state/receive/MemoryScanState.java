@@ -7,6 +7,7 @@ import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
+import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
 
 /**
  * Created by Helder on 24.03.2018.
@@ -51,7 +52,7 @@ public class MemoryScanState implements MachineState {
             MachineData machineData = context.getMachineData();
 
             if (sender == 1) {
-      //          context.setState(MenuDSCState(context));
+                context.setState(new MenuDSCState(context));
             } else if (sender == 3) {
                 if (!context.getTimer().equals(0)) {
                 //    context.timer!.fire()
@@ -76,7 +77,7 @@ public class MemoryScanState implements MachineState {
     @Override
     public void cancel() {
         context.stopTimer();
-        //context.setState(ReceiveState(context));
+        context.setState(new ReceiveState(context));
     }
 
     @Override

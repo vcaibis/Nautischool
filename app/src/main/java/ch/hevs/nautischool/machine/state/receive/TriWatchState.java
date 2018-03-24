@@ -5,6 +5,8 @@ import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
+import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
+import ch.hevs.nautischool.machine.state.dsc.call.SelectChanState;
 
 /**
  * Created by Helder on 24.03.2018.
@@ -21,7 +23,7 @@ public class TriWatchState implements MachineState {
     @Override
     public void alphanumeric(int sender) {
         context.getMachineData().selectingChan = " "+sender;
-        //context.setState( SelectChanState( context));
+        context.setState(new SelectChanState( context));
     }
 
     @Override
@@ -48,7 +50,7 @@ public class TriWatchState implements MachineState {
     public void softkey(int sender, boolean longClick) {
         if (!longClick) {
             if (sender == 1) {
-      //          context.setState(MenuDSCState( context));
+                context.setState(new MenuDSCState( context));
             } else if (sender == 2) {
                 if ( !context.getTimer().equals(0)) {
                     //context.timer!.fire();
@@ -61,7 +63,7 @@ public class TriWatchState implements MachineState {
     @Override
     public void cancel() {
         context.stopTimer();
-      //  context.setState(ReceiveState(context));
+        context.setState(new ReceiveState(context));
     }
 
     @Override
