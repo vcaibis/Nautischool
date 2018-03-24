@@ -375,9 +375,9 @@
                         android:orientation="vertical">
 
                         <include layout="@layout/bigchannel"
-                            android:visibility="visible"/>
+                            android:visibility="gone"/>
                         <include layout="@layout/smallchannel"
-                            android:visibility="invisible"/>
+                            android:visibility="gone"/>
 
 
                     </RelativeLayout>
@@ -418,16 +418,17 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <Button
-                    android:id="@+id/push_button1"
+                    android:id="@+id/sk1"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_margin="@dimen/_3sdp"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:background="@drawable/button_bg_round"
-                    android:padding="@dimen/_15sdp" />
+                    android:padding="@dimen/_15sdp"
+                    android:onClick="sk1"/>
 
                 <Button
-                    android:id="@+id/push_button2"
+                    android:id="@+id/sk2"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_margin="@dimen/_3sdp"
@@ -435,7 +436,7 @@
                     android:padding="@dimen/_15sdp" />
 
                 <Button
-                    android:id="@+id/push_button3"
+                    android:id="@+id/sk3"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_margin="@dimen/_3sdp"
@@ -443,7 +444,7 @@
                     android:padding="@dimen/_15sdp" />
 
                 <Button
-                    android:id="@+id/push_button4"
+                    android:id="@+id/sk14"
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_margin="@dimen/_3sdp"
