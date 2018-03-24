@@ -12,8 +12,7 @@
     android:paddingLeft="@dimen/_5sdp"
     android:paddingRight="@dimen/_2sdp"
     android:paddingStart="@dimen/_5sdp"
-    android:paddingTop="@dimen/_5sdp"
-    tools:context="com.example.arjun.nautischool.ch.example.arjun.nautischool.mainActivity">
+    android:paddingTop="@dimen/_5sdp">
 
     <!--Layout for 4"-5" smartphone-->
     <!--Screen and buttons below it-->
@@ -376,10 +375,7 @@
                         android:background="@drawable/led_layout_off"
                         android:orientation="vertical">
 
-                        <include layout="@layout/bigchannel"
-                            android:visibility="gone"/>
-                        <include layout="@layout/smallchannel"
-                            android:visibility="gone"/>
+                        <include layout="@layout/screenlayout"/>
 
 
                     </RelativeLayout>

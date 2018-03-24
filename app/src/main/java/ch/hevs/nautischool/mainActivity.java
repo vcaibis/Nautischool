@@ -85,7 +85,7 @@ public class mainActivity extends AppCompatActivity {
         right2.setText(sc.right2);
         right3.setText(sc.right3);
         right4.setText(sc.right4);
-
+//.
         TextView mid1 = (TextView)findViewById(R.id.mid1);
         TextView mid2 = (TextView)findViewById(R.id.mid2);
         TextView mid3 = (TextView)findViewById(R.id.mid3);
