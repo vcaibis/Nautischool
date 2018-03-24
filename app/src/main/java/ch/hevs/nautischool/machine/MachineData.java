@@ -129,12 +129,12 @@ public class MachineData {
                 isHighPower = true;
 
                 // memoryScanChannels : all to false
-                for(int i = 0; i <= memoryScanChannels.length; i++)
+                for(int i = 0; i <= memoryScanChannels.length-1; i++)
                     memoryScanChannels[i] = false;
                 memoryScanNumber = 0;
 
                 // scanChannels : all to true
-                for(int i = 0; i <= scanChannels.length; i++)
+                for(int i = 0; i <= scanChannels.length-1; i++)
                     scanChannels[i] = true;
                 scanNumber = channels.length;
 
