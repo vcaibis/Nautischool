@@ -4,6 +4,10 @@ import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
+import ch.hevs.nautischool.machine.state.receive.DualWatchState;
+import ch.hevs.nautischool.machine.state.receive.MemoryScanState;
+import ch.hevs.nautischool.machine.state.receive.ReceiveState;
+import ch.hevs.nautischool.machine.state.receive.TriWatchState;
 
 /**
  * Created by GCI on 23.03.2018.
@@ -42,12 +46,46 @@ public class MenuDSCState  implements MachineState {
 
     @Override
     public void softkey(int sender, boolean longClick) {
+        if (!longClick) {
+            switch (sender) {
+                case 1 :
+                    navigateBackToRad();
+                    break;
+                case 2 :
+//                    context.setState(new CallState(context));
+                    break;
+                case 3 :
+//                    context.setState(new LogState(context));
+                    break;
+                default:
+//                    context.setState(new Menu1State(context));
+            }
+        }
 
+    }
+    private void navigateBackToRad() {
+        switch (context.getMachineData().currentMode) {
+            case MachineData.MACHINEMODE_DUALWATCH: //dualwatch:
+                context.setState(new DualWatchState(context));
+                break;
+            case MachineData.MACHINEMODE_MEMORYSCAN://.memoryscan:
+                context.setState(new MemoryScanState(context));
+                break;
+            case MachineData.MACHINEMODE_SCAN://.scan:
+                //context.setState(new ScanState(context));
+                break;
+            case MachineData.MACHINEMODE_TRIWATCH: // .triwatch:
+                context.setState(new TriWatchState(context));
+                break;
+            default:
+                context.setState(new ReceiveState(context));
+
+        }
     }
 
     @Override
     public void cancel() {
-
+        navigateBackToRad();
     }
 
     @Override
