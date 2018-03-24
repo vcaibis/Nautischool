@@ -107,6 +107,8 @@ public class MenuDSCState  implements MachineState {
         screenLabels.message2 = " ";
         screenLabels.message3 = " ";
 
+        // set labels of screen
+        context.setScreenLabels(screenLabels);
     }
 
     @Override
