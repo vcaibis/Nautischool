@@ -27,16 +27,15 @@ public class MenuActivity extends AppCompatActivity {
 
 
         ListView menuFirstList = (ListView) findViewById(R.id.list_DSC_messages);
-        menuFirstList.setAdapter( new ArrayAdapter<String>(this,
-                R.layout.single_row_menu, R.id.text_view_message, dcsMessageslist ));
+        menuFirstList.setAdapter(new ArrayAdapter<String>(this,
+                R.layout.single_row_menu, R.id.text_view_message, dcsMessageslist));
 
 
         ListView menuSecondList = (ListView) findViewById(R.id.list_vocal_messages);
-        menuSecondList.setAdapter( new ArrayAdapter<String>(this, R.layout.single_row_menu_vocal, R.id.text_view_messages_vocal, vocalMessageslist));
+        menuSecondList.setAdapter(new ArrayAdapter<String>(this, R.layout.single_row_menu_vocal, R.id.text_view_messages_vocal, vocalMessageslist));
 
 
     }
-
 
 
     public void btnbackMain_onClick(View view) {
