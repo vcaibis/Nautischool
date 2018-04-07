@@ -31,9 +31,9 @@ public class MachineData {
                     "61", "62", "63", "64", "65", "66", "67", "68", "69",
                     "71", "72", "73", "74", "75", "76", "77", "78", "79", "80",
                     "81", "82", "83", "84", "85", "86", "87", "88"};
-    String contrasts[] = {"MIN", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "MAX"};
-    String [] distressType = DistressType.getAllValues();
-    String mDSCType[][] = {
+    public String contrasts[] = {"MIN", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "MAX"};
+    public String [] distressType = DistressType.getAllValues();
+    public String mDSCType[][] = {
                     {"Routine to", ""},
                     {"All ships", "Safety"},
                     {"All ships", "Urgency"}
@@ -141,6 +141,7 @@ public class MachineData {
                 currentMode = MACHINEMODE_RECEIVE ;
                 isBeepOn = true;
             }
+
 
 }
 

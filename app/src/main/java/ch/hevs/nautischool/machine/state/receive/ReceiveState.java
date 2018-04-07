@@ -8,6 +8,7 @@ import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
 import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
+import ch.hevs.nautischool.machine.state.dsc.call.SelectChanState;
 
 /**
  * Created by Helder on 17.03.2018.
@@ -23,7 +24,7 @@ public class ReceiveState implements MachineState {
     @Override
     public void alphanumeric(int sender) {
         context.getMachineData().selectingChan = ""+sender;
-//        context.setState(new SelectChanState(context));
+        context.setState(new SelectChanState(context));
     }
 
     @Override
@@ -113,7 +114,7 @@ public class ReceiveState implements MachineState {
 
                 default:
                     if (machineData.scanNumber > 1) {
-                  //  context.setState(new ScanState(context));
+                    context.setState(new ScanState(context));
                 }
             }
         }
@@ -146,7 +147,7 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void ptt() {
-     //   context.pttPressed();
+        context.pttPressed();
     }
 
     @Override

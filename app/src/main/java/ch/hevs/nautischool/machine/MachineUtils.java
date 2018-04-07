@@ -57,8 +57,8 @@ public class MachineUtils {
 
 /*
     //Detect if the label is High or low power
-    public static String powerLabel(MachineContext context ){
-        machineData = context.machineData;
+    public String powerLabel(MachineContext context ){
+        machineData = context.getMachineData();
 
         if (machineData.isHighPower || machineData.workingChannel == "15"
                 || machineData.workingChannel == "17") {
@@ -67,9 +67,9 @@ public class MachineUtils {
             return "Hi";
         }
     }
-/*
+*/
 
- */
+
     // Detect if the power value is high or low
     public Boolean powerValue(MachineContext context ){
         machineData = context.getMachineData();
@@ -79,8 +79,8 @@ public class MachineUtils {
     }
 /*
     // Detect if the working channel is the user channel
-    public static String userLabel(MachineContext context ){
-        machineData = context.machineData;
+    public String userLabel(MachineContext context ){
+        machineData = context.getMachineData();
 
         if (machineData.userChannel == machineData.workingChannel) {
             return "User";
@@ -88,7 +88,8 @@ public class MachineUtils {
             return " ";
         }
     }
-
+    */
+/*
     // Change the channel when dual watch is activated
     public static String switchChannel(MachineData machineData ){
         if (machineData.workingChannel == machineData.dualWatchChannel) {
@@ -111,10 +112,10 @@ public class MachineUtils {
         }
         return ""; // Should never happen
     }
-/*
+
     // Find the next channel in the scan
     public static String nextChannelInScan(MachineData machineData ){
-        int index = machineData.channels.index(machineData.workingChannel);
+        int index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
         for (int i = 1; i < machineData.channels.length; i++) {
             for (int j = (i + index); j < machineData.channels.length; j++) {
                 if (machineData.scanChannels[j]) {
@@ -124,7 +125,7 @@ public class MachineUtils {
         }
         return ""; // Should never happen
     }
-
+/*
     // Change the working channel when triwatch is activated
     public static String triwatchSwitchState(MachineData machineData ){
         if (machineData.workingChannel == "16") {
