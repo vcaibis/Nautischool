@@ -97,9 +97,19 @@ public class MachineData {
         initialize();
 //        DSCType.append(("Group Call", "\(self.groupMMSI)"));
         populateLogs();
+        populateContacts();
     }
 
-        // Add some fictive logs
+    // Add some fictive contacts
+    private void populateContacts() {
+        contacts = new ArrayList<>();
+        contacts.add(new Contact("MrcKoper", "002780200"));
+        contacts.add(new Contact("Splitradio", "002380100"));
+        contacts.add(new Contact("Spinaker", "027811100"));
+
+    }
+
+    // Add some fictive logs
         private void populateLogs() {
             alertLogs = new ArrayList<>();
             alertLogs.add(new DSCMessage(DSCName.INDIVIDUAL,DSCType.ROUTINE,"012345678","08",mmsi,null));
