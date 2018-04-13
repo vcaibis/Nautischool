@@ -65,7 +65,9 @@ public class OffState implements MachineState {
     @Override
     public void volume(int sender) {
         context.getMachineData().volume = sender;
-        context.setState(new ReceiveState(context));
+        if(sender>0){
+            context.setState(new ReceiveState(context));
+        }
 /*
         let machineData = context.machineData
 

@@ -40,9 +40,9 @@ public class MachineData {
             };
 
     // All states
-    public double volume;
-    public double squelch;
-    public double previousSquelch;
+    public int volume;
+    public int squelch;
+    public int previousSquelch;
     public String workingChannel = "16";
     public String userChannel = "16";
     public boolean isHighPower = true;
