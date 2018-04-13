@@ -108,15 +108,16 @@ public class CallState implements MachineState {
         ScreenLabels screenLabels = context.getScreenLabels();
         MachineData machineData = context.getMachineData();
 
-        //screenLabels.left1 = machineData.DSCType[machineData.currentType].0;
+        screenLabels.left1 = machineData.mDSCType[machineData.currentType][0];
         if (machineData.currentType == 0) {
             if (machineData.currentIsMMSI) {
                 screenLabels.left2 = machineData.currentMMSI;
             } else {
-                //screenLabels.left2 = (machineData.contacts.isEmpty ? "---------" : machineData.contacts[machineData.currentContact].name);
+//                screenLabels.left2 = (machineData.contacts.isEmpty ? "---------" : machineData.contacts[machineData.currentContact].name);
+                screenLabels.left2 = machineData.contacts.get(machineData.currentContact).name;
             }
         } else {
-            //screenLabels.left2 = machineData.DSCType[machineData.currentType].1;
+            screenLabels.left2 = machineData.mDSCType[machineData.currentType][1];
         }
 
         screenLabels.left3 = " ";

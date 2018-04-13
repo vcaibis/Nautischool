@@ -23,7 +23,7 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void alphanumeric(int sender) {
-        context.getMachineData().selectingChan = ""+sender;
+        context.getMachineData().selectingChan = "" + sender;
         context.setState(new SelectChanState(context));
     }
 
@@ -67,28 +67,27 @@ public class ReceiveState implements MachineState {
                     if (!machineData.memoryScanChannels[index]) {
                         context.getScreenLabels().mid3 = "Del";
                         machineData.memoryScanNumber -= 1;
+                    } else {
+                        context.getScreenLabels().mid3 = "Sel";
+                        machineData.memoryScanNumber += 1;
                     }
-                    else {
-                    context.getScreenLabels().mid3 = "Sel";
-                    machineData.memoryScanNumber += 1;
-                }
 
-                    if(!machineData.memoryScanChannels[index]){
+                    if (!machineData.memoryScanChannels[index]) {
                         //machineData.memoryScanChannels[index!] = !machineData.memoryScanChannels[index!];
                         index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
                     }
-                break;
+                    break;
                 default:
 
                     context.getScreenLabels().mid2 = "Scan";
                     if (!machineData.scanChannels[index]) {
-                    context.getScreenLabels().mid3 = "Inh";
-                    machineData.scanNumber -= 1;
-                } else {
-                    context.getScreenLabels().mid3 = "Ena";
-                    machineData.scanNumber += 1;
-                }
-                    if(!machineData.memoryScanChannels[index]){
+                        context.getScreenLabels().mid3 = "Inh";
+                        machineData.scanNumber -= 1;
+                    } else {
+                        context.getScreenLabels().mid3 = "Ena";
+                        machineData.scanNumber += 1;
+                    }
+                    if (!machineData.memoryScanChannels[index]) {
                         //machineData.memoryScanChannels[index!] = !machineData.memoryScanChannels[index!];
                         index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
                     }
@@ -96,26 +95,27 @@ public class ReceiveState implements MachineState {
             }
 
             context.notifyControllerChannelLabelsChanged();
-            context.startTimer( 2.0,  false);
+            context.startTimer(2.0, false);
 
         } else {
             switch (sender) {
                 case 1:
                     context.setState(new MenuDSCState(context));
+                    break;
                 case 2:
                     if (machineData.workingChannel != "16" && machineData.userChannel != machineData.workingChannel && machineData.userChannel != "16") {
-                    context.setState(new TriWatchState(context));
-                }
-
+                        context.setState(new TriWatchState(context));
+                    }
+                    break;
                 case 3:
                     if (machineData.memoryScanNumber > 1) {
-                    context.setState(new MemoryScanState(context));
-                }
-
+                        context.setState(new MemoryScanState(context));
+                    }
+                    break;
                 default:
                     if (machineData.scanNumber > 1) {
-                    context.setState(new ScanState(context));
-                }
+                        context.setState(new ScanState(context));
+                    }
             }
         }
     }
@@ -197,7 +197,7 @@ public class ReceiveState implements MachineState {
 
     }
 
-    private String userChannelOrSixteen(MachineData machineData){
+    private String userChannelOrSixteen(MachineData machineData) {
         if (machineData.workingChannel == "16" && machineData.userChannel != "16") {
             return machineData.userChannel;
         } else {
