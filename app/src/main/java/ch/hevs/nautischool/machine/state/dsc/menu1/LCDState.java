@@ -1,18 +1,20 @@
 package ch.hevs.nautischool.machine.state.dsc.menu1;
 
+import javax.crypto.Mac;
+
 import ch.hevs.nautischool.machine.MachineContext;
+import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
-import ch.hevs.nautischool.machine.state.dsc.menu2.Menu2State;
 
 /**
- * Created by GCI on 17.03.2018.
+ * Created by Helder on 14.04.2018.
  */
 
-public class Menu1State implements MachineState {
+public class LCDState implements MachineState {
     MachineContext context;
 
-    public Menu1State(MachineContext context) {
+    public LCDState(MachineContext context) {
         init(context);
     }
 
@@ -43,27 +45,27 @@ public class Menu1State implements MachineState {
 
     @Override
     public void softkey(int sender, boolean longClick) {
+        MachineData machineData = context.getMachineData();
         if (!longClick) {
-            switch (sender) {
-                case 1:
-                    context.navigateBackToMenuDSCState();
-                    break;
-                case 2:
-                    context.setState(new LCDState(context));
-                    break;
-                case 3 :
-                    context.setState(new PosnState(context));
-                    break;
-                default:
-                    context.setState(new Menu2State(context));
-                    break;
+            if (sender == 1) {
+                context.navigateBackToMenuDSCState();
+            } else if (sender == 3) {
+                if (machineData.contrast != machineData.contrasts.length - 1) {
+                    machineData.contrast += 1;
+                    context.setState(this);
+                }
+            } else if (sender == 4) {
+                if (machineData.contrast >= 1) {
+                    machineData.contrast -= 1;
+                    context.setState(this);
+                }
             }
         }
     }
 
     @Override
     public void cancel() {
-        context.navigateBackToMenuDSCState();
+        context.setState(new Menu1State(context));
     }
 
     @Override
@@ -99,17 +101,14 @@ public class Menu1State implements MachineState {
     @Override
     public void updateDisplay() {
         ScreenLabels screenLabels = context.getScreenLabels();
+        MachineData machineData = context.getMachineData();
 
-        screenLabels.left3 = " ";
+        screenLabels.left1 = "Contrast";
+        screenLabels.left2 = machineData.contrasts[machineData.contrast];
 
-        screenLabels.mid4 = context.getMachineData().currentMode;
-
-        screenLabels.right1 = "DSC";
-        screenLabels.right2 = "LCD";
-        screenLabels.right3 = "Posn";
-        screenLabels.right4 = "More";
-
-        screenLabels.smallChan = context.getMachineData().workingChannel;
+        screenLabels.right2 = " ";
+        screenLabels.right3 = "\u25B2"   ; // Black up-pointing triangle
+        screenLabels.right4 = "\u25BC"    ;// Black down-pointing triangle
     }
 
     @Override
