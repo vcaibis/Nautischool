@@ -13,7 +13,7 @@ import ch.hevs.nautischool.machine.state.receive.ScanState;
 import ch.hevs.nautischool.machine.state.receive.TriWatchState;
 
 /**
- * Created by GCI on 23.03.2018.
+ * Created by Helder on 23.03.2018.
  */
 public class MenuDSCState  implements MachineState {
     MachineContext context;

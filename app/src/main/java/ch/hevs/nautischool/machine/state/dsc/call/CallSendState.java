@@ -1,16 +1,17 @@
-package ch.hevs.nautischool.machine.state.dsc.menu2;
+package ch.hevs.nautischool.machine.state.dsc.call;
 
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineState;
 
 /**
- * Created by Helder on 17.03.2018.
+ * Created by GCI on 14.04.2018.
  */
 
-public class Menu2State implements MachineState {
+public class CallSendState implements MachineState {
+
     MachineContext context;
 
-    public Menu2State(MachineContext context) {
+    public CallSendState(MachineContext context) {
         init(context);
     }
 

@@ -4,6 +4,8 @@ import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
+import ch.hevs.nautischool.machine.state.dsc.call.CallSelectChanState;
+import ch.hevs.nautischool.machine.state.dsc.call.CallSendState;
 
 /**
  * Created by Helder on 07.04.2018.
@@ -43,31 +45,33 @@ public class CallState implements MachineState {
     public void power() {
 
     }
+    /*
     @Override
     public void softkey(int sender, boolean longClick) {
         //double de la methode en bas , a effacer quand toute les methodes sont finies
     }
-/*
+    */
+
     @Override
     public void softkey(int sender, boolean longClick) {
         if (!longClick) {
             MachineData machineData = context.getMachineData();
             if (sender == 1) {
-                //machineData.currentType = (machineData.currentType + 1) % machineData.DSCType.count;
+                machineData.currentType = (machineData.currentType + 1) % machineData.mDSCType.length;
                 context.setState(this);
-            } else if (sender == 2 && machineData.currentType == 0 && machineData.contacts.count > 0) {
-                machineData.currentContact = (machineData.currentContact + 1) % machineData.contacts.count;
+            } else if (sender == 2 && machineData.currentType == 0 && machineData.contacts.size() > 0) {
+                machineData.currentContact = (machineData.currentContact + 1) % machineData.contacts.size();
                 machineData.currentIsMMSI = false;
                 context.setState(this);
             } else if (sender == 3 && machineData.currentType != 2) {
                 machineData.selectingChan = machineData.currentChannel;
-                context.setState(new CallSelectChanState( context));
-            } else if (sender == 4 && !(machineData.currentType == 0 && machineData.contacts.isEmpty && !machineData.currentIsMMSI)) {
+                context.setState(new CallSelectChanState(context));
+            } else if (sender == 4 && !(machineData.currentType == 0 && machineData.contacts.isEmpty() && !machineData.currentIsMMSI)) {
                 context.setState(new CallSendState(context));
             }
         }
     }
-*/
+
     @Override
     public void cancel() {
         context.setState(new MenuDSCState(context));
@@ -113,8 +117,7 @@ public class CallState implements MachineState {
             if (machineData.currentIsMMSI) {
                 screenLabels.left2 = machineData.currentMMSI;
             } else {
-//                screenLabels.left2 = (machineData.contacts.isEmpty ? "---------" : machineData.contacts[machineData.currentContact].name);
-                screenLabels.left2 = machineData.contacts.get(machineData.currentContact).name;
+                screenLabels.left2 = (machineData.contacts.isEmpty() ? "---------" : machineData.contacts.get(machineData.currentContact).name);
             }
         } else {
             screenLabels.left2 = machineData.mDSCType[machineData.currentType][1];
@@ -128,7 +131,7 @@ public class CallState implements MachineState {
         screenLabels.right1 = "Type";
         screenLabels.right2 = (machineData.currentType == 0 ? "Dir" : " ");
         screenLabels.right3 = (machineData.currentType == 2 ? "Ch16" : "Ch" + machineData.currentChannel);
-        //screenLabels.right4 = (machineData.currentType == 0 && machineData.contacts.isEmpty && !machineData.currentIsMMSI ? " " : "Send");
+        screenLabels.right4 = (machineData.currentType == 0 && machineData.contacts.isEmpty() && !machineData.currentIsMMSI ? " " : "Send");
 
         screenLabels.smallChan = context.getMachineData().workingChannel;
     }

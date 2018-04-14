@@ -66,5 +66,13 @@
         android:layout_toEndOf="@+id/imageViewVL"
         android:layout_toRightOf="@+id/imageViewVL" />
 
+    <TextView
+        android:id="@+id/resultS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekBarSquelch"
+        android:layout_centerHorizontal="true"
+        />
+
 
 </RelativeLayout>

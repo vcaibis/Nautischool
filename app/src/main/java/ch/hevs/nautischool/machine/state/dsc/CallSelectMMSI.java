@@ -150,7 +150,7 @@ public class CallSelectMMSI implements MachineState {
         if (currentIndex == 0) {
             screenLabels.right2 = " ";
         } else {
-            screenLabels.right2 = "/u{25C0}";
+            screenLabels.right2 = "\u25C0";
         }
         screenLabels.right3 = " ";
         screenLabels.right4 = " ";
