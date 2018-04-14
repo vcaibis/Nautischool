@@ -49,11 +49,8 @@ public class SelectChanState implements MachineState{
     @Override
     public void alphanumeric(int sender) {
         MachineData machineData = context.getMachineData();
-        String channel = machineData.selectingChan;
-
-//        machineData.selectingChan.remove(at: machineData.selectingChan.startIndex)
-//        machineData.selectingChan.append(sender.description)
-
+//ENTRER LE NUM DE CHAN
+//
         context.setState(this);
     }
 
