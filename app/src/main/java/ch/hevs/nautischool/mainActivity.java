@@ -260,10 +260,6 @@ public class mainActivity extends AppCompatActivity {
         tv_Volume.setText(oldVolume + " %");
         sbVolume.setProgress(oldVolume);
 
-
-
-
-
         sbVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
@@ -300,15 +296,49 @@ public class mainActivity extends AppCompatActivity {
 
 
 
-    public void onClickSquelch(View view) {
+    public void onClickSquelch(final View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.this);
 
         LayoutInflater inflater = getLayoutInflater();
         View dialogViewSquelch = inflater.inflate(R.layout.squelch_layout,null);
-
-
         builder.setView(dialogViewSquelch);
 
+        final SeekBar sbSquelch = (SeekBar)dialogViewSquelch.findViewById(R.id.seekBarSquelch);
+        sbSquelch.setMax(100);
+
+        final TextView tv_Squelch  = (TextView)dialogViewSquelch.findViewById(R.id.resultS);
+        int oldSquelch = radio.getMachineData().squelch;
+
+        tv_Squelch.setText(oldSquelch + " %");
+        sbSquelch.setProgress(oldSquelch);
+
+        sbSquelch.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int newSquelch, boolean b) {
+
+                tv_Squelch.setText(newSquelch + " %");
+
+                radio.squelch(newSquelch);
+                radioToScreen(view);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
 
         final AlertDialog dialog = builder.create();
 
