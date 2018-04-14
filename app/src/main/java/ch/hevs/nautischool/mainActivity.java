@@ -133,15 +133,15 @@ public class mainActivity extends AppCompatActivity {
         radio.softkey(4, false);
         radioToScreen(view);
     }
-    //test
+
     public void ClickNumPad1(View view) {
-        radio.volume(10);
+        radio.alphanumeric(1);
         radioToScreen(view);
 
     }
 
     public void ClickNumPad2(View view) {
-    radio.alphanumeric(2);
+        radio.alphanumeric(2);
         radioToScreen(view);
 
     }

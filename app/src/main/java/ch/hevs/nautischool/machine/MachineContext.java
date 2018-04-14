@@ -4,6 +4,7 @@ package ch.hevs.nautischool.machine;
  * Created by Helder on 02.03.2018.
  */
 
+import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
 import ch.hevs.nautischool.machine.state.receive.DualWatchState;
 import ch.hevs.nautischool.machine.state.OffState;
 import ch.hevs.nautischool.machine.state.receive.ReceiveState;
@@ -90,7 +91,7 @@ public class MachineContext implements MachineControls{
 
     // Navigate to the MenuDSCState
     public void navigateBackToMenuDSCState() {
-//        setState(new MenuDSCState(this));
+        setState(new MenuDSCState(this));
     }
     // Generic method when the squelch is changed
     public void squelchChanged(int sender) {
