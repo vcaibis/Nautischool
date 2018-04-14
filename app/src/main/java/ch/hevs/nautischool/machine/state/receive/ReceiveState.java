@@ -142,7 +142,7 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void squelch(int sender) {
-        context.volumeChanged(sender);
+        context.squelchChanged(sender);
     }
 
     @Override
