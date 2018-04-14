@@ -1,18 +1,19 @@
-package ch.hevs.nautischool.machine.state.dsc.menu1;
+package ch.hevs.nautischool.machine.state.dsc.menu2;
 
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
+import ch.hevs.nautischool.machine.data.Contact;
 
 /**
  * Created by Helder on 14.04.2018.
  */
 
-public class PosnState implements MachineState {
-    MachineContext context;
+public class DirState implements MachineState {
 
-    public PosnState(MachineContext context) {
+    MachineContext context;
+    public DirState(MachineContext context) {
         init(context);
     }
 
@@ -46,17 +47,17 @@ public class PosnState implements MachineState {
         if (!longClick) {
             if (sender == 1) {
                 context.navigateBackToMenuDSCState();
-            } else if (sender == 2) {
-                context.setState(new PosnEditPosn(context));
-            } else if (sender == 3) {
-                context.setState(new PosnEditUTC(context));
+            } else if (sender == 2 && context.getMachineData().contacts.size() > 0) {
+                context.setState(new DirViewState(context));
+            } else if (sender == 3 && context.getMachineData().contacts.size() < 16) {
+                context.setState(new DirAddState(context));
             }
         }
     }
 
     @Override
     public void cancel() {
-        context.setState(new Menu1State(context));
+        context.setState(new Menu2State(context));
     }
 
     @Override
@@ -94,17 +95,18 @@ public class PosnState implements MachineState {
         ScreenLabels screenLabels = context.getScreenLabels();
         MachineData machineData = context.getMachineData();
 
-        screenLabels.left1 = machineData.longitude;
-        screenLabels.left2 = machineData.latitude;
-        screenLabels.left3 = machineData.utc;
+        screenLabels.left1 = "Directory";
+        screenLabels.left2 = " ";
+    //    screenLabels.left3 = (machineData.contacts.count == 0 ? "Empty" : "Used \(machineData.contacts.count.description)/16");
+        screenLabels.left4 = " ";
 
         screenLabels.mid4 = " ";
 
-        screenLabels.right2 = "Posn";
-        screenLabels.right3 = "UTC";
+     //   screenLabels.right2 = (machineData.contacts.count == 0 ? " " : "View")
+    //    screenLabels.right3 = (machineData.contacts.count < 16 ? "Add" : " ")
         screenLabels.right4 = " ";
 
-        context.getScreenLabels().smallChan = " ";
+        screenLabels.smallChan = " ";
     }
 
     @Override
