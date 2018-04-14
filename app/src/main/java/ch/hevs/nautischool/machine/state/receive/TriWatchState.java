@@ -3,10 +3,8 @@ package ch.hevs.nautischool.machine.state.receive;
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
-import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
 import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
-import ch.hevs.nautischool.machine.state.dsc.call.SelectChanState;
 
 /**
  * Created by Helder on 24.03.2018.

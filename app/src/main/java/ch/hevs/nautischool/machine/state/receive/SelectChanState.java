@@ -1,5 +1,7 @@
 package ch.hevs.nautischool.machine.state.receive;
 
+import android.content.Context;
+
 import java.util.Arrays;
 
 import ch.hevs.nautischool.machine.MachineContext;
@@ -8,21 +10,51 @@ import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
 import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
 
-/**
- * Created by Helder on 17.03.2018.
- */
-
-public class ReceiveState implements MachineState {
+public class SelectChanState implements MachineState{
     MachineContext context;
 
-    public ReceiveState(MachineContext context) {
+    public SelectChanState(MachineContext context) {
         init(context);
     }
 
     @Override
+    public void init(MachineContext context) {
+        this.context = context;
+    }
+
+    @Override
+    public void updateDisplay() {
+        ScreenLabels screenLabels = context.getScreenLabels();
+        MachineData machineData = context.getMachineData();
+        machineData.currentMode = MachineData.MACHINEMODE_RECEIVE;
+
+        screenLabels.right1 = " ";
+        screenLabels.right2 = " ";
+        screenLabels.right3 = " ";
+        screenLabels.right4 = " ";
+
+        screenLabels.bigChan = context.getMachineData().selectingChan;
+    }
+
+    @Override
+    public void updateTimerEnded() {
+
+    }
+
+    @Override
+    public void didReceiveDSC() {
+        // Nothing to do because no effect
+    }
+
+    @Override
     public void alphanumeric(int sender) {
-        context.getMachineData().selectingChan = "" + sender;
-        context.setState(new SelectChanState(context));
+        MachineData machineData = context.getMachineData();
+        String channel = machineData.selectingChan;
+
+//        machineData.selectingChan.remove(at: machineData.selectingChan.startIndex)
+//        machineData.selectingChan.append(sender.description)
+
+        context.setState(this);
     }
 
     @Override
@@ -39,17 +71,17 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void light() {
-        context.lightButtonPressed();
+            context.lightButtonPressed();
     }
 
     @Override
     public void power() {
-        //context.getMachineData().isHighPower = MachineUtils.powerValue(context);
         context.setState(this);
     }
 
     @Override
     public void softkey(int sender, boolean longClick) {
+
         MachineData machineData = context.getMachineData();
         int index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
         if (longClick) {
@@ -120,12 +152,17 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void cancel() {
-
+            context.setState(new ReceiveState(context));
     }
 
     @Override
     public void enter() {
+        MachineData machineData = context.getMachineData();
 
+        if( Arrays.asList(machineData.channels).contains(machineData.selectingChan)){
+            context.getMachineData().workingChannel = context.getMachineData().selectingChan;
+        }
+        context.setState(new ReceiveState(context));
     }
 
     @Override
@@ -146,53 +183,6 @@ public class ReceiveState implements MachineState {
     @Override
     public void ptt() {
         context.pttPressed();
-    }
-
-    @Override
-    public void init(MachineContext context) {
-        this.context = context;
-    }
-
-    @Override
-    public void updateDisplay() {
-        ScreenLabels screenLabels = context.getScreenLabels();
-        MachineData machineData = context.getMachineData();
-
-        machineData.currentMode = MachineData.MACHINEMODE_RECEIVE;
-
-        screenLabels.left1 = " ";
-        screenLabels.left2 = " ";
-        screenLabels.left3 = " ";
-        screenLabels.left4 = " ";
-
-        screenLabels.mid1 = "INT";
-        //screenLabels.mid2 = MachineUtils.powerLabel(context);
-        //screenLabels.mid3 = MachineUtils.userLabel(context);
-        //screenLabels.mid4 = machineData.currentMode.rawValue;
-
-        screenLabels.right1 = "DSC";
-        screenLabels.right2 = "T/W";
-        screenLabels.right3 = "M/S";
-        screenLabels.right4 = "Scan";
-
-        screenLabels.bigChan = machineData.workingChannel;
-        screenLabels.smallChan = " ";
-
-        screenLabels.message1 = " ";
-        screenLabels.message2 = " ";
-        screenLabels.message3 = " ";
-        context.setScreenLabels(screenLabels);
-    }
-
-    @Override
-    public void updateTimerEnded() {
-        //context.getScreenLabels().mid2 = MachineUtils.powerLabel(context);
-        //context.getScreenLabels().mid3 = MachineUtils.userLabel(context);
-    }
-
-    @Override
-    public void didReceiveDSC() {
-
     }
 
     private String userChannelOrSixteen(MachineData machineData) {
