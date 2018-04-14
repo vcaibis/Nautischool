@@ -12,9 +12,6 @@ import java.util.Arrays;
  */
 public class MachineUtils {
 
-    //Implementation de machineData -Helder ajout
-    MachineData machineData = new MachineData();
-
     public static String highLetters[][] = {
             {"0"},
             {" ", "1"},
@@ -55,10 +52,10 @@ public class MachineUtils {
     };
 
 
-/*
+
     //Detect if the label is High or low power
-    public String powerLabel(MachineContext context ){
-        machineData = context.getMachineData();
+    public static String powerLabel(MachineContext context ){
+        MachineData machineData = context.getMachineData();
 
         if (machineData.isHighPower || machineData.workingChannel == "15"
                 || machineData.workingChannel == "17") {
@@ -67,20 +64,20 @@ public class MachineUtils {
             return "Hi";
         }
     }
-*/
+
 
 
     // Detect if the power value is high or low
-    public Boolean powerValue(MachineContext context ){
-        machineData = context.getMachineData();
+    public static boolean powerValue(MachineContext context ){
+        MachineData machineData = context.getMachineData();
         return !machineData.isHighPower &&
                 machineData.workingChannel != "15" &&
                 machineData.workingChannel != "17";
     }
-/*
+
     // Detect if the working channel is the user channel
-    public String userLabel(MachineContext context ){
-        machineData = context.getMachineData();
+    public static String userLabel(MachineContext context ){
+        MachineData machineData = context.getMachineData();
 
         if (machineData.userChannel == machineData.workingChannel) {
             return "User";
@@ -88,8 +85,8 @@ public class MachineUtils {
             return " ";
         }
     }
-    */
-/*
+
+
     // Change the channel when dual watch is activated
     public static String switchChannel(MachineData machineData ){
         if (machineData.workingChannel == machineData.dualWatchChannel) {
@@ -98,7 +95,7 @@ public class MachineUtils {
             return machineData.dualWatchChannel;
         }
     }
-*/
+
     // Find the next channel in the memory scan
     public static String nextChannelInMemoryScan(MachineData machineData ){
         int index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
@@ -125,7 +122,7 @@ public class MachineUtils {
         }
         return ""; // Should never happen
     }
-/*
+
     // Change the working channel when triwatch is activated
     public static String triwatchSwitchState(MachineData machineData ){
         if (machineData.workingChannel == "16") {
@@ -141,6 +138,6 @@ public class MachineUtils {
     // public static String replaceSubrange(String of, int at,String  with){
     //    return of.replacingCharacters(in: of.index(of.startIndex, offsetBy: at)..<of.index(of.startIndex, offsetBy: at + with.characters.count), with: with)
     //}
-*/
+
 
 }

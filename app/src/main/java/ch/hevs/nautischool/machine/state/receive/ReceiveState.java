@@ -167,9 +167,9 @@ public class ReceiveState implements MachineState {
         screenLabels.left4 = " ";
 
         screenLabels.mid1 = "INT";
-        //screenLabels.mid2 = MachineUtils.powerLabel(context);
-        //screenLabels.mid3 = MachineUtils.userLabel(context);
-        //screenLabels.mid4 = machineData.currentMode.rawValue;
+        screenLabels.mid2 = MachineUtils.powerLabel(context);
+        screenLabels.mid3 = MachineUtils.userLabel(context);
+        screenLabels.mid4 = machineData.currentMode;
 
         screenLabels.right1 = "DSC";
         screenLabels.right2 = "T/W";
