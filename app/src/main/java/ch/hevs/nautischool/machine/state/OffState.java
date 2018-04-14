@@ -65,20 +65,9 @@ public class OffState implements MachineState {
     @Override
     public void volume(int sender) {
         context.getMachineData().volume = sender;
-        context.setState(new ReceiveState(context));
-/*
-        let machineData = context.machineData
-
-        machineData.volume = sender.actualAngle()
-        if machineData.volume != sender.startAngle {
-            if machineData.previousSquelch < 0.0 && machineData.squelch < 0.0 {
-                context.playSound(soundID: 2)
-            }
-            context.setState(state: ReceiveState(context: context))
+        if(sender>0){
+            context.setState(new ReceiveState(context));
         }
-*/
-
-
     }
 
     @Override

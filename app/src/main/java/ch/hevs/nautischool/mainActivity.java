@@ -1,6 +1,7 @@
 package ch.hevs.nautischool;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -25,10 +26,6 @@ public class mainActivity extends AppCompatActivity {
 //    static Context context;
      MachineContext radio = new MachineContext();
 
-    private SharedPreferences prefsV;
-    private SharedPreferences prefsS;
-    private SeekBar seekBarV;
-    private SeekBar seekBarS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -245,29 +242,63 @@ public class mainActivity extends AppCompatActivity {
     }
 
 
-    public void onClickVolume(View view) {
+    public void onClickVolume(final View view) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.this);
-
         LayoutInflater inflater = getLayoutInflater();
-        View dialogViewVolume = inflater.inflate(R.layout.volume_layout,null);
 
+        View dialogViewVolume = inflater.inflate(R.layout.volume_layout,null);
         builder.setView(dialogViewVolume);
 
-        /*
-        //---get the SharedPreferences object---
-        //prefs = getSharedPreferences(prefName, MODE_PRIVATE);
-        prefsV = getPreferences(MODE_PRIVATE);
-        seekBarV = (SeekBar) findViewById(R.id.seekBarVolume);
-        SharedPreferences.Editor editor = prefsS.edit();
+        final SeekBar sbVolume = (SeekBar)dialogViewVolume.findViewById(R.id.seekBarVolume);
+        sbVolume.setMax(100);
 
-        editor.commit();
-*/
+        final TextView tv_Volume  = (TextView)dialogViewVolume.findViewById(R.id.resultV);
+        int oldVolume = radio.getMachineData().volume;
+
+
+        tv_Volume.setText(oldVolume + " %");
+        sbVolume.setProgress(oldVolume);
+
+
+
+
+
+        sbVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int newVolume, boolean b) {
+
+                tv_Volume.setText(newVolume + " %");
+
+                radio.volume(newVolume);
+                radioToScreen(view);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+
         final AlertDialog dialog = builder.create();
 
         dialog.show();
-
-
     }
+
+
 
     public void onClickSquelch(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.this);
@@ -278,40 +309,6 @@ public class mainActivity extends AppCompatActivity {
 
         builder.setView(dialogViewSquelch);
 
-        /*
-
-        //---get the SharedPreferences object---
-        //prefs = getSharedPreferences(prefName, MODE_PRIVATE);
-        prefsS = getPreferences(MODE_PRIVATE);
-        seekBarS = (SeekBar) findViewById(R.id.seekBarSquelch);
-
-        SharedPreferences.Editor editor = prefsS.edit();
-
-        editor.commit();
-        //---load the SharedPreferences object---
-        //SharedPreferences prefsV = getSharedPreferences(prefName, MODE_PRIVATE);
-        prefsS = getPreferences(MODE_PRIVATE);
-
-        int fontSize = prefsS.getInt("KEY_PROGRESS_VALUE", 30);
-
-        seekBarS.setProgress((int) fontSize);
-
-        seekBarS.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-
-
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-            }
-
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            public void onProgressChanged(SeekBar seekBar) {
-            }
-        });
-*/
 
         final AlertDialog dialog = builder.create();
 

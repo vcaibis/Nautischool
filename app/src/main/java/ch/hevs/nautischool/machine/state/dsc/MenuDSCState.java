@@ -4,9 +4,12 @@ import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
+import ch.hevs.nautischool.machine.state.dsc.log.LogState;
+import ch.hevs.nautischool.machine.state.dsc.menu1.Menu1State;
 import ch.hevs.nautischool.machine.state.receive.DualWatchState;
 import ch.hevs.nautischool.machine.state.receive.MemoryScanState;
 import ch.hevs.nautischool.machine.state.receive.ReceiveState;
+import ch.hevs.nautischool.machine.state.receive.ScanState;
 import ch.hevs.nautischool.machine.state.receive.TriWatchState;
 
 /**
@@ -52,13 +55,13 @@ public class MenuDSCState  implements MachineState {
                     navigateBackToRad();
                     break;
                 case 2 :
-//                    context.setState(new CallState(context));
+                    context.setState(new CallState(context));
                     break;
                 case 3 :
-//                    context.setState(new LogState(context));
+                    context.setState(new LogState(context));
                     break;
                 default:
-//                    context.setState(new Menu1State(context));
+                    context.setState(new Menu1State(context));
             }
         }
 
@@ -72,7 +75,7 @@ public class MenuDSCState  implements MachineState {
                 context.setState(new MemoryScanState(context));
                 break;
             case MachineData.MACHINEMODE_SCAN://.scan:
-                //context.setState(new ScanState(context));
+                context.setState(new ScanState(context));
                 break;
             case MachineData.MACHINEMODE_TRIWATCH: // .triwatch:
                 context.setState(new TriWatchState(context));

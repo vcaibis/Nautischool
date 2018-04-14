@@ -1,29 +1,28 @@
 package ch.hevs.nautischool.machine.state.receive;
 
+import java.util.Arrays;
+
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
 import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
-import ch.hevs.nautischool.machine.state.dsc.call.SelectChanState;
 
 /**
- * Created by Helder on 17.03.2018.
+ * Created by Helder on 07.04.2018.
  */
 
-public class DualWatchState implements MachineState {
-
+public class ScanState implements MachineState {
     MachineContext context;
 
-    public DualWatchState(MachineContext context) {
+    public ScanState(MachineContext context) {
         init(context);
     }
 
     @Override
     public void alphanumeric(int sender) {
-        context.getMachineData().selectingChan = ""+sender;
-        context.setState(new SelectChanState(context));
+
     }
 
     @Override
@@ -38,7 +37,7 @@ public class DualWatchState implements MachineState {
 
     @Override
     public void light() {
-        context.lightButtonPressed();
+
     }
 
     @Override
@@ -48,15 +47,31 @@ public class DualWatchState implements MachineState {
 
     @Override
     public void softkey(int sender, boolean longClick) {
-        if (!longClick && sender == 1) {
-            context.setState(new MenuDSCState(context));
+        if (!longClick) {
+            MachineData machineData = context.getMachineData();
+
+            if (sender == 1) {
+                context.setState(new MenuDSCState(context));
+            } else if (sender == 3) {
+                if (context.getTimer() != null) {
+                    int index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
+                   // machineData.scanChannels[index!] = false;
+                    machineData.scanNumber -= 1;
+                    context.startTimer(0.5, true);
+                }
+            } else if (sender == 4) {
+                if (context.getTimer() == null) {
+                    //context.timer!.fire()
+                }
+                context.startTimer(0.5, true);
+            }
         }
     }
 
     @Override
     public void cancel() {
         context.stopTimer();
-        context.setState(new ReceiveState( context));
+        context.setState(new ReceiveState(context));
     }
 
     @Override
@@ -94,16 +109,15 @@ public class DualWatchState implements MachineState {
         ScreenLabels screenLabels = context.getScreenLabels();
         MachineData machineData = context.getMachineData();
 
-        if (machineData.currentMode != machineData.dualWatchChannel) {
-            machineData.currentMode = machineData.dualWatchChannel;
-            machineData.dualWatchChannel = machineData.workingChannel;
-            context.startTimer(0.5,true);
+        if (machineData.currentMode != MachineData.MACHINEMODE_SCAN) {
+            machineData.currentMode = MachineData.MACHINEMODE_SCAN;
+            machineData.workingChannel = "88";
+            machineData.workingChannel = MachineUtils.nextChannelInScan( machineData);
+            context.startTimer(0.5, true);
         }
 
         screenLabels.left1 = " ";
         screenLabels.left2 = " ";
-        screenLabels.left3 = " ";
-        screenLabels.left4 = " ";
 
         screenLabels.mid1 = "INT";
         //screenLabels.mid2 = MachineUtils.powerLabel(context);
@@ -112,24 +126,21 @@ public class DualWatchState implements MachineState {
 
         screenLabels.right1 = "DSC";
         screenLabels.right2 = " ";
-        screenLabels.right3 = " ";
-        screenLabels.right4 = " ";
+        screenLabels.right3 = "Ihn";
+        screenLabels.right4 = "Adv";
 
         screenLabels.bigChan = machineData.workingChannel;
         screenLabels.smallChan = " ";
-
-        screenLabels.message1 = " ";
-        screenLabels.message2 = " ";
-        screenLabels.message3 = " ";
     }
 
     @Override
     public void updateTimerEnded() {
         ScreenLabels screenLabels = context.getScreenLabels();
+        MachineData machineData = context.getMachineData();
 
-        //screenLabels.mid2 = MachineUtils.powerLabel( context)
-        //screenLabels.mid3 = MachineUtils.userLabel( context)
-        screenLabels.bigChan = context.getMachineData().workingChannel;
+        //screenLabels.mid2 = MachineUtils.powerLabel(context);
+        //screenLabels.mid3 = MachineUtils.userLabel(context);
+        screenLabels.bigChan = machineData.workingChannel;
     }
 
     @Override

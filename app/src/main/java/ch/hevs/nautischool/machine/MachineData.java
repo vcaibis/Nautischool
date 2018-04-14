@@ -31,18 +31,18 @@ public class MachineData {
                     "61", "62", "63", "64", "65", "66", "67", "68", "69",
                     "71", "72", "73", "74", "75", "76", "77", "78", "79", "80",
                     "81", "82", "83", "84", "85", "86", "87", "88"};
-    String contrasts[] = {"MIN", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "MAX"};
-    String [] distressType = DistressType.getAllValues();
-    String mDSCType[][] = {
+    public String contrasts[] = {"MIN", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5", "6", "MAX"};
+    public String [] distressType = DistressType.getAllValues();
+    public String mDSCType[][] = {
                     {"Routine to", ""},
                     {"All ships", "Safety"},
                     {"All ships", "Urgency"}
             };
 
     // All states
-    public double volume;
-    public double squelch;
-    public double previousSquelch;
+    public int volume;
+    public int squelch;
+    public int previousSquelch;
     public String workingChannel = "16";
     public String userChannel = "16";
     public boolean isHighPower = true;
@@ -97,9 +97,19 @@ public class MachineData {
         initialize();
 //        DSCType.append(("Group Call", "\(self.groupMMSI)"));
         populateLogs();
+        populateContacts();
     }
 
-        // Add some fictive logs
+    // Add some fictive contacts
+    private void populateContacts() {
+        contacts = new ArrayList<>();
+        contacts.add(new Contact("MrcKoper", "002780200"));
+        contacts.add(new Contact("Splitradio", "002380100"));
+        contacts.add(new Contact("Spinaker", "027811100"));
+
+    }
+
+    // Add some fictive logs
         private void populateLogs() {
             alertLogs = new ArrayList<>();
             alertLogs.add(new DSCMessage(DSCName.INDIVIDUAL,DSCType.ROUTINE,"012345678","08",mmsi,null));
@@ -141,6 +151,7 @@ public class MachineData {
                 currentMode = MACHINEMODE_RECEIVE ;
                 isBeepOn = true;
             }
+
 
 }
 

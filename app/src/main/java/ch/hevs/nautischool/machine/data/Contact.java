@@ -6,6 +6,11 @@ package ch.hevs.nautischool.machine.data;
 
 // Small structure to hold the name and mmsi of a contact
 public class Contact {
-    String name;
-    String mmsi;
+    public String name;
+    public String mmsi;
+
+    public Contact(String name, String mmsi) {
+        this.name = name;
+        this.mmsi = mmsi;
+    }
 }
