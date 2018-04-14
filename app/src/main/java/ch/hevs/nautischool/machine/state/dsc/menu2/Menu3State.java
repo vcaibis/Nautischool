@@ -1,7 +1,6 @@
-package ch.hevs.nautischool.machine.state.dsc.menu1;
+package ch.hevs.nautischool.machine.state.dsc.menu2;
 
 import ch.hevs.nautischool.machine.MachineContext;
-import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
 
@@ -9,10 +8,10 @@ import ch.hevs.nautischool.machine.ScreenLabels;
  * Created by Helder on 14.04.2018.
  */
 
-public class PosnState implements MachineState {
+public class Menu3State implements MachineState {
     MachineContext context;
 
-    public PosnState(MachineContext context) {
+    public Menu3State(MachineContext context) {
         init(context);
     }
 
@@ -47,16 +46,14 @@ public class PosnState implements MachineState {
             if (sender == 1) {
                 context.navigateBackToMenuDSCState();
             } else if (sender == 2) {
-                context.setState(new PosnEditPosn(context));
-            } else if (sender == 3) {
-                context.setState(new PosnEditUTC(context));
+                context.getMachineData().isBeepOn = !context.getMachineData().isBeepOn;
             }
         }
     }
 
     @Override
     public void cancel() {
-        context.setState(new Menu1State(context));
+        context.setState(new Menu2State(context));
     }
 
     @Override
@@ -86,30 +83,22 @@ public class PosnState implements MachineState {
 
     @Override
     public void init(MachineContext context) {
-        this.context = context;
+
     }
 
     @Override
     public void updateDisplay() {
         ScreenLabels screenLabels = context.getScreenLabels();
-        MachineData machineData = context.getMachineData();
 
-        screenLabels.left1 = machineData.longitude;
-        screenLabels.left2 = machineData.latitude;
-        screenLabels.left3 = machineData.utc;
-
-        screenLabels.mid4 = " ";
-
-        screenLabels.right2 = "Posn";
-        screenLabels.right3 = "UTC";
+        screenLabels.right1 = "DSC";
+        screenLabels.right2 = "Beep";
+        screenLabels.right3 = " ";
         screenLabels.right4 = " ";
-
-        context.getScreenLabels().smallChan = " ";
     }
 
     @Override
     public void updateTimerEnded() {
-
+        context.getScreenLabels().smallChan = context.getMachineData().workingChannel;
     }
 
     @Override

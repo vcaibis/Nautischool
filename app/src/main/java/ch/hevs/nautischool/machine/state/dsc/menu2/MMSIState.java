@@ -1,4 +1,4 @@
-package ch.hevs.nautischool.machine.state.dsc.menu1;
+package ch.hevs.nautischool.machine.state.dsc.menu2;
 
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
@@ -9,10 +9,10 @@ import ch.hevs.nautischool.machine.ScreenLabels;
  * Created by Helder on 14.04.2018.
  */
 
-public class PosnState implements MachineState {
+public class MMSIState implements MachineState {
     MachineContext context;
 
-    public PosnState(MachineContext context) {
+    public MMSIState(MachineContext context) {
         init(context);
     }
 
@@ -46,17 +46,15 @@ public class PosnState implements MachineState {
         if (!longClick) {
             if (sender == 1) {
                 context.navigateBackToMenuDSCState();
-            } else if (sender == 2) {
-                context.setState(new PosnEditPosn(context));
-            } else if (sender == 3) {
-                context.setState(new PosnEditUTC(context));
+            } else if (sender == 4) {
+//                context.setState(new MMSIEditGroupState(context));
             }
         }
     }
 
     @Override
     public void cancel() {
-        context.setState(new Menu1State(context));
+        context.setState(new Menu2State(context));
     }
 
     @Override
@@ -94,17 +92,19 @@ public class PosnState implements MachineState {
         ScreenLabels screenLabels = context.getScreenLabels();
         MachineData machineData = context.getMachineData();
 
-        screenLabels.left1 = machineData.longitude;
-        screenLabels.left2 = machineData.latitude;
-        screenLabels.left3 = machineData.utc;
+        screenLabels.left1 = "Ships MMSI";
+        screenLabels.left2 = machineData.mmsi;
+        screenLabels.left3 = "Group MMSI";
+        screenLabels.left4 = machineData.groupMMSI;
 
         screenLabels.mid4 = " ";
 
-        screenLabels.right2 = "Posn";
-        screenLabels.right3 = "UTC";
-        screenLabels.right4 = " ";
+        screenLabels.right1 = "DSC";
+        screenLabels.right2 = " ";
+        screenLabels.right3 = " ";
+        screenLabels.right4 = "\u25BA";
 
-        context.getScreenLabels().smallChan = " ";
+        screenLabels.smallChan = " ";
     }
 
     @Override
