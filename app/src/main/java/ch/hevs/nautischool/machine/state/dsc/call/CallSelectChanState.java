@@ -1,10 +1,13 @@
 package ch.hevs.nautischool.machine.state.dsc.call;
 
+import java.util.Arrays;
+
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.ScreenLabels;
 import ch.hevs.nautischool.machine.state.dsc.CallState;
+import ch.hevs.nautischool.machine.state.receive.ReceiveState;
 
 /**
  * Created by GCI on 14.04.2018.
@@ -49,7 +52,7 @@ public class CallSelectChanState implements MachineState {
 
     @Override
     public void power() {
-// Nothing to do because no effect
+        // Nothing to do because no effect
     }
 
     @Override
@@ -76,18 +79,11 @@ public class CallSelectChanState implements MachineState {
     @Override
     public void enter() {
         MachineData machineData = context.getMachineData();
-        /*
 
-        Voir avec Vincent
-
-        if let range = machineData.selectingChan.range(of: " ") {
-            machineData.selectingChan.replaceSubrange(range, with: "0")
+        if( Arrays.asList(machineData.channels).contains(machineData.selectingChan)){
+            context.getMachineData().workingChannel = context.getMachineData().selectingChan;
         }
-        if (machineData.channels.contains(machineData.selectingChan)) {
-            machineData.currentChannel = machineData.selectingChan;
-            context.setState(new CallState(context));
-        }
-*/
+        context.setState(new ReceiveState(context));
     }
 
     @Override
