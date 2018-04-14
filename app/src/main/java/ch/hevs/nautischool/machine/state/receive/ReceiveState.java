@@ -5,6 +5,7 @@ import java.util.Arrays;
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
+import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
 import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
 
@@ -44,7 +45,7 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void power() {
-        //context.getMachineData().isHighPower = MachineUtils.powerValue(context);
+//        context.getMachineData().isHighPower = MachineUtils.powerValue(context);
         context.setState(this);
     }
 
