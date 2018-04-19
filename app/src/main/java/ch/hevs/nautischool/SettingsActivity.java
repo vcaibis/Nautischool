@@ -26,7 +26,7 @@ public class SettingsActivity extends ListActivity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-     
+
             if(ev.getAction()==MotionEvent.ACTION_MOVE)
                 return true;
             return super.dispatchTouchEvent(ev);
@@ -45,12 +45,13 @@ public class SettingsActivity extends ListActivity {
                 android.R.layout.simple_list_item_checked,listModes));
 
         firstListView.setChoiceMode(firstListView.CHOICE_MODE_SINGLE);
-
+        Utility.setListViewHeightBasedOnChildren(firstListView);
 
         ListView settingsSecondList = (ListView) findViewById(R.id.listSecond);
         settingsSecondList.setAdapter( new ArrayAdapter<String>(this,
                 R.layout.single_row, R.id.textViewSettingsSecond, listvariousSettings ));
 
+        Utility.setListViewHeightBasedOnChildren(settingsSecondList);
 
     }
 
