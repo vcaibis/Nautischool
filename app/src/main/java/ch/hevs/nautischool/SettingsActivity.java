@@ -3,6 +3,7 @@ package ch.hevs.nautischool;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
@@ -23,6 +24,13 @@ public class SettingsActivity extends ListActivity {
     };
 
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+     
+            if(ev.getAction()==MotionEvent.ACTION_MOVE)
+                return true;
+            return super.dispatchTouchEvent(ev);
+        }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
