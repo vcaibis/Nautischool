@@ -126,8 +126,8 @@ public class MemoryScanState implements MachineState {
         screenLabels.left2 = " ";
 
         screenLabels.mid1 = "INT";
-        //screenLabels.mid2 = MachineUtils.powerLabel(context: context)
-        //screenLabels.mid3 = MachineUtils.userLabel(context);
+        screenLabels.mid2 = MachineUtils.powerLabel(context);
+        screenLabels.mid3 = MachineUtils.userLabel(context);
         screenLabels.mid4 = machineData.currentMode;
 
         screenLabels.right1 = "DSC";

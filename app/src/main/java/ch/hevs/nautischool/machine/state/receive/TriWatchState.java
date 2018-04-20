@@ -3,6 +3,7 @@ package ch.hevs.nautischool.machine.state.receive;
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
+import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
 import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
 
@@ -110,7 +111,7 @@ public class TriWatchState implements MachineState {
         screenLabels.left2 = " ";
 
         screenLabels.mid1 = "INT";
-        //screenLabels.mid2 = MachineUtils.powerLabel( context);
+        screenLabels.mid2 = MachineUtils.powerLabel( context);
         screenLabels.mid3 = "Ch16";
         screenLabels.mid4 = machineData.currentMode;
 
@@ -126,7 +127,7 @@ public class TriWatchState implements MachineState {
     @Override
     public void updateTimerEnded() {
         ScreenLabels screenLabels = context.getScreenLabels();
-        //screenLabels.mid2 = MachineUtils.powerLabel(context);
+        screenLabels.mid2 = MachineUtils.powerLabel(context);
         screenLabels.bigChan = context.getMachineData().workingChannel;
     }
 

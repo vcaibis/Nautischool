@@ -187,8 +187,8 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void updateTimerEnded() {
-        //context.getScreenLabels().mid2 = MachineUtils.powerLabel(context);
-        //context.getScreenLabels().mid3 = MachineUtils.userLabel(context);
+        context.getScreenLabels().mid2 = MachineUtils.powerLabel(context);
+        context.getScreenLabels().mid3 = MachineUtils.userLabel(context);
     }
 
     @Override

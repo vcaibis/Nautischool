@@ -3,6 +3,7 @@ package ch.hevs.nautischool.machine.state.receive;
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
+import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
 import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
 
@@ -104,9 +105,9 @@ public class DualWatchState implements MachineState {
         screenLabels.left4 = " ";
 
         screenLabels.mid1 = "INT";
-        //screenLabels.mid2 = MachineUtils.powerLabel(context);
-        //screenLabels.mid3 = MachineUtils.userLabel(context);
-        //screenLabels.mid4 = machineData.currentMode.rawValue
+        screenLabels.mid2 = MachineUtils.powerLabel(context);
+        screenLabels.mid3 = MachineUtils.userLabel(context);
+        screenLabels.mid4 = machineData.currentMode;
 
         screenLabels.right1 = "DSC";
         screenLabels.right2 = " ";
@@ -125,8 +126,8 @@ public class DualWatchState implements MachineState {
     public void updateTimerEnded() {
         ScreenLabels screenLabels = context.getScreenLabels();
 
-        //screenLabels.mid2 = MachineUtils.powerLabel( context)
-        //screenLabels.mid3 = MachineUtils.userLabel( context)
+        screenLabels.mid2 = MachineUtils.powerLabel( context);
+        screenLabels.mid3 = MachineUtils.userLabel( context);
         screenLabels.bigChan = context.getMachineData().workingChannel;
     }
 

@@ -83,7 +83,7 @@ public class Menu3State implements MachineState {
 
     @Override
     public void init(MachineContext context) {
-
+        this.context=context;
     }
 
     @Override

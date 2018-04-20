@@ -120,9 +120,9 @@ public class ScanState implements MachineState {
         screenLabels.left2 = " ";
 
         screenLabels.mid1 = "INT";
-        //screenLabels.mid2 = MachineUtils.powerLabel(context);
-        //screenLabels.mid3 = MachineUtils.userLabel(context);
-        //screenLabels.mid4 = machineData.currentMode.rawValue
+        screenLabels.mid2 = MachineUtils.powerLabel(context);
+        screenLabels.mid3 = MachineUtils.userLabel(context);
+        screenLabels.mid4 = machineData.currentMode;
 
         screenLabels.right1 = "DSC";
         screenLabels.right2 = " ";
@@ -138,8 +138,8 @@ public class ScanState implements MachineState {
         ScreenLabels screenLabels = context.getScreenLabels();
         MachineData machineData = context.getMachineData();
 
-        //screenLabels.mid2 = MachineUtils.powerLabel(context);
-        //screenLabels.mid3 = MachineUtils.userLabel(context);
+        screenLabels.mid2 = MachineUtils.powerLabel(context);
+        screenLabels.mid3 = MachineUtils.userLabel(context);
         screenLabels.bigChan = machineData.workingChannel;
     }
 
