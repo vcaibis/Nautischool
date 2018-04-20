@@ -31,6 +31,9 @@ import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 import org.jivesoftware.smackx.muc.MultiUserChatManager;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.ScreenLabels;
 
@@ -39,6 +42,8 @@ public class mainActivity extends AppCompatActivity {
     MachineContext radio = new MachineContext();
     private DrawLine mDrawLine;
     private ImageView line;
+    private Timer timer;
+    private TimerTask task;
 
     TextView right1;
     Button sk1;
@@ -119,7 +124,7 @@ public class mainActivity extends AppCompatActivity {
 
 
 
-
+        startTimer();
 
     }
     @Override
@@ -140,168 +145,118 @@ public class mainActivity extends AppCompatActivity {
         mDrawLine.draw();
         Log.d(TAG, "right1: ("+right1.getX()+";"+right1.getY()+" sk1: ("+sk1.getX()+";"+sk1.getY()+")");
     */}
-    public void radioToScreen(View view) {
-        ScreenLabels sc = radio.getScreenLabels();
-        TextView bigChan = (TextView)findViewById(R.id.bigChan);
-        TextView smallChan = (TextView)findViewById(R.id.smallChan);
+    
 
-        bigChan.setText(sc.bigChan);
-        smallChan.setText(sc.smallChan);
-
-        TextView right1 = (TextView)findViewById(R.id.right1);
-        TextView right2 = (TextView)findViewById(R.id.right2);
-        TextView right3 = (TextView)findViewById(R.id.right3);
-        TextView right4 = (TextView)findViewById(R.id.right4);
-
-        right1.setText(sc.right1);
-        right2.setText(sc.right2);
-        right3.setText(sc.right3);
-        right4.setText(sc.right4);
-//.
-        TextView mid1 = (TextView)findViewById(R.id.mid1);
-        TextView mid2 = (TextView)findViewById(R.id.mid2);
-        TextView mid3 = (TextView)findViewById(R.id.mid3);
-        TextView mid4 = (TextView)findViewById(R.id.mid4);
-
-        mid1.setText(sc.mid1);
-        mid2.setText(sc.mid2);
-        mid3.setText(sc.mid3);
-        mid4.setText(sc.mid4);
-
-        TextView left1 = (TextView)findViewById(R.id.left1);
-        TextView left2 = (TextView)findViewById(R.id.left2);
-        TextView left3 = (TextView)findViewById(R.id.left3);
-        TextView left4 = (TextView)findViewById(R.id.left4);
-
-        left1.setText(sc.left1);
-        left2.setText(sc.left2);
-        left3.setText(sc.left3);
-        left4.setText(sc.left4);
-
-        TextView message1 = (TextView)findViewById(R.id.message1);
-        TextView message2 = (TextView)findViewById(R.id.message2);
-        TextView message3 = (TextView)findViewById(R.id.message3);
-
-        message1.setText(sc.message1);
-        message2.setText(sc.message2);
-        message3.setText(sc.message3);
-
-
-
-//        radio.getCurrentState();
-//        radio.getMachineData();
-//        radio.getTimer();
-    }
     public void sk1(View view) {
         radio.softkey(1, false);
-        radioToScreen(view);
+        radioToScreen();
     }
     public void sk2(View view) {
         radio.softkey(2, false);
-        radioToScreen(view);
+        radioToScreen();
     }
     public void sk3(View view) {
         radio.softkey(3, false);
-        radioToScreen(view);
+        radioToScreen();
     }
     public void sk4(View view) {
         radio.softkey(4, false);
-        radioToScreen(view);
+        radioToScreen();
     }
 
     public void ClickNumPad1(View view) {
         radio.alphanumeric(1);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad2(View view) {
         radio.alphanumeric(2);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad3(View view) {
         radio.alphanumeric(3);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad4(View view) {
         radio.alphanumeric(4);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad5(View view) {
         radio.alphanumeric(5);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad6(View view) {
         radio.alphanumeric(6);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad7(View view) {
         radio.alphanumeric(7);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad8(View view) {
         radio.alphanumeric(8);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad9(View view) {
         radio.alphanumeric(9);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPadCancel(View view) {
         radio.cancel();
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPad0(View view) {
         radio.alphanumeric(0);
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickNumPadEnter(View view) {
         radio.enter();
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickDistressButton(View view) {
         radio.distressButtonPressed();
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickDualWatchButton(View view) {
         radio.dualWatchButtonPressed();
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickButtonChannel_16(View view) {
         radio.sixteenButtonPressed();
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
     public void ClickChangeLight(View view) {
         radio.lightButtonPressed();
-        radioToScreen(view);
+        radioToScreen();
 
     }
 
@@ -343,7 +298,7 @@ public class mainActivity extends AppCompatActivity {
                 tv_Volume.setText(newVolume + " %");
 
                 radio.volume(newVolume);
-                radioToScreen(view);
+                radioToScreen();
             }
 
             @Override
@@ -395,7 +350,7 @@ public class mainActivity extends AppCompatActivity {
                 tv_Squelch.setText(newSquelch + " %");
 
                 radio.squelch(newSquelch);
-                radioToScreen(view);
+                radioToScreen();
             }
 
             @Override
@@ -421,6 +376,67 @@ public class mainActivity extends AppCompatActivity {
 
     }
 
+    public void startTimer(){
+        timer = new Timer();
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        radioToScreen();
+                    }
+                });
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, 1000);
+    }
+    public void radioToScreen() {
+        ScreenLabels sc = radio.getScreenLabels();
+        TextView bigChan = (TextView)findViewById(R.id.bigChan);
+        TextView smallChan = (TextView)findViewById(R.id.smallChan);
 
+        bigChan.setText(sc.bigChan);
+        smallChan.setText(sc.smallChan);
+
+        TextView right1 = (TextView)findViewById(R.id.right1);
+        TextView right2 = (TextView)findViewById(R.id.right2);
+        TextView right3 = (TextView)findViewById(R.id.right3);
+        TextView right4 = (TextView)findViewById(R.id.right4);
+
+        right1.setText(sc.right1);
+        right2.setText(sc.right2);
+        right3.setText(sc.right3);
+        right4.setText(sc.right4);
+//.
+        TextView mid1 = (TextView)findViewById(R.id.mid1);
+        TextView mid2 = (TextView)findViewById(R.id.mid2);
+        TextView mid3 = (TextView)findViewById(R.id.mid3);
+        TextView mid4 = (TextView)findViewById(R.id.mid4);
+
+        mid1.setText(sc.mid1);
+        mid2.setText(sc.mid2);
+        mid3.setText(sc.mid3);
+        mid4.setText(sc.mid4);
+
+        TextView left1 = (TextView)findViewById(R.id.left1);
+        TextView left2 = (TextView)findViewById(R.id.left2);
+        TextView left3 = (TextView)findViewById(R.id.left3);
+        TextView left4 = (TextView)findViewById(R.id.left4);
+
+        left1.setText(sc.left1);
+        left2.setText(sc.left2);
+        left3.setText(sc.left3);
+        left4.setText(sc.left4);
+
+        TextView message1 = (TextView)findViewById(R.id.message1);
+        TextView message2 = (TextView)findViewById(R.id.message2);
+        TextView message3 = (TextView)findViewById(R.id.message3);
+
+        message1.setText(sc.message1);
+        message2.setText(sc.message2);
+        message3.setText(sc.message3);
+
+    }
 
 }
