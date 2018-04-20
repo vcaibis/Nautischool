@@ -5,11 +5,23 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
+import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -24,13 +36,26 @@ import ch.hevs.nautischool.machine.ScreenLabels;
 
 public class mainActivity extends AppCompatActivity {
 //    static Context context;
-     MachineContext radio = new MachineContext();
+    MachineContext radio = new MachineContext();
+    private DrawLine mDrawLine;
+    private ImageView line;
 
+    TextView right1;
+    Button sk1;
+    TextView right2;
+    Button sk2;
+    TextView right3;
+    Button sk3;
+    TextView right4;
+    Button sk4;
+    private final String TAG ="ICI";
+    int mOrientation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //Disable native home barre and notification barre for win place
         this.getWindow().getDecorView().setSystemUiVisibility(
@@ -41,30 +66,80 @@ public class mainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        /*Configuration config = getResources().getConfiguration();
-        if (config.smallestScreenWidthDp >= 360)
-        {
-            setContentView(R.layout.activity_main_sw360);
-        }
-        if (config.smallestScreenWidthDp >= 380)
-        {
-            setContentView(R.layout.activity_main_sw380);
-        }
-        if (config.smallestScreenWidthDp >= 600)
-        {
-            setContentView(R.layout.activity_main_sw600);
-        }
-        if (config.smallestScreenWidthDp >= 720)
-        {
-            setContentView(R.layout.activity_main_sw720);
-        }
-        else
-        {
-            setContentView(R.layout.activity_main);
-        }*/
+        mDrawLine = (DrawLine) findViewById(R.id.drawLine);
+
+
+        right1 = findViewById(R.id.right1);
+        sk1 = findViewById(R.id.sk1);
+        right2 = findViewById(R.id.right2);
+        sk2 = findViewById(R.id.sk2);
+        right3 = findViewById(R.id.right3);
+        sk3 = findViewById(R.id.sk3);
+        right4 = findViewById(R.id.right4);
+        sk4 = findViewById(R.id.sk4);
+
+        mDrawLine.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+            @Override
+            public void onGlobalLayout() {
+                mDrawLine.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                // Read values here.
+
+                Display display = getWindowManager().getDefaultDisplay();
+                int screenWidth = display.getWidth();
+                int screenHeight = display.getHeight();
+                int imgWidth = mDrawLine.getWidth();
+                int imgHeight = mDrawLine.getHeight();
+                float rationWith = screenWidth/imgWidth;
+                float rationHeight = screenHeight/imgHeight;
+
+
+                PointF pointA = new PointF(0, right1.getBottom()+20);
+                PointF pointB = new PointF(imgWidth, (sk1.getY()+sk1.getHeight()/2)+20);
+
+                PointF pointC = new PointF(0, (right2.getBottom())+20);
+                PointF pointD = new PointF(imgWidth, (sk2.getY()+sk2.getHeight()/2)+20);
+
+                PointF pointE = new PointF(0, (right3.getBottom())+20);
+                PointF pointF = new PointF(imgWidth, (sk3.getY()+sk3.getHeight()/2)+20);
+
+                PointF pointG = new PointF(0, (right4.getBottom())+20);
+                PointF pointH = new PointF(imgWidth, (sk4.getY()+sk4.getHeight()/2)+20);
+
+                mDrawLine.setPointA(pointA);
+                mDrawLine.setPointB(pointB);
+                mDrawLine.setPointC(pointC);
+                mDrawLine.setPointD(pointD);
+                mDrawLine.setPointE(pointE);
+                mDrawLine.setPointF(pointF);
+                mDrawLine.setPointG(pointG);
+                mDrawLine.setPointH(pointH);
+                mDrawLine.draw();
+            }
+        });
+
+
+
+
 
     }
+    @Override
+    public void onWindowFocusChanged (boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
 
+       /* right1 = findViewById(R.id.right1);
+        sk1 = findViewById(R.id.sk1);
+        mDrawLine = (DrawLine) findViewById(R.id.drawLine);
+
+        PointF pointA = new PointF(right1.getX(), right1.getY());
+
+        mDrawLine.setPointA(pointA);
+
+        PointF pointB = new PointF(sk1.getX(), sk1.getY());
+
+        mDrawLine.setPointB(pointB);
+        mDrawLine.draw();
+        Log.d(TAG, "right1: ("+right1.getX()+";"+right1.getY()+" sk1: ("+sk1.getX()+";"+sk1.getY()+")");
+    */}
     public void radioToScreen(View view) {
         ScreenLabels sc = radio.getScreenLabels();
         TextView bigChan = (TextView)findViewById(R.id.bigChan);
@@ -244,7 +319,7 @@ public class mainActivity extends AppCompatActivity {
 
     public void onClickVolume(final View view) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.this);
+       AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.this);
         LayoutInflater inflater = getLayoutInflater();
 
         View dialogViewVolume = inflater.inflate(R.layout.volume_layout,null);
