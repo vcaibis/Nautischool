@@ -54,7 +54,18 @@
             android:textSize="20sp" />
 
     </LinearLayout>
+    <ScrollView
+        android:id="@+id/scrollViewMenu"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp" >
 
     <!-- First part-->
     <TextView
@@ -130,5 +141,6 @@
         android:textColor="@color/colorMenu"
         android:textSize="17sp" />
 
-
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
