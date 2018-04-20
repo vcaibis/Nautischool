@@ -114,7 +114,7 @@ public class CallSentState implements MachineState {
         screenLabels.message2 = "DSC CALL";
         screenLabels.message3 = " ";
 
-
+        // waiting 2 seconds
         timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
