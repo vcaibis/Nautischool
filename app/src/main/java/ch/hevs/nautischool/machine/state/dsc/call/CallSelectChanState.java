@@ -75,7 +75,7 @@ public class CallSelectChanState implements MachineState {
     }
 
     @Override
-    public void enter() {
+    public void enter() {//dgdf
         MachineData machineData = context.getMachineData();
 
         if( Arrays.asList(machineData.channels).contains(machineData.selectingChan)){
