@@ -15,7 +15,7 @@ public class CallSelectChanState implements MachineState {
     MachineContext context;
     String[] defaultChannels = {"06", "08", "72", "77"};
     int currentDefChannel = 3;
-    ;
+
     public CallSelectChanState(MachineContext context) {
         init(context);
     }
@@ -23,10 +23,8 @@ public class CallSelectChanState implements MachineState {
     @Override
     public void alphanumeric(int sender) {
         MachineData machineData = context.getMachineData();
-        // Voir avec Vincent
-        //        machineData.selectingChan.remove(at: machineData.selectingChan.startIndex);
-        //        machineData.selectingChan.append(sender.description);
-
+        machineData.selectingChan += "00" + machineData.selectingChan + sender;
+        machineData.selectingChan = machineData.selectingChan.substring(machineData.selectingChan.length()-2);
         context.setState(this);
     }
 

@@ -45,12 +45,6 @@ public class CallState implements MachineState {
     public void power() {
 
     }
-    /*
-    @Override
-    public void softkey(int sender, boolean longClick) {
-        //double de la methode en bas , a effacer quand toute les methodes sont finies
-    }
-    */
 
     @Override
     public void softkey(int sender, boolean longClick) {

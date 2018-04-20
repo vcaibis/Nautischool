@@ -45,7 +45,7 @@ public class ReceiveState implements MachineState {
 
     @Override
     public void power() {
-//        context.getMachineData().isHighPower = MachineUtils.powerValue(context);
+        context.getMachineData().isHighPower = MachineUtils.powerValue(context);
         context.setState(this);
     }
 

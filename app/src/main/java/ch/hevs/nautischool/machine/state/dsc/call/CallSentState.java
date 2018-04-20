@@ -120,13 +120,13 @@ public class CallSentState implements MachineState {
             @Override
             public void run() {
                 if (context.getMachineData().currentType == 0) {
- //                   context.setState(new CallWaitAckState(context));
+                   context.setState(new CallWaitAckState(context));
                 } else {
                     context.setState(new ReceiveState(context));
                 }
             }
         };
-        timer.scheduleAtFixedRate(task, 2000, 1000);
+        timer.schedule(task, 2000);
  /*
         timer = Timer.schedule(withTimeInterval: 2, repeats: false, block: { (Timer) in
             // waiting 2 seconds
