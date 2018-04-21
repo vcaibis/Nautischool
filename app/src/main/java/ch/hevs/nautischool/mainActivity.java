@@ -139,7 +139,8 @@ public class mainActivity extends AppCompatActivity {
             @Override
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                radio.softkey(1, true);
+                radioToScreen();
                 return true;
             }
         });
@@ -151,7 +152,8 @@ public class mainActivity extends AppCompatActivity {
             @Override
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                radio.softkey(2, true);
+                radioToScreen();
                 return true;
             }
         });
@@ -163,7 +165,8 @@ public class mainActivity extends AppCompatActivity {
             @Override
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                radio.softkey(3, true);
+                radioToScreen();
                 return true;
             }
         });
@@ -171,11 +174,13 @@ public class mainActivity extends AppCompatActivity {
     public void sk4(View view) {
         radio.softkey(4, false);
         radioToScreen();
+        radio.softkey(4,true);
         sk4.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                radio.softkey(4, true);
+                radioToScreen();
                 return true;
             }
         });
