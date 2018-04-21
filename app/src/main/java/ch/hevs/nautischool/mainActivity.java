@@ -20,6 +20,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -126,6 +127,20 @@ public class mainActivity extends AppCompatActivity {
 
         startTimer();
 
+        final Button txt = (Button) findViewById(R.id.distSwipeButton);
+
+        txt.setOnTouchListener(new OnSwipeTouchListener(this) {
+
+        @Override
+        public void onSwipeRight() {
+            super.onSwipeRight();
+            Button btn = (Button) findViewById(R.id.DistressButton);
+            btn.setVisibility(View.VISIBLE);
+            txt.setVisibility(View.INVISIBLE);
+
+        }
+    });
+
 
 
 
@@ -184,6 +199,7 @@ public class mainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 
     public void ClickNumPad1(View view) {

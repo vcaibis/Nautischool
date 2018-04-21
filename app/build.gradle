@@ -39,4 +39,7 @@ dependencies {
     //SSP - SSDP for layout
     compile 'com.intuit.ssp:ssp-android:1.0.5'
     compile 'com.intuit.sdp:sdp-android:1.0.5'
+    //SWIPE
+    compile 'com.android.support:cardview-v7:26.1.0'
+
 }
