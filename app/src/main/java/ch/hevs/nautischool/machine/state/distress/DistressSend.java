@@ -135,7 +135,7 @@ public class DistressSend implements MachineState {
             MachineData machineData = context.getMachineData();
    //         Modele.sharedModele.sendMessage(new DSCMessage(DSCName.distress, DSCType.alert, machineData.mmsi, "Ch16", null, alertDetails: DistressDetails(latitude: machineData.latitude, longitude: machineData.longitude, utc: machineData.utc, mmsi: machineData.mmsi, type: DistressType(rawValue: machineData.distressType[machineData.currentDistressType])!)))
   //          timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (Timer) in
- //               this.context.setState(new DistressWaitReply(this));
+                this.context.setState(new DistressWaitReply(context));
             //})
         }
 
@@ -155,6 +155,19 @@ public class DistressSend implements MachineState {
         screenLabels.message2 = (counter != 0 ? "Sending in" : "DISTRESS ALERT");
         screenLabels.message3 = (counter != 0 ? ""+(counter)+" sec" : " ");
         this.context.setScreenLabels(screenLabels);
+
+        if (counter == 0) {
+            // waiting 2 seconds
+            timer = new Timer();
+            TimerTask task = new TimerTask() {
+                @Override
+                public void run() {
+                    context.setState(new DistressWaitReply(context));
+                }
+            };
+            timer.schedule(task, 2000);
+        }
+
     }
 
     @Override
