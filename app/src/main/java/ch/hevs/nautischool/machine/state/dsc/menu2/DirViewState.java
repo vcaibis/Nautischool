@@ -104,9 +104,9 @@ public class DirViewState implements MachineState {
         ScreenLabels screenLabels = context.getScreenLabels();
         MachineData machineData = context.getMachineData();
 
-      //  screenLabels.left2 = (machineData.currentContact < 10 ? "0\(machineData.currentContact+1)" : "\(machineData.currentContact+1)")
-      //  screenLabels.left3 = machineData.contacts[machineData.currentContact].name;
-       // screenLabels.left4 = machineData.contacts[machineData.currentContact].mmsi
+        screenLabels.left2 = (machineData.currentContact < 10 ? "0"+(machineData.currentContact+1) : ""+(machineData.currentContact+1));
+        screenLabels.left3 = machineData.contacts.get(machineData.currentContact).name;
+        screenLabels.left4 = machineData.contacts.get(machineData.currentContact).mmsi;
 
         screenLabels.right2 = (machineData.currentContact == 0 ? " " : "Back");
         screenLabels.right3 = (machineData.currentContact == machineData.contacts.size()-1 ? " " : "Next");

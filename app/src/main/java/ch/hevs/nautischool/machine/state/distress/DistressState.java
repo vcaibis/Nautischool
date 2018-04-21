@@ -18,7 +18,7 @@ public class DistressState implements MachineState {
     }
     @Override
     public void alphanumeric(int sender) {
-
+// Nothing to do because no effect
     }
 
     @Override
@@ -38,16 +38,16 @@ public class DistressState implements MachineState {
 
     @Override
     public void power() {
-
+        // Nothing to do because no effect
     }
 
     @Override
     public void softkey(int sender, boolean longClick) {
         if (!longClick) {
             if (sender == 2) {
-                context.setState(new DistressPosn( context));
+                context.setState(new DistressPosn(context));
             } else if (sender == 3) {
-             //   context.setState(new DistressUTC( context));
+                context.setState(new DistressUTC( context));
             } else if (sender == 4) {
                 context.getMachineData().currentDistressType = (context.getMachineData().currentDistressType + 1) % context.getMachineData().distressType.length;
                 context.setState(this);
@@ -62,13 +62,13 @@ public class DistressState implements MachineState {
 
     @Override
     public void enter() {
-
+// Nothing to do because no effect
     }
 
     @Override
     public void distress(boolean touchDown) {
         if (touchDown) {
- //           context.setState(new DistressSend( context));
+            context.setState(new DistressSend(context));
         }
     }
 
@@ -108,9 +108,9 @@ public class DistressState implements MachineState {
         screenLabels.mid4 = " ";
 
         screenLabels.right1 = " ";
-        screenLabels.right2 = "/u{25BA}";
-        screenLabels.right3 = "/u{25BA}";
-        screenLabels.right4 = "/u{25BA}";
+        screenLabels.right2 = "\u25BA";
+        screenLabels.right3 = "\u25BA";
+        screenLabels.right4 = "\u25BA";
 
         screenLabels.bigChan = " ";
         screenLabels.smallChan = " ";
@@ -127,6 +127,6 @@ public class DistressState implements MachineState {
 
     @Override
     public void didReceiveDSC() {
-
+// Nothing to do because no effect
     }
 }

@@ -30,12 +30,12 @@ public class PosnEditPosn implements MachineState {
     public void alphanumeric(int sender) {
 
         if (isLongitude && currentIndex < 5) {
-        //    currentLongitude = MachineUtils.replaceSubrange(of: currentLongitude, at: currentIndex, with: sender.description)
-        //    currentIndex += (currentIndex != 1 ? 1 : 2)
+            currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, ""+sender);
+            currentIndex += (currentIndex != 1 ? 1 : 2);
             context.setState(this);
         } else if (!isLongitude && currentIndex < 6) {
-         //   currentLatitude = MachineUtils.replaceSubrange(of: currentLatitude, at: currentIndex, with: sender.description)
-         //   currentIndex += (currentIndex != 2 ? 1 : 2)
+            currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex, ""+sender);
+            currentIndex += (currentIndex != 2 ? 1 : 2);
             context.setState(this);
         }
     }
@@ -71,29 +71,29 @@ public class PosnEditPosn implements MachineState {
             } else if (sender == 2) {
                 if (!isLongitude || currentIndex != 0) {
                     if (isLongitude) {
-                     //   currentIndex -= (currentIndex != 3 ? 1 : 2)
+                        currentIndex -= (currentIndex != 3 ? 1 : 2);
                         if (currentIndex < 4) {
-                        //    currentLongitude = MachineUtils.replaceSubrange(of: currentLongitude, at: currentIndex, with: (currentIndex == 1 ? "-°-" : "--"))
+                            currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, (currentIndex == 1 ? "-°-" : "--"));
                             context.setState(this);
                         } else {
-                         //   currentLongitude = MachineUtils.replaceSubrange(of: currentLongitude, at: currentIndex, with: "-+")
+                            currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, "-+");
                             context.setState(this);
                         }
                     } else {
-                     //   currentIndex -= (currentIndex != 4 ? 1 : 2)
+                        currentIndex -= (currentIndex != 4 ? 1 : 2);
                         if (currentIndex == -1) {
                             isLongitude = !isLongitude;
                             currentIndex = 5;
-                         //   currentLongitude = MachineUtils.replaceSubrange(of: currentLongitude, at: currentIndex, with: "+")
+                            currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, "+");
                             context.setState(this);
                         } else if (currentIndex < 5) {
-                         //   currentLatitude = MachineUtils.replaceSubrange(of: currentLatitude, at: currentIndex, with: (currentIndex == 2 ? "-°-" : "--"))
+                            currentLatitude = MachineUtils.replaceSubrange( currentLatitude,  currentIndex,  (currentIndex == 2 ? "-°-" : "--"));
                             context.setState(this);
                         } else if (currentIndex == 5) {
-                         //   currentLatitude = MachineUtils.replaceSubrange(of: currentLatitude, at: currentIndex, with: "-+")
+                            currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex,  "-+");
                             context.setState(this);
                         } else {
-                         //   currentLatitude = MachineUtils.replaceSubrange(of: currentLatitude, at: currentIndex, with: "+")
+                            currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex, "+");
                             context.setState(this);
                             initializeTimer();
                         }
@@ -101,12 +101,12 @@ public class PosnEditPosn implements MachineState {
                 }
             } else if (sender == 3) {
                 if (isLongitude && currentIndex == 5) {
-                 //   currentLongitude = MachineUtils.replaceSubrange(of: currentLongitude, at: currentIndex, with: "N")
+                    currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, "N");
                     currentIndex = 0;
                     isLongitude = !isLongitude;
                     context.setState(this);
                 } else if (!isLongitude && currentIndex == 6) {
-                //    currentLatitude = MachineUtils.replaceSubrange(of: currentLatitude, at: currentIndex, with: "E")
+                    currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex,  "E");
                     currentIndex += 1;
                  //   timer!.invalidate()
                     context.setState(this);
@@ -116,12 +116,12 @@ public class PosnEditPosn implements MachineState {
                 }
             } else {
                 if (isLongitude && currentIndex == 5) {
-                 //   currentLongitude = MachineUtils.replaceSubrange(of: currentLongitude, at: currentIndex, with: "S")
+                    currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex,  "S");
                     currentIndex = 0;
                     isLongitude = !isLongitude;
                     context.setState(this);
                 } else if (!isLongitude && currentIndex == 6) {
-                //    currentLatitude = MachineUtils.replaceSubrange(of: currentLatitude, at: currentIndex, with: "W")
+                    currentLatitude = MachineUtils.replaceSubrange( currentLatitude,  currentIndex,  "W");
                     currentIndex += 1;
                  //   timer!.invalidate()
                     context.setState(this);
@@ -163,11 +163,8 @@ public class PosnEditPosn implements MachineState {
 
     @Override
     public void volume(int sender) {
-        context.getMachineData().volume = sender;
-        if (context.getMachineData().volume == 0) {
-         //   timer!.invalidate()
-            context.setState(new OffState(context));
-        }
+        context.volumeChanged(sender);
+
     }
 
     @Override
@@ -259,12 +256,16 @@ public class PosnEditPosn implements MachineState {
     }
 
     private Boolean isNewPosnValid(){
-/*
-        let longitudeDegree = Int(currentLongitude.substring(to: currentLongitude.index(currentLongitude.startIndex, offsetBy: 2)))
-        let longitudeMinute = Int(currentLongitude.substring(with: currentLongitude.index(currentLongitude.startIndex, offsetBy: 3)..<currentLongitude.index(currentLongitude.startIndex, offsetBy: 5)))
-        let latitudeDegree = Int(currentLatitude.substring(to: currentLatitude.index(currentLatitude.startIndex, offsetBy: 3)))
-        let latitudeMinute = Int(currentLatitude.substring(with: currentLatitude.index(currentLatitude.startIndex, offsetBy: 4)..<currentLatitude.index(currentLatitude.startIndex, offsetBy: 6)))
-        return (longitudeDegree! < 90 || longitudeDegree! == 90 && longitudeMinute == 0) && (latitudeDegree! < 180 || latitudeDegree! == 180 && latitudeMinute == 0)
-   */     return true;
+
+        int longitudeDegree = Integer.parseInt(currentLongitude.substring(0, 2));
+        int longitudeMinute = Integer.parseInt(currentLongitude.substring(3, 5));
+        int latitudeDegree = Integer.parseInt(currentLatitude.substring(0, 3));
+        int latitudeMinute = Integer.parseInt(currentLatitude.substring(4, 6));
+        if(longitudeDegree > 90) return false;
+        if(longitudeDegree == 90 && longitudeMinute != 0) return false;
+        if(latitudeDegree > 180) return false;
+        if(latitudeDegree == 180 && latitudeMinute != 0) return false;
+
+        return true;
     }
 }

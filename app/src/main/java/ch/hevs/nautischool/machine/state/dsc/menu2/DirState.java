@@ -97,13 +97,13 @@ public class DirState implements MachineState {
 
         screenLabels.left1 = "Directory";
         screenLabels.left2 = " ";
-    //    screenLabels.left3 = (machineData.contacts.count == 0 ? "Empty" : "Used \(machineData.contacts.count.description)/16");
+        screenLabels.left3 = (machineData.contacts.size() == 0 ? "Empty" : "Used "+machineData.contacts.size()+"/16");
         screenLabels.left4 = " ";
 
         screenLabels.mid4 = " ";
 
-     //   screenLabels.right2 = (machineData.contacts.count == 0 ? " " : "View")
-    //    screenLabels.right3 = (machineData.contacts.count < 16 ? "Add" : " ")
+        screenLabels.right2 = (machineData.contacts.size() == 0 ? " " : "View");
+        screenLabels.right3 = (machineData.contacts.size() < 16 ? "Add" : " ");
         screenLabels.right4 = " ";
 
         screenLabels.smallChan = " ";

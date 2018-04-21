@@ -47,7 +47,7 @@ public class MMSIState implements MachineState {
             if (sender == 1) {
                 context.navigateBackToMenuDSCState();
             } else if (sender == 4) {
-//                context.setState(new MMSIEditGroupState(context));
+                context.setState(new MMSIEditGroupState(context));
             }
         }
     }

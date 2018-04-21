@@ -29,11 +29,11 @@ public class DistressPosn implements MachineState {
     @Override
     public void alphanumeric(int sender) {
         if (isLongitude && currentIndex < 5) {
-         //   currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex,  sender.description);
+            currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex, ""+sender);
             currentIndex += (currentIndex != 1 ? 1 : 2);
             context.setState(this);
         } else if (!isLongitude && currentIndex < 6) {
-         //   currentLatitude = MachineUtils.replaceSubrange( currentLatitude,  currentIndex,  sender.description);
+            currentLatitude = MachineUtils.replaceSubrange( currentLatitude,  currentIndex,  ""+sender);
             currentIndex += (currentIndex != 2 ? 1 : 2);
             context.setState(this);
         }
@@ -72,10 +72,10 @@ public class DistressPosn implements MachineState {
                     if (isLongitude) {
                         currentIndex -= (currentIndex != 3 ? 1 : 2);
                         if (currentIndex < 4) {
-           //                 currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex, (currentIndex == 1 ? "-°-" : "--"));
+                            currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex, (currentIndex == 1 ? "-°-" : "--"));
                             context.setState(this);
                         } else {
-           //                 currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex,  "-+");
+                            currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex,  "-+");
                             context.setState(this);
                         }
                     } else {
@@ -83,16 +83,16 @@ public class DistressPosn implements MachineState {
                         if (currentIndex == -1) {
                             isLongitude = !isLongitude;
                             currentIndex = 5;
-           //                 currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex,  "+");
+                            currentLongitude = MachineUtils.replaceSubrange( currentLongitude,  currentIndex,  "+");
                             context.setState(this);
                         } else if (currentIndex < 5) {
-            //                currentLatitude = MachineUtils.replaceSubrange( currentLatitude, currentIndex, (currentIndex == 2 ? "-°-" : "--"));
+                            currentLatitude = MachineUtils.replaceSubrange( currentLatitude, currentIndex, (currentIndex == 2 ? "-°-" : "--"));
                             context.setState(this);
                         } else if (currentIndex == 5) {
-             //               currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex,  "-+");
+                            currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex,  "-+");
                             context.setState(this);
                         } else {
-             //               currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex,  "+");
+                            currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex,  "+");
                             context.setState(this);
                             initializeTimer();
                         }
@@ -100,27 +100,27 @@ public class DistressPosn implements MachineState {
                 }
             } else if (sender == 3) {
                 if (isLongitude && currentIndex == 5) {
-         //           currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, "N")
+                    currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, "N");
                     currentIndex = 0;
                     isLongitude = !isLongitude;
                     context.setState(this);
                 } else if (!isLongitude && currentIndex == 6) {
-         //           currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex, "E")
+                    currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex, "E");
                     currentIndex += 1;
-          //          timer!.invalidate()
+                    //timer!.invalidate()
                     context.setState(this);
                 } else if (isLongitude && currentIndex == 0) {
          //           timer!.invalidate()
-         //           context.setState(new DistressUTC(context));
+                    context.setState(new DistressUTC(context));
                 }
             } else {
                 if (isLongitude && currentIndex == 5) {
-         //           currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, "S")
+                    currentLongitude = MachineUtils.replaceSubrange(currentLongitude, currentIndex, "S");
                     currentIndex = 0;
                     isLongitude = !isLongitude;
                     context.setState(this);
                 } else if (!isLongitude && currentIndex == 6) {
-         //           currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex, "W")
+                    currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex, "W");
                     currentIndex += 1;
          //           timer!.invalidate();
                     context.setState(this);
@@ -142,7 +142,7 @@ public class DistressPosn implements MachineState {
      //           timer?.invalidate();
                 context.getMachineData().longitude = currentLongitude;
                 context.getMachineData().latitude = currentLatitude;
-     //           context.setState(new DistressUTC(context));
+                context.setState(new DistressUTC(context));
             } else {
                 currentLongitude = "--°--+";
                 currentLatitude = "---°--+";
@@ -162,11 +162,7 @@ public class DistressPosn implements MachineState {
 
     @Override
     public void volume(int sender) {
-     //   context.getMachineData().volume = sender.actualAngle();
-   /*     if (context.getMachineData().volume == sender.startAngle) {
-    //        timer!.invalidate();
-            context.setState(new OffState( context));
-        }*/
+        context.volumeChanged(sender);
     }
 
     @Override
@@ -200,18 +196,19 @@ public class DistressPosn implements MachineState {
         */
     }
 
-    private Boolean isNewPosnValid()  {
-        // Fonction en dessous a traduire puis effacer
+    private boolean isNewPosnValid()  {
+
+        int longitudeDegree = Integer.parseInt(currentLongitude.substring(0, 2));
+        int longitudeMinute = Integer.parseInt(currentLongitude.substring(3, 5));
+        int latitudeDegree = Integer.parseInt(currentLatitude.substring(0, 3));
+        int latitudeMinute = Integer.parseInt(currentLatitude.substring(4, 6));
+        if(longitudeDegree > 90) return false;
+        if(longitudeDegree == 90 && longitudeMinute != 0) return false;
+        if(latitudeDegree > 180) return false;
+        if(latitudeDegree == 180 && latitudeMinute != 0) return false;
+
         return true;
     }
-    /*
-    private Boolean isNewPosnValid()  {
-        int longitudeDegree = Int(currentLongitude.substring(to: currentLongitude.index(currentLongitude.startIndex, offsetBy: 2)))
-        int longitudeMinute = Int(currentLongitude.substring(with: currentLongitude.index(currentLongitude.startIndex, offsetBy: 3)..<currentLongitude.index(currentLongitude.startIndex, offsetBy: 5)))
-        int latitudeDegree = Int(currentLatitude.substring(to: currentLatitude.index(currentLatitude.startIndex, offsetBy: 3)))
-        int latitudeMinute = Int(currentLatitude.substring(with: currentLatitude.index(currentLatitude.startIndex, offsetBy: 4)..<currentLatitude.index(currentLatitude.startIndex, offsetBy: 6)))
-        return (longitudeDegree! < 90 || longitudeDegree! == 90 && longitudeMinute == 0) && (latitudeDegree! < 180 || latitudeDegree! == 180 && latitudeMinute == 0);
-    }*/
 
     @Override
     public void init(MachineContext context) {
@@ -239,20 +236,20 @@ public class DistressPosn implements MachineState {
                 screenLabels.right3 = "N";
                 screenLabels.right4 = "S";
             } else {
-                screenLabels.right2 = "/u{25C0}";
+                screenLabels.right2 = "\u25C0";
                 screenLabels.right3 = " ";
                 screenLabels.right4 = " ";
             }
         } else {
             if (currentIndex == 0) {
-                screenLabels.right2 = "/u{25C0}";
+                screenLabels.right2 = "\u25C0";
                 screenLabels.right3 = " ";
                 screenLabels.right4 = " ";
             } else if (currentIndex == 6) {
                 screenLabels.right3 = "E";
                 screenLabels.right4 = "W";
             } else {
-                screenLabels.right2 = "/u{25C0}";
+                screenLabels.right2 = "\u25C0";
                 screenLabels.right3 = " ";
                 screenLabels.right4 = " ";
             }

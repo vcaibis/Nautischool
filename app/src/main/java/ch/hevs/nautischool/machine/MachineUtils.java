@@ -133,11 +133,11 @@ public class MachineUtils {
             return "16";
         }
     }
-    //pas compris le but de ça - Helder
     // Replace a subrange of characters in a given string
-    // public static String replaceSubrange(String of, int at,String  with){
-    //    return of.replacingCharacters(in: of.index(of.startIndex, offsetBy: at)..<of.index(of.startIndex, offsetBy: at + with.characters.count), with: with)
-    //}
+    public static String replaceSubrange(String of, int at,String  with){
+        return of.substring(0,at) + with + of.substring(at+with.length());
+//        return of.replacingCharacters(in: of.index(of.startIndex, offsetBy: at)..<of.index(of.startIndex, offsetBy: at + with.characters.count), with: with)
+    }
 
 
 }

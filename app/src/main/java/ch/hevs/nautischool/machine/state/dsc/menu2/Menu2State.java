@@ -48,10 +48,13 @@ public class Menu2State implements MachineState {
             switch (sender) {
                 case 1:
                     context.navigateBackToMenuDSCState();
+                    break;
                 case 2:
                     context.setState(new MMSIState(context));
+                    break;
                 case 3 :
                     context.setState(new DirState(context));
+                    break;
                 default:
                     context.setState(new Menu3State(context));
             }

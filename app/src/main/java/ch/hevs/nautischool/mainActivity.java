@@ -431,7 +431,7 @@ public class mainActivity extends AppCompatActivity {
                 });
             }
         };
-        timer.scheduleAtFixedRate(task, 0, 1000);
+        timer.scheduleAtFixedRate(task, 0, 250);
     }
 
 

@@ -8,6 +8,7 @@ import ch.hevs.nautischool.machine.data.Contact;
 import ch.hevs.nautischool.machine.data.DSCMessage;
 import ch.hevs.nautischool.machine.data.DSCName;
 import ch.hevs.nautischool.machine.data.DSCType;
+import ch.hevs.nautischool.machine.data.DistressDetails;
 import ch.hevs.nautischool.machine.data.DistressType;
 
 import java.util.ArrayList;
@@ -111,11 +112,13 @@ public class MachineData {
 
     // Add some fictive logs
         private void populateLogs() {
+            DistressDetails alertDetails = new DistressDetails("020°16N", "16°84", "08:12 UTC", "929394959", DistressType.ABANDONING);
             alertLogs = new ArrayList<>();
             alertLogs.add(new DSCMessage(DSCName.INDIVIDUAL,DSCType.ROUTINE,"012345678","08",mmsi,null));
             alertLogs.add(new DSCMessage(DSCName.SHIPS,DSCType.SAFETY,"334455667","16",mmsi,null));
             alertLogs.add(new DSCMessage(DSCName.GROUPCALL,DSCType.ROUTINE,"012345678","08",groupMMSI,null));
-            alertLogs.add(new DSCMessage(DSCName.DISTRESS,DSCType.ALERT,"929394959","16",null,null));
+            alertLogs.add(new DSCMessage(DSCName.DISTRESS,DSCType.ALERT,"929394959","16",null,alertDetails));
+
 
 //            alertLogs.append(DSCMessage(name: .distress, type: .alert, mmsi:"929394959", channel:
 //            "16", dest:nil, alertDetails:DistressDetails(latitude:"020°16N", longitude:
