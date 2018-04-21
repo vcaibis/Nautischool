@@ -125,6 +125,16 @@ public class mainActivity extends AppCompatActivity {
 
 
         startTimer();
+
+
+
+
+
+    }
+
+    public void sk1(View view) {
+        radio.softkey(1, false);
+        radioToScreen();
         sk1.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -133,6 +143,10 @@ public class mainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    public void sk2(View view) {
+        radio.softkey(2, false);
+        radioToScreen();
         sk2.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -141,6 +155,10 @@ public class mainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    public void sk3(View view) {
+        radio.softkey(3, false);
+        radioToScreen();
         sk3.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -149,6 +167,10 @@ public class mainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    public void sk4(View view) {
+        radio.softkey(4, false);
+        radioToScreen();
         sk4.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -157,24 +179,6 @@ public class mainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-    }
-
-    public void sk1(View view) {
-        radio.softkey(1, false);
-        radioToScreen();
-    }
-    public void sk2(View view) {
-        radio.softkey(2, false);
-        radioToScreen();
-    }
-    public void sk3(View view) {
-        radio.softkey(3, false);
-        radioToScreen();
-    }
-    public void sk4(View view) {
-        radio.softkey(4, false);
-        radioToScreen();
     }
 
     public void ClickNumPad1(View view) {
