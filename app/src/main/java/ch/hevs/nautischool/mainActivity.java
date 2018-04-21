@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
@@ -87,7 +88,6 @@ public class mainActivity extends AppCompatActivity {
             @Override
             public void onGlobalLayout() {
                 mDrawLine.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                // Read values here.
 
                 Display display = getWindowManager().getDefaultDisplay();
                 int screenWidth = display.getWidth();
@@ -125,27 +125,40 @@ public class mainActivity extends AppCompatActivity {
 
 
         startTimer();
+        sk1.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO Auto-generated method stub
+                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        sk2.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO Auto-generated method stub
+                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        sk3.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO Auto-generated method stub
+                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        sk4.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO Auto-generated method stub
+                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
 
     }
-    @Override
-    public void onWindowFocusChanged (boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-
-       /* right1 = findViewById(R.id.right1);
-        sk1 = findViewById(R.id.sk1);
-        mDrawLine = (DrawLine) findViewById(R.id.drawLine);
-
-        PointF pointA = new PointF(right1.getX(), right1.getY());
-
-        mDrawLine.setPointA(pointA);
-
-        PointF pointB = new PointF(sk1.getX(), sk1.getY());
-
-        mDrawLine.setPointB(pointB);
-        mDrawLine.draw();
-        Log.d(TAG, "right1: ("+right1.getX()+";"+right1.getY()+" sk1: ("+sk1.getX()+";"+sk1.getY()+")");
-    */}
-    
 
     public void sk1(View view) {
         radio.softkey(1, false);
