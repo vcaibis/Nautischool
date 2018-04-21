@@ -58,6 +58,7 @@ public class mainActivity extends AppCompatActivity {
     Button sk3;
     TextView right4;
     Button sk4;
+    Button distressBouton;
     private final String TAG = "ICI";
     int mOrientation;
 
@@ -87,6 +88,7 @@ public class mainActivity extends AppCompatActivity {
         sk3 = findViewById(R.id.sk3);
         right4 = findViewById(R.id.right4);
         sk4 = findViewById(R.id.sk4);
+        distressBouton = findViewById(R.id.DistressButton);
 
         mDrawLine.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -277,9 +279,16 @@ public class mainActivity extends AppCompatActivity {
     }
 
     public void ClickDistressButton(View view) {
-        radio.distressButtonPressed();
+        radio.distress(false);
         radioToScreen();
-
+        distressBouton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                radio.distress(true);
+                radioToScreen();
+                return true;
+            }
+        });
     }
 
     public void ClickDualWatchButton(View view) {

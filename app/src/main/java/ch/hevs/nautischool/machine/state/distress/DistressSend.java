@@ -15,9 +15,9 @@ import ch.hevs.nautischool.machine.ScreenLabels;
 public class DistressSend implements MachineState {
     MachineContext context;
     Timer timer;
-    int counter = 5;
+    int counter = 6;
     boolean isSending = false;
-
+    MachineState myState = this;
     public DistressSend(MachineContext context) {
         init(context);
     }
@@ -71,6 +71,8 @@ public class DistressSend implements MachineState {
     }
 
     private void timerInvalidate() {
+        timer.cancel();
+        timer.purge();
     }
 
     @Override
@@ -103,14 +105,15 @@ public class DistressSend implements MachineState {
             TimerTask task = new TimerTask() {
                 @Override
                 public void run() {
-                    counter -= 1;
+                    System.out.println(counter);
+                    counter--;
                     if (counter == 0) {
                         isSending = true;
                         timerInvalidate();
                     } else if (context.getMachineData().isBeepOn) {
                         context.playSound(0);
                     }
-                    //this.context.setState(this);
+                    context.setState(myState);
                 }
             };
             timer.scheduleAtFixedRate(task, 0,1000);
@@ -151,6 +154,7 @@ public class DistressSend implements MachineState {
         screenLabels.message1 = (counter != 0 ? "DISTRESS ALERT" : "SENDING");
         screenLabels.message2 = (counter != 0 ? "Sending in" : "DISTRESS ALERT");
         screenLabels.message3 = (counter != 0 ? ""+(counter)+" sec" : " ");
+        this.context.setScreenLabels(screenLabels);
     }
 
     @Override
