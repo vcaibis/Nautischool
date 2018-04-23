@@ -76,5 +76,11 @@
     <string name="squelch">Squelch</string>
     <string name="account">Account</string>
     <string name="connection">Connection</string>
+    <string name="exams">Exams</string>
+    <string name="tuto">Tuto</string>
+    <string name="expert_mrcc">Expert MRCC</string>
+    <string name="credit">Credit</string>
+    <string name="help">Help</string>
+    <string name="educational_links">Educational Links</string>
 
 </resources>

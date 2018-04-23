@@ -12,6 +12,6 @@
     <color name="colorScreenOn">#90EE90</color>
     <color name="colorScreenOff">#83a165</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorLogin">#3979F5</color>
+    <color name="colorLogin">#3979f5</color>
     <color name="colorMenu">#3BA6E7</color>
 </resources>
