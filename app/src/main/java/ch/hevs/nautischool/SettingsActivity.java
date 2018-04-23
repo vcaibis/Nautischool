@@ -39,7 +39,7 @@ public class SettingsActivity extends ListActivity {
 
         // -- Display mode of the ListView
 
-        ListView firstListView = getListView();
+       /* ListView firstListView = getListView();
 
         setListAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_checked,listModes));
@@ -52,6 +52,7 @@ public class SettingsActivity extends ListActivity {
                 R.layout.single_row, R.id.textViewSettingsSecond, listvariousSettings ));
 
         Utility.setListViewHeightBasedOnChildren(settingsSecondList);
+        */
 
     }
 

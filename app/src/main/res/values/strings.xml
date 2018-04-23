@@ -74,5 +74,7 @@
     <string name="menu">Menu</string>
     <string name="volume">Volume</string>
     <string name="squelch">Squelch</string>
+    <string name="account">Account</string>
+    <string name="connection">Connection</string>
 
 </resources>
