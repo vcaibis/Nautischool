@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsActivity"
-    android:orientation="vertical">
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+
     <!-- Settings Bar  -->
     <LinearLayout
         android:id="@+id/settingsBar"
         android:layout_width="match_parent"
         android:layout_height="33dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_gravity="center">
 
         <ImageButton
             android:id="@+id/btnBackMain"
@@ -26,16 +23,14 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
             android:background="@null"
-            android:contentDescription="@string/back"
             android:onClick="btnbackMain_onClick"
             android:scaleType="fitCenter"
             android:src="@drawable/back" />
 
         <Button
             android:id="@+id/push_buttonMenu"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:background="@null"
@@ -58,80 +53,94 @@
 
     </LinearLayout>
 
-
-
-
-
-
-    <!-- First part-->
-    <TextView
-        android:id="@+id/text_view_modes"
+    <ScrollView
+        android:id="@+id/scrollViewMenu"
         android:layout_width="fill_parent"
-        android:layout_height="39dp"
-        android:background="@color/colorDarkGrey"
-        android:gravity="bottom"
-        android:padding="4dip"
-        android:text="@string/modes" />
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/settingsBar"
+        android:fillViewport="true"
+        android:padding="7dp">
+        <!--android:scrollbars="none"-->
 
 
-    <!--Checked View-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
 
-        <!--<ListView-->
-            <!--android:id="@+id/android:list"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_alignParentTop="true" android:layout_alignParentStart="true">-->
-        <!--</ListView>-->
-
-
-
-    <!-- Second part -->
-
-    <TextView
-        android:id="@+id/text_view_various_settings"
-        android:layout_width="fill_parent"
-        android:layout_height="39dp"
-        android:background="@color/colorDarkGrey"
-        android:gravity="bottom"
-        android:padding="4dip"
-        android:text="@string/various_settings" />
+            <!-- First part-->
+            <TextView
+                android:id="@+id/text_view_modes"
+                android:layout_width="fill_parent"
+                android:layout_height="39dp"
+                android:background="@color/colorDarkGrey"
+                android:gravity="bottom"
+                android:padding="4dip"
+                android:text="@string/modes" />
 
 
+            <!--Checked View-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ListView
+                    android:id="@+id/android:list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"></ListView>
+
+            </RelativeLayout>
+
+            <!-- Second part -->
+
+            <TextView
+                android:id="@+id/text_view_various_settings"
+                android:layout_width="fill_parent"
+                android:layout_height="39dp"
+                android:background="@color/colorDarkGrey"
+                android:gravity="bottom"
+                android:padding="4dip"
+                android:text="@string/various_settings" />
 
 
-        <!--<ListView-->
-            <!--android:id="@+id/listSecond"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_alignParentTop="true" android:layout_alignParentStart="true">-->
-        <!--</ListView>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <ListView
+                    android:id="@+id/listSecond"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"></ListView>
 
+            </RelativeLayout>
 
-    <!--Third part-->
-    <TextView
-        android:id="@+id/text_view_account"
-        android:layout_width="fill_parent"
-        android:layout_height="39dp"
-        android:background="@color/colorDarkGrey"
-        android:gravity="bottom"
-        android:padding="4dip"
-        android:text="@string/account" />
+            <!--Third part-->
+            <TextView
+                android:id="@+id/text_view_account"
+                android:layout_width="fill_parent"
+                android:layout_height="39dp"
+                android:background="@color/colorDarkGrey"
+                android:gravity="bottom"
+                android:padding="4dip"
+                android:text="Account" />
 
-    <Button
-        android:id="@+id/push_buttonConnection"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:background="@null"
-        android:onClick="btn_login_onClick"
-        android:scaleType="fitCenter"
-        android:text="@string/connection"
-        android:textColor="@color/colorMenu"
-        android:textSize="17sp" />
+            <Button
+                android:id="@+id/push_buttonConnection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:onClick="btn_login_onClick"
+                android:scaleType="fitCenter"
+                android:text="Connection"
+                android:textColor="@color/colorMenu"
+                android:textSize="17sp" />
 
-
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
-</ScrollView>
