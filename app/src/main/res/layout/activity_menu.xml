@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/menuBar"
         android:layout_width="match_parent"
-        android:layout_height="33dp"
+        android:layout_height="30dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:scaleType="fitCenter"
             android:text="@string/back"
             android:textColor="@color/colorMenu"
-            android:textSize="17sp" />
+            android:textSize="15sp" />
 
 
         <TextView
@@ -50,7 +50,9 @@
             android:text="@string/simulate_receving_messages"
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:paddingTop="5dp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -71,7 +73,7 @@
             <TextView
                 android:id="@+id/text_view_dsc_messages"
                 android:layout_width="fill_parent"
-                android:layout_height="39dp"
+                android:layout_height="35dp"
                 android:background="@color/colorDarkGrey"
                 android:gravity="bottom"
                 android:padding="4dip"
@@ -95,7 +97,7 @@
             <TextView
                 android:id="@+id/text_view_vocal_messages"
                 android:layout_width="fill_parent"
-                android:layout_height="39dp"
+                android:layout_height="35dp"
                 android:background="@color/colorDarkGrey"
                 android:gravity="bottom"
                 android:padding="4dip"

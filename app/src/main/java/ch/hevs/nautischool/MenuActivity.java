@@ -10,28 +10,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+
 public class MenuActivity extends AppCompatActivity {
 
     String[] dcsMessageslist = {
             "Distress alert (CH16)",
             "Routine alert (CH08)",
-            "Group alert (CH06)",
-            "Routine alert (CH10)"
+            "Group alert (CH06)"
     };
 
     String[] vocalMessageslist = {
             "Safety (CH16)",
             "Routine (CH08)",
-            "Safety (CH20)"
-    };
+            "Group (CH12)",
+            "Group (CH05)"};
 
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev){
-        if(ev.getAction()==MotionEvent.ACTION_MOVE)
-            return true;
-        return super.dispatchTouchEvent(ev);
-    }
 
 
     @Override
@@ -40,15 +33,15 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
 
-        ListView menuFirstList =  findViewById(R.id.list_DSC_messages);
+        ListView menuFirstList = findViewById(R.id.list_DSC_messages);
         menuFirstList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.single_row_menu, R.id.text_view_message, dcsMessageslist));
-       Utility.setListViewHeightBasedOnChildren(menuFirstList);
-        //justifyListViewHeightBasedOnChildren(menuFirstList);
+        Utility.setListViewHeightBasedOnChildren(menuFirstList);
+
 
         ListView menuSecondList = (ListView) findViewById(R.id.list_vocal_messages);
         menuSecondList.setAdapter(new ArrayAdapter<String>(this, R.layout.single_row_menu_vocal, R.id.text_view_messages_vocal, vocalMessageslist));
-        //justifyListViewHeightBasedOnChildren(menuSecondList);
+
         Utility.setListViewHeightBasedOnChildren(menuSecondList);
     }
 
@@ -65,7 +58,10 @@ public class MenuActivity extends AppCompatActivity {
         //startActivity(intent);
     }
 
-    public static void justifyListViewHeightBasedOnChildren (ListView listView) {
+
+
+
+    public static void justifyListViewHeightBasedOnChildren(ListView listView) {
 
         ListAdapter adapter = listView.getAdapter();
 
@@ -85,7 +81,6 @@ public class MenuActivity extends AppCompatActivity {
         listView.setLayoutParams(par);
         listView.requestLayout();
     }
-
 
 
 }

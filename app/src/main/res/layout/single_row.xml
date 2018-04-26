@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/textViewSettingsSecond"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="35dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -16,15 +16,15 @@
         android:paddingTop="15dp"
         android:text="TEXT"
         android:textColor="@color/colorBlack"
-        android:textSize="15dp" />
+        android:textSize="12dp" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_gravity="right"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:padding="15dp"
+        android:padding="10dp"
         android:src="@drawable/flash_right"/>
 
 

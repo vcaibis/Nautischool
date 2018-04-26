@@ -57,7 +57,9 @@
                 android:text="@string/settings"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="20sp" />
+                android:textSize="15sp"
+                android:paddingTop="5dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -66,7 +68,7 @@
         <TextView
             android:id="@+id/text_view_modes"
             android:layout_width="fill_parent"
-            android:layout_height="39dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -74,7 +76,7 @@
             android:gravity="bottom"
             android:padding="4dip"
             android:text="@string/modes"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsBar" />
@@ -94,7 +96,7 @@
             android:onClick="onModesClicked"
             android:text="@string/ship_station"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_modes"
@@ -113,7 +115,7 @@
             android:checked="false"
             android:text="@string/exams"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layoutDirection="rtl"
@@ -133,7 +135,7 @@
             android:button="?android:attr/textCheckMark"
             android:text="@string/tuto"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layoutDirection="rtl"
@@ -156,7 +158,7 @@
             android:onClick="onModesClicked"
             android:text="@string/expert_mrcc"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cB_Tuto"
@@ -167,7 +169,7 @@
         <TextView
             android:id="@+id/text_view_various_settings"
             android:layout_width="fill_parent"
-            android:layout_height="39dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -175,7 +177,7 @@
             android:gravity="bottom"
             android:padding="4dip"
             android:text="@string/various_settings"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cB_Expert_MRCC" />
@@ -195,7 +197,7 @@
             android:onClick="onVariousSettingsClicked"
             android:text="@string/credit"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_various_settings" />
@@ -214,7 +216,7 @@
             android:onClick="onVariousSettingsClicked"
             android:text="@string/help"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cB_Credit"></CheckBox>
@@ -233,7 +235,7 @@
             android:onClick="onVariousSettingsClicked"
             android:text="@string/educational_links"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cB_Help"></CheckBox>
@@ -243,7 +245,7 @@
         <TextView
             android:id="@+id/text_view_account"
             android:layout_width="fill_parent"
-            android:layout_height="39dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -251,7 +253,7 @@
             android:gravity="bottom"
             android:padding="4dip"
             android:text="@string/account"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cB_Educational_Links" />
@@ -273,7 +275,7 @@
             android:scaleType="fitCenter"
             android:text="@string/connection"
             android:textColor="@color/colorMenu"
-            android:textSize="17sp"
+            android:textSize="15sp"
             app:layout_constraintTop_toBottomOf="@+id/text_view_account" />
 
 
