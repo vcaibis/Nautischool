@@ -62,6 +62,12 @@ public class mainActivity extends AppCompatActivity {
     private final String TAG = "ICI";
     int mOrientation;
 
+    /**
+     *
+     * @param savedInstanceState
+     * mDrawLine.getViewTreeObserver():
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,19 +96,15 @@ public class mainActivity extends AppCompatActivity {
         sk4 = findViewById(R.id.sk4);
         distressBouton = findViewById(R.id.DistressButton);
 
+        /**
+         * Get sk 1-4 button and right 1-4 label position and draw line into imageview
+         */
         mDrawLine.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 mDrawLine.getViewTreeObserver().removeGlobalOnLayoutListener(this);
 
-                Display display = getWindowManager().getDefaultDisplay();
-                int screenWidth = display.getWidth();
-                int screenHeight = display.getHeight();
                 int imgWidth = mDrawLine.getWidth();
-                int imgHeight = mDrawLine.getHeight();
-                float rationWith = screenWidth / imgWidth;
-                float rationHeight = screenHeight / imgHeight;
-
 
                 PointF pointA = new PointF(0, right1.getBottom() + 20);
                 PointF pointB = new PointF(imgWidth, (sk1.getY() + sk1.getHeight() / 2) + 20);
@@ -135,14 +137,18 @@ public class mainActivity extends AppCompatActivity {
 
         txt.setOnTouchListener(new OnSwipeTouchListener(this) {
 
+
         @Override
         public void onSwipeRight() {
             super.onSwipeRight();
+            Timer t = new Timer();
             Button btn = (Button) findViewById(R.id.DistressButton);
             btn.setVisibility(View.VISIBLE);
             txt.setVisibility(View.INVISIBLE);
 
         }
+
+
     });
 
 

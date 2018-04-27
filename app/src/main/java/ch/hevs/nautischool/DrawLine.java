@@ -32,6 +32,17 @@ public class DrawLine extends View {
         super(context, attrs, defStyle);
     }
 
+    /**
+     *
+     * @param canvas
+     * choose lign color and width
+     * draw 4 line between:
+     * right1-sk1
+     * right2-sk2
+     * right3-sk3
+     * right4-sk4
+     * with her position (responsive)
+     */
     @Override
     public void onDraw(Canvas canvas) {
         paint.setColor(Color.WHITE);
@@ -40,8 +51,6 @@ public class DrawLine extends View {
         canvas.drawLine(pointC.x, pointC.y, pointD.x, pointD.y, paint);
         canvas.drawLine(pointE.x, pointE.y, pointF.x, pointF.y, paint);
         canvas.drawLine(pointG.x, pointG.y, pointH.x, pointH.y, paint);
-
-        //canvas.drawLine(0, 20, 100, 60, paint);
 
         super.onDraw(canvas);
     }

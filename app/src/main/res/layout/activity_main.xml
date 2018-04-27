@@ -79,8 +79,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_below="@+id/topMenuBar"
-
-
             android:layout_marginEnd="8dp"
             android:background="@drawable/left_layout"
             android:paddingEnd="-5dp"
@@ -92,7 +90,8 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topMenuBar"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginRight="8dp">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/constraintLayout"
@@ -143,7 +142,8 @@
                         app:layout_constraintEnd_toStartOf="@+id/push_button16"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.0"
+                        android:layout_marginRight="8dp" />
 
 
                     <Button
@@ -271,7 +271,7 @@
                     <Button
                         android:id="@+id/push_buttonVol"
                         android:layout_width="@dimen/_40sdp"
-                        android:layout_height="0dp"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_gravity="center"
                         android:layout_marginEnd="8dp"
                         android:layout_marginLeft="8dp"
