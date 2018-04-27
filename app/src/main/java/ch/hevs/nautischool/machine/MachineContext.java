@@ -4,66 +4,75 @@ package ch.hevs.nautischool.machine;
  * Created by Helder on 02.03.2018.
  */
 
-import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
-import ch.hevs.nautischool.machine.state.receive.DualWatchState;
-import ch.hevs.nautischool.machine.state.OffState;
-import ch.hevs.nautischool.machine.state.receive.ReceiveState;
-import ch.hevs.nautischool.machine.state.distress.DistressState;
-
 import java.util.Timer;
+
+import ch.hevs.nautischool.machine.state.OffState;
+import ch.hevs.nautischool.machine.state.distress.DistressState;
+import ch.hevs.nautischool.machine.state.dsc.MenuDSCState;
+import ch.hevs.nautischool.machine.state.dsc.call.CallWaitAckState;
+import ch.hevs.nautischool.machine.state.receive.DualWatchState;
+import ch.hevs.nautischool.machine.state.receive.ReceiveState;
 
 import static ch.hevs.nautischool.machine.MachineData.MACHINEMODE_RECEIVE;
 
 /**
- * Simulateur (context du pattern)
+ * Simulator (pattern's context)
  */
 public class MachineContext implements MachineControls{
 
-    // MARK: - Attributes
-
-//    static let screenLabelsChanged = Notification.Name("ScreenLabelsChanged")
-//    static let channelLabelsChanged = Notification.Name("ChannelLabelsChanged")
-//    static let screenColorChanged = Notification.Name("ScreenColorChanged")
-//    static let playSound = Notification.Name("PlaySound")
-
+    /**
+     * Attributes
+     */
     private ScreenLabels screenLabels = new ScreenLabels();
     private MachineData machineData = new MachineData();
     private MachineState currentState = null;
     private Timer timer = new Timer();
 
+    /**
+     * Constructor
+     */
     public MachineContext() {
         initialize();
         MachineState offState = new OffState(this);
         setState(offState);
     }
 
-    // change the state ot the context
+    /**
+     * @param state
+     * change the state to the context
+     */
     public void setState(MachineState state) {
         currentState = state ;
         currentState.updateDisplay();
-//        NotificationCenter.default.post(name: MachineContext.screenLabelsChanged, object: nil)
     }
-    // Initilize the data when off
+
+    /**
+     * Initialize the data when off
+     */
     public void initialize() {
        machineData.initialize();
     }
 
-    // Timer to change the current channel (D/W, scan, ms)
+    /**
+     * Timer to change the current channel (D/W, scan, ms)
+     */
     public void startTimer(double seconds, boolean repeats) {
-        // to use a timer or a thread ?
+        // not implemented yet
     }
     public void stopTimer(){
-        // to use a timer or a thread ?
+        // not implemented yet
     }
 
     public void notifyControllerChannelLabelsChanged() {
-  //      NotificationCenter.default.post(name: MachineContext.channelLabelsChanged, object: nil)
+        // not implemented yet
     }
     public void playSound(int soundID) {
- //       let soundDataDict:[String: Int] = ["soundID": soundID];
- //       NotificationCenter.default.post(name: MachineContext.playSound, object: nil, userInfo: soundDataDict)
+        // not implemented yet
     }
-    // Generic method when the sixteen button is pressed
+
+    /**
+     * Generic method when the sixteen button is pressed
+     */
     public void sixteenButtonPressed() {
         stopTimer();
         machineData.workingChannel = "16";
@@ -71,7 +80,9 @@ public class MachineContext implements MachineControls{
         setState(new ReceiveState(this));
     }
 
-    // Generic method when the d/w button is pressed
+    /**
+     * Generic method when the d/w button is pressed
+     */
     public void dualWatchButtonPressed() {
         if (machineData.currentMode == MachineData.MACHINEMODE_DUALWATCH) {
             stopTimer();
@@ -83,17 +94,23 @@ public class MachineContext implements MachineControls{
         }
     }
 
-    // Generic method when the light button is pressed
+    /**
+     * Generic method when the light button is pressed
+     */
     public void lightButtonPressed() {
         machineData.screenColor = !machineData.screenColor;
-   //     NotificationCenter.default.post(name: MachineContext.screenColorChanged, object: nil)
     }
 
-    // Navigate to the MenuDSCState
+    /**
+     * Navigate to the MenuDSCState
+     */
     public void navigateBackToMenuDSCState() {
         setState(new MenuDSCState(this));
     }
-    // Generic method when the squelch is changed
+
+    /**
+     * Generic method when the squelch is changed
+     */
     public void squelchChanged(int sender) {
         machineData.previousSquelch = machineData.squelch;
         machineData.squelch = sender;
@@ -103,7 +120,10 @@ public class MachineContext implements MachineControls{
             playSound( -2);
         }
     }
-    // Generic method when the volume is changed
+
+    /**
+     * Generic method when the volume is changed
+     */
     public void volumeChanged(int sender) {
         machineData.volume = sender;
         if (machineData.volume == 0 ) {
@@ -114,39 +134,47 @@ public class MachineContext implements MachineControls{
         }
     }
 
-    // Check if change state is needed
+    /**
+     * Check if change state is needed
+     */
     public void  didReceivedAck() {
-//        if (currentState instanceof CallWaitAckState) {
-//            currentState.didReceiveDSC();
-//            machineData.currentMode = MACHINEMODE_RECEIVE;
-//            setState(new ReceiveState(this));
-//        }
+        if (currentState instanceof CallWaitAckState) {
+            currentState.didReceiveDSC();
+            machineData.currentMode = MACHINEMODE_RECEIVE;
+            setState(new ReceiveState(this));
+        }
     }
-    // Generic method when the ptt is pressed
+    /**
+     * Generic method when the ptt is pressed
+     */
     public void pttPressed() {
         stopTimer();
+        // not implemented yet
 //        setState(new TransmitState(this));
     }
-    // Change the state to ReceivedDSCState
+
+    /**
+     * Change the state to ReceivedDSCState
+     */
     public void  didReceivedDSC() {
         currentState.didReceiveDSC();
         stopTimer();
         machineData.currentMode = MACHINEMODE_RECEIVE;
+        // not implemented yet
 //        setState(new ReceiveDSCState(this));
     }
 
-
-
-
-
-    // Generic method when the distress button is pressed
+    /**
+     * Generic method when the distress button is pressed
+     */
     public void distressButtonPressed() {
         stopTimer();
         setState(new DistressState(this));
     }
 
-//-push
-        // getter and setter
+    /**
+     * getter and setter
+     */
     public ScreenLabels getScreenLabels() {
         return screenLabels;
     }
