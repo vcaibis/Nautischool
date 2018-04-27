@@ -4,14 +4,16 @@ package ch.hevs.nautischool.machine.data;
  * Created by GCI on 10.03.2018.
  */
 
-// Data contained in a DSC message
+/**
+ * Data contained in a DSC Message
+ */
 public class DSCMessage {
     private String name;
     private String type;
     private String mmsi;
     private String channel;
-    private String dest; //: String?
-    private DistressDetails alertDetails; //: DistressDetails?
+    private String dest;
+    private DistressDetails alertDetails;
 
     public DSCMessage(String name, String type, String mmsi, String channel, String dest, DistressDetails alertDetails) {
         this.name = name;

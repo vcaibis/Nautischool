@@ -4,7 +4,9 @@ package ch.hevs.nautischool.machine.data;
  * Created by GCI on 10.03.2018.
  */
 
-// Data contained in the details of a distress message
+/**
+ * Data contained in the details of a distress message
+  */
 public class DistressDetails {
     public String latitude;
     public String longitude;
