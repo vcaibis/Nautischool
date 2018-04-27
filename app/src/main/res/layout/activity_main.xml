@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Constraint layout for responsive layout-->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,8 +16,7 @@
     android:paddingStart="@dimen/_5sdp"
     android:paddingTop="@dimen/_5sdp">
 
-    <!--Layout for 4"-5" smartphone-->
-    <!--Screen and buttons below it-->
+    <!-- Top bar with title, settings and menu icone-->
         <LinearLayout
             android:id="@+id/topMenuBar"
             android:layout_width="match_parent"
@@ -74,6 +75,9 @@
 
         </LinearLayout>
 
+    <!--Two Realtive Layout:
+        Left: Screen and all button
+        Right: PTT button-->
         <RelativeLayout
             android:id="@+id/leftLayout"
             android:layout_width="0dp"
@@ -101,9 +105,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true">
 
-                <!-- 12 BUTTONS -->
-                <!--3 Buttons for volume and screen color-->
-
+                <!-- Five buttons under screen layout -->
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/underScreen"
                     android:layout_width="0dp"
@@ -235,7 +237,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </android.support.constraint.ConstraintLayout>
-
+                <!-- Layout for Vol, Distress and  SQ button-->
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/threebtns"
                     android:layout_width="@dimen/_47sdp"
@@ -367,9 +369,10 @@
                     app:layout_constraintEnd_toStartOf="@+id/threebtns"
                     app:layout_constraintStart_toEndOf="@+id/fourbtns"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logo_school" />
+                    app:srcCompat="@drawable/logo_school"
+                    android:layout_marginRight="8dp" />
 
-
+                <!-- Screen layout: contains title-web site, screen, ch.hevs.nautischool.DrawLine for draw the line between sk button and right label -->
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/screen"
                     android:layout_width="0dp"
@@ -423,7 +426,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/text_view_school">
 
-
+                        <!-- includ the screen layout who contains all the label screen-->
                         <include layout="@layout/screenlayout" />
 
 
@@ -448,6 +451,7 @@
 
                 </android.support.constraint.ConstraintLayout>
 
+                <!-- 4 SoftKeys button for interact with the radio menu-->
                 <GridLayout
                     android:id="@+id/fourbtns"
                     android:layout_width="wrap_content"
@@ -504,6 +508,7 @@
 
                 </GridLayout>
 
+                <!-- numeric pads 12 buttons-->
                 <GridLayout
                     android:id="@+id/twelvebtns"
                     android:layout_width="wrap_content"
@@ -797,6 +802,7 @@
 
         </RelativeLayout>
 
+        <!-- Left layout: only PTT button -->
         <RelativeLayout
             android:id="@+id/rightLayout"
             android:layout_width="@dimen/_25sdp"
@@ -827,6 +833,7 @@
                 tools:layout_editor_absoluteY="@dimen/_0sdp" />
         </RelativeLayout>
 
+        <!-- Bottom linearlayout for information like GPS position-->
         <LinearLayout
             android:id="@+id/downMenuBar"
             android:layout_width="match_parent"
