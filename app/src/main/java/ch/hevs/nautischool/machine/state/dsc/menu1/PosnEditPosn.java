@@ -7,7 +7,6 @@ import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
-import ch.hevs.nautischool.machine.state.OffState;
 
 /**
  * Created by Helder on 14.04.2018.
@@ -242,8 +241,6 @@ public class PosnEditPosn implements MachineState {
         if(longitudeDegree > 90) return false;
         if(longitudeDegree == 90 && longitudeMinute != 0) return false;
         if(latitudeDegree > 180) return false;
-        if(latitudeDegree == 180 && latitudeMinute != 0) return false;
-
-        return true;
+        return !(latitudeDegree == 180 && latitudeMinute != 0);
     }
 }

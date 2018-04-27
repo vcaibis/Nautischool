@@ -38,7 +38,7 @@ public class DistressUTC implements MachineState {
     }
 
     private void timerInvalidate() {
-        if(timer == null) return;;
+        if(timer == null) return;
         timer.cancel();
         timer.purge();
     }
@@ -187,8 +187,7 @@ public class DistressUTC implements MachineState {
         if (hours > 24) return false;
         if (hours < 0) return false;
         if (minutes > 60) return false;
-        if (minutes < 0) return false;
-        return true;
+        return minutes >= 0;
         //       int hours = Int(currentUTC.substring(to: currentUTC.index(currentUTC.startIndex, offsetBy: 2)))
         //       int minutes = Int(currentUTC.substring(with: currentUTC.index(currentUTC.startIndex, offsetBy: 3)..<currentUTC.index(currentUTC.startIndex, offsetBy: 5)))
         //       return hours! < 24 && minutes! < 60;

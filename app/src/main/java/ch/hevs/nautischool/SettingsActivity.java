@@ -1,15 +1,10 @@
 package ch.hevs.nautischool;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CheckedTextView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -24,13 +19,13 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         //Set the Checkbox with wiews
-        cB_Ship_Station = (CheckBox)findViewById(R.id.cB_Ship_Station);
-        cB_Exams = (CheckBox)findViewById(R.id.cB_Exams);
-        cB_Tuto = (CheckBox)findViewById(R.id.cB_Tuto);
-        cB_Expert_MRCC = (CheckBox)findViewById(R.id.cB_Expert_MRCC);
-        cB_Credit = (CheckBox)findViewById(R.id.cB_Credit);
-        cB_Help = (CheckBox)findViewById(R.id.cB_Help);
-        cB_Educational_Links = (CheckBox)findViewById(R.id.cB_Educational_Links);
+        cB_Ship_Station = findViewById(R.id.cB_Ship_Station);
+        cB_Exams = findViewById(R.id.cB_Exams);
+        cB_Tuto = findViewById(R.id.cB_Tuto);
+        cB_Expert_MRCC = findViewById(R.id.cB_Expert_MRCC);
+        cB_Credit = findViewById(R.id.cB_Credit);
+        cB_Help = findViewById(R.id.cB_Help);
+        cB_Educational_Links = findViewById(R.id.cB_Educational_Links);
 
     }
 

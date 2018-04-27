@@ -1,7 +1,5 @@
 package ch.hevs.nautischool.machine.state.dsc.menu1;
 
-import android.content.Context;
-
 import java.util.Timer;
 
 import ch.hevs.nautischool.machine.MachineContext;
@@ -9,7 +7,6 @@ import ch.hevs.nautischool.machine.MachineData;
 import ch.hevs.nautischool.machine.MachineState;
 import ch.hevs.nautischool.machine.MachineUtils;
 import ch.hevs.nautischool.machine.ScreenLabels;
-import ch.hevs.nautischool.machine.data.Contact;
 import ch.hevs.nautischool.machine.state.OffState;
 
 /**
@@ -168,8 +165,7 @@ public class PosnEditUTC implements MachineState {
         if (hours > 24) return false;
         if (hours < 0) return false;
         if (minutes > 60) return false;
-        if (minutes < 0) return false;
-        return true;
+        return minutes >= 0;
 
     }
 
