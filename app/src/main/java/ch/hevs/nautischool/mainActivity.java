@@ -1,38 +1,19 @@
 package ch.hevs.nautischool;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Point;
 import android.graphics.PointF;
-import android.graphics.drawable.Drawable;
-import android.nfc.Tag;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Display;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.jivesoftware.smack.SmackException;
-import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smackx.muc.MultiUserChat;
-import org.jivesoftware.smackx.muc.MultiUserChatManager;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -40,16 +21,10 @@ import java.util.TimerTask;
 import ch.hevs.nautischool.machine.MachineContext;
 import ch.hevs.nautischool.machine.ScreenLabels;
 
-import static ch.hevs.nautischool.R.drawable.led_layout_off;
-
 public class mainActivity extends AppCompatActivity {
+    private final String TAG = "ICI";
     //    static Context context;
     MachineContext radio = new MachineContext();
-    private DrawLine mDrawLine;
-    private ImageView line;
-    private Timer timer;
-    private TimerTask task;
-
     TextView right1;
     Button sk1;
     TextView right2;
@@ -59,8 +34,11 @@ public class mainActivity extends AppCompatActivity {
     TextView right4;
     Button sk4;
     Button distressBouton;
-    private final String TAG = "ICI";
     int mOrientation;
+    private DrawLine mDrawLine;
+    private ImageView line;
+    private Timer timer;
+    private TimerTask task;
 
     /**
      *
@@ -83,7 +61,7 @@ public class mainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        mDrawLine = (DrawLine) findViewById(R.id.drawLine);
+        mDrawLine = findViewById(R.id.drawLine);
 
 
         right1 = findViewById(R.id.right1);
@@ -133,7 +111,7 @@ public class mainActivity extends AppCompatActivity {
 
         startTimer();
 
-        final Button txt = (Button) findViewById(R.id.distSwipeButton);
+        final Button txt = findViewById(R.id.distSwipeButton);
 
         txt.setOnTouchListener(new OnSwipeTouchListener(this) {
 
@@ -142,7 +120,7 @@ public class mainActivity extends AppCompatActivity {
         public void onSwipeRight() {
             super.onSwipeRight();
             Timer t = new Timer();
-            Button btn = (Button) findViewById(R.id.DistressButton);
+            Button btn = findViewById(R.id.DistressButton);
             btn.setVisibility(View.VISIBLE);
             txt.setVisibility(View.INVISIBLE);
 
@@ -160,8 +138,7 @@ public class mainActivity extends AppCompatActivity {
         sk1.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                // TODO Auto-generated method stub
-                radio.softkey(1, true);
+                 radio.softkey(1, true);
                 radioToScreen();
                 return true;
             }
@@ -174,7 +151,6 @@ public class mainActivity extends AppCompatActivity {
         sk2.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                // TODO Auto-generated method stub
                 radio.softkey(2, true);
                 radioToScreen();
                 return true;
@@ -188,7 +164,6 @@ public class mainActivity extends AppCompatActivity {
         sk3.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                // TODO Auto-generated method stub
                 radio.softkey(3, true);
                 radioToScreen();
                 return true;
@@ -203,7 +178,6 @@ public class mainActivity extends AppCompatActivity {
         sk4.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                // TODO Auto-generated method stub
                 radio.softkey(4, true);
                 radioToScreen();
                 return true;
@@ -334,10 +308,10 @@ public class mainActivity extends AppCompatActivity {
         View dialogViewVolume = inflater.inflate(R.layout.volume_layout, null);
         builder.setView(dialogViewVolume);
 
-        final SeekBar sbVolume = (SeekBar) dialogViewVolume.findViewById(R.id.seekBarVolume);
+        final SeekBar sbVolume = dialogViewVolume.findViewById(R.id.seekBarVolume);
         sbVolume.setMax(100);
 
-        final TextView tv_Volume = (TextView) dialogViewVolume.findViewById(R.id.resultV);
+        final TextView tv_Volume = dialogViewVolume.findViewById(R.id.resultV);
         int oldVolume = radio.getMachineData().volume;
 
 
@@ -390,10 +364,10 @@ public class mainActivity extends AppCompatActivity {
         View dialogViewSquelch = inflater.inflate(R.layout.squelch_layout, null);
         builder.setView(dialogViewSquelch);
 
-        final SeekBar sbSquelch = (SeekBar) dialogViewSquelch.findViewById(R.id.seekBarSquelch);
+        final SeekBar sbSquelch = dialogViewSquelch.findViewById(R.id.seekBarSquelch);
         sbSquelch.setMax(100);
 
-        final TextView tv_Squelch = (TextView) dialogViewSquelch.findViewById(R.id.resultS);
+        final TextView tv_Squelch = dialogViewSquelch.findViewById(R.id.resultS);
         int oldSquelch = radio.getMachineData().squelch;
 
         tv_Squelch.setText(oldSquelch + " %");
@@ -453,7 +427,7 @@ public class mainActivity extends AppCompatActivity {
 
     public void radioToScreen() {
 
-        RelativeLayout lscreen = (RelativeLayout) findViewById(R.id.displayScreen);
+        RelativeLayout lscreen = findViewById(R.id.displayScreen);
 
         //if the screen is on we turn it off
         if (radio.getMachineData().screenColor == true) {
@@ -469,45 +443,45 @@ public class mainActivity extends AppCompatActivity {
 
 
         ScreenLabels sc = radio.getScreenLabels();
-        TextView bigChan = (TextView) findViewById(R.id.bigChan);
-        TextView smallChan = (TextView) findViewById(R.id.smallChan);
+        TextView bigChan = findViewById(R.id.bigChan);
+        TextView smallChan = findViewById(R.id.smallChan);
 
         bigChan.setText(sc.bigChan);
         smallChan.setText(sc.smallChan);
 
-        TextView right1 = (TextView) findViewById(R.id.right1);
-        TextView right2 = (TextView) findViewById(R.id.right2);
-        TextView right3 = (TextView) findViewById(R.id.right3);
-        TextView right4 = (TextView) findViewById(R.id.right4);
+        TextView right1 = findViewById(R.id.right1);
+        TextView right2 = findViewById(R.id.right2);
+        TextView right3 = findViewById(R.id.right3);
+        TextView right4 = findViewById(R.id.right4);
 
         right1.setText(sc.right1);
         right2.setText(sc.right2);
         right3.setText(sc.right3);
         right4.setText(sc.right4);
 //.
-        TextView mid1 = (TextView) findViewById(R.id.mid1);
-        TextView mid2 = (TextView) findViewById(R.id.mid2);
-        TextView mid3 = (TextView) findViewById(R.id.mid3);
-        TextView mid4 = (TextView) findViewById(R.id.mid4);
+        TextView mid1 = findViewById(R.id.mid1);
+        TextView mid2 = findViewById(R.id.mid2);
+        TextView mid3 = findViewById(R.id.mid3);
+        TextView mid4 = findViewById(R.id.mid4);
 
         mid1.setText(sc.mid1);
         mid2.setText(sc.mid2);
         mid3.setText(sc.mid3);
         mid4.setText(sc.mid4);
 
-        TextView left1 = (TextView) findViewById(R.id.left1);
-        TextView left2 = (TextView) findViewById(R.id.left2);
-        TextView left3 = (TextView) findViewById(R.id.left3);
-        TextView left4 = (TextView) findViewById(R.id.left4);
+        TextView left1 = findViewById(R.id.left1);
+        TextView left2 = findViewById(R.id.left2);
+        TextView left3 = findViewById(R.id.left3);
+        TextView left4 = findViewById(R.id.left4);
 
         left1.setText(sc.left1);
         left2.setText(sc.left2);
         left3.setText(sc.left3);
         left4.setText(sc.left4);
 
-        TextView message1 = (TextView) findViewById(R.id.message1);
-        TextView message2 = (TextView) findViewById(R.id.message2);
-        TextView message3 = (TextView) findViewById(R.id.message3);
+        TextView message1 = findViewById(R.id.message1);
+        TextView message2 = findViewById(R.id.message2);
+        TextView message3 = findViewById(R.id.message3);
 
         message1.setText(sc.message1);
         message2.setText(sc.message2);
