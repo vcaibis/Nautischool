@@ -44,7 +44,11 @@ public class CallSendState implements MachineState {
     public void power() {
 // Nothing to do because no effect
     }
-
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
         if (!longClick && sender == 1) {
