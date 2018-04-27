@@ -20,7 +20,6 @@ public class LCDState implements MachineState {
 
     @Override
     public void alphanumeric(int sender) {
-
     }
 
     @Override
@@ -43,6 +42,11 @@ public class LCDState implements MachineState {
 
     }
 
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
         MachineData machineData = context.getMachineData();
@@ -69,9 +73,7 @@ public class LCDState implements MachineState {
     }
 
     @Override
-    public void enter() {
-
-    }
+    public void enter() {}
 
     @Override
     public void distress(boolean touchDown) {

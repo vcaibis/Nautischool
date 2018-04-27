@@ -48,7 +48,11 @@ public class ReceiveState implements MachineState {
         context.getMachineData().isHighPower = MachineUtils.powerValue(context);
         context.setState(this);
     }
-
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
         MachineData machineData = context.getMachineData();

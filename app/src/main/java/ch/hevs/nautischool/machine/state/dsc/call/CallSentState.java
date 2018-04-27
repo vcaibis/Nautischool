@@ -127,39 +127,7 @@ public class CallSentState implements MachineState {
             }
         };
         timer.schedule(task, 2000);
- /*
-        timer = Timer.schedule(withTimeInterval: 2, repeats: false, block: { (Timer) in
-            // waiting 2 seconds
-            if (machineData.currentType == 0) {
-                context.setState(new CallWaitAckState(context));
-            } else {
-                context.setState(new ReceiveState(context));
-            }
-        })
 
-        let name: DSCName
-        let type: DSCType
-        var mmsiTo: String? = nil
-
-        switch machineData.currentType {
-            case 0:
-                name = DSCName.individual
-                type = DSCType.routine
-                mmsiTo = machineData.currentMMSI
-            case 1:
-                name = DSCName.ships
-                type = DSCType.safety
-            case 2:
-                name = DSCName.ships
-                type = DSCType.urgency
-            default:
-                name = DSCName.groupcall
-                type = DSCType.routine
-                mmsiTo = machineData.groupMMSI
-        }
-
-        Modele.sharedModele.sendMessage(message: DSCMessage(name: name, type: type, mmsi: machineData.mmsi, channel: machineData.currentChannel, dest: mmsiTo, alertDetails: nil))
-  */
     }
 
     @Override

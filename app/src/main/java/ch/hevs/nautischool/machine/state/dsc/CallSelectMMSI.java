@@ -25,30 +25,16 @@ public class CallSelectMMSI implements MachineState {
 
     @Override
     public void alphanumeric(int sender) {
-        //Double de la methodde en dessous, a effacer lorsque les methodes sont finies
+
     }
-    /*@Override
-    public void alphanumeric(int sender) {
-        MachineData machineData = context.getMachineData();
-        if (currentIndex < machineData.currentMMSI.characters.count) {
-            machineData.currentMMSI = MachineUtils.replaceSubrange( machineData.currentMMSI, currentIndex, sender.description);
-            currentIndex += 1;
-            context.setState(this);
-            if (currentIndex == machineData.currentMMSI.characters.count) {
-                timer!.invalidate();
-            }
-        }
-    }
-*/
+
     @Override
     public void sixteen() {
-        //timer!.invalidate()
         context.sixteenButtonPressed();
     }
 
     @Override
     public void dualwatch() {
-      //  timer!.invalidate()
         context.dualWatchButtonPressed();
     }
 
@@ -62,9 +48,14 @@ public class CallSelectMMSI implements MachineState {
 
     }
 
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
-        //Double de la methodde en dessous, a effacer lorsque les methodes sont finies
+
     }
    /* @Override
     public void softkey(int sender, boolean longClick) {
@@ -86,9 +77,13 @@ public class CallSelectMMSI implements MachineState {
 */
     @Override
     public void cancel() {
-       // timer!.invalidate()
         context.setState(new CallState( context));
     }
+
+    /**
+     * Method to confirm the call select MMSI
+     *      Not implemented yet
+     */
     @Override
     public void enter() {
         //Double de la methodde en dessous, a effacer lorsque les methodes sont finies
@@ -106,18 +101,13 @@ public class CallSelectMMSI implements MachineState {
 
     @Override
     public void distress(boolean touchDown) {
-        //timer!.invalidate()
         context.distressButtonPressed();
     }
 
     @Override
     public void volume(int sender) {
-        //context.getMachineData().volume = sender.actualAngle();
-        /*if (context.getMachineData().volume == sender.startAngle) {
-            //timer!.invalidate()
-            context.setState(new OffState( context));
-        }
-        */
+        context.volumeChanged(sender);
+
     }
 
     @Override
@@ -127,7 +117,6 @@ public class CallSelectMMSI implements MachineState {
 
     @Override
     public void ptt() {
-        //timer!.invalidate()
         context.pttPressed();
     }
 
@@ -141,7 +130,6 @@ public class CallSelectMMSI implements MachineState {
         ScreenLabels screenLabels = context.getScreenLabels();
 
         if (timer == null) {
-        //    initializeTimer();
         }
 
         screenLabels.left2 = context.getMachineData().currentMMSI;
@@ -163,6 +151,5 @@ public class CallSelectMMSI implements MachineState {
 
     @Override
     public void didReceiveDSC() {
-        //timer!.invalidate();
     }
 }

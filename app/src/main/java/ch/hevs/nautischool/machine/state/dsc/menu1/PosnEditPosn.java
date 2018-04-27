@@ -42,13 +42,13 @@ public class PosnEditPosn implements MachineState {
 
     @Override
     public void sixteen() {
-    //    timer!.invalidate()
+
         context.sixteenButtonPressed();
     }
 
     @Override
     public void dualwatch() {
-     //   timer!.invalidate()
+
         context.dualWatchButtonPressed();
     }
 
@@ -61,12 +61,16 @@ public class PosnEditPosn implements MachineState {
     public void power() {
 
     }
-
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
         if (!longClick) {
             if (sender == 1) {
-            //    timer!.invalidate()
+
                 context.navigateBackToMenuDSCState();
             } else if (sender == 2) {
                 if (!isLongitude || currentIndex != 0) {
@@ -95,7 +99,6 @@ public class PosnEditPosn implements MachineState {
                         } else {
                             currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex, "+");
                             context.setState(this);
-                            initializeTimer();
                         }
                     }
                 }
@@ -108,10 +111,8 @@ public class PosnEditPosn implements MachineState {
                 } else if (!isLongitude && currentIndex == 6) {
                     currentLatitude = MachineUtils.replaceSubrange(currentLatitude, currentIndex,  "E");
                     currentIndex += 1;
-                 //   timer!.invalidate()
                     context.setState(this);
                 } else if (isLongitude && currentIndex == 0) {
-                 //   timer!.invalidate()
                     context.setState(new PosnEditUTC(context));
                 }
             } else {
@@ -123,7 +124,6 @@ public class PosnEditPosn implements MachineState {
                 } else if (!isLongitude && currentIndex == 6) {
                     currentLatitude = MachineUtils.replaceSubrange( currentLatitude,  currentIndex,  "W");
                     currentIndex += 1;
-                 //   timer!.invalidate()
                     context.setState(this);
                 }
             }
@@ -132,7 +132,6 @@ public class PosnEditPosn implements MachineState {
 
     @Override
     public void cancel() {
-     //   timer!.invalidate()
         context.setState(new PosnState(context));
     }
 
@@ -140,7 +139,6 @@ public class PosnEditPosn implements MachineState {
     public void enter() {
         if (!isLongitude && currentIndex == 7) {
             if (isNewPosnValid()) {
-             //   timer?.invalidate()
                 context.getMachineData().longitude = currentLongitude;
                 context.getMachineData().latitude = currentLatitude;
                 context.setState(new PosnEditUTC(context));
@@ -157,7 +155,6 @@ public class PosnEditPosn implements MachineState {
 
     @Override
     public void distress(boolean touchDown) {
-     //   timer!.invalidate()
         context.distressButtonPressed();
     }
 
@@ -174,7 +171,6 @@ public class PosnEditPosn implements MachineState {
 
     @Override
     public void ptt() {
-    //    timer!.invalidate()
         context.pttPressed();
     }
 
@@ -189,7 +185,6 @@ public class PosnEditPosn implements MachineState {
         MachineData machineData = context.getMachineData();
 
         if (timer == null) {
-            initializeTimer();
         }
 
         screenLabels.left1 = currentLongitude;
@@ -231,30 +226,13 @@ public class PosnEditPosn implements MachineState {
 
     @Override
     public void didReceiveDSC() {
-     //   timer!.invalidate()
+
     }
 
-    private void initializeTimer(){
-    /*    timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true, block: { (Timer) in
-            if self.isLongitude {
-                if self.currentIndex == 5 {
-                    self.currentLongitude = MachineUtils.replaceSubrange(of: self.currentLongitude, at: self.currentIndex, with: (self.isTwinkled ? " " : "+"))
-                } else {
-                    self.currentLongitude = MachineUtils.replaceSubrange(of: self.currentLongitude, at: self.currentIndex, with: (self.isTwinkled ? " " : "-"))
-                }
-            } else {
-                if self.currentIndex == 6 {
-                    self.currentLatitude = MachineUtils.replaceSubrange(of: self.currentLatitude, at: self.currentIndex, with: (self.isTwinkled ? " " : "+"))
-                } else {
-                    self.currentLatitude = MachineUtils.replaceSubrange(of: self.currentLatitude, at: self.currentIndex, with: (self.isTwinkled ? " " : "-"))
-                }
-            }
-            self.isTwinkled = !self.isTwinkled
-            self.context.setState(state: self)
-        })
-        */
-    }
-
+    /**
+     * Method to validate the Latitude /Longitude position
+     * @return boolean
+     */
     private Boolean isNewPosnValid(){
 
         int longitudeDegree = Integer.parseInt(currentLongitude.substring(0, 2));

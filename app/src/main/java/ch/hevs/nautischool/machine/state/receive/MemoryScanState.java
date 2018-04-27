@@ -45,7 +45,11 @@ public class MemoryScanState implements MachineState {
     public void power() {
 
     }
-
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
         if (!longClick) {
@@ -55,7 +59,6 @@ public class MemoryScanState implements MachineState {
                 context.setState(new MenuDSCState(context));
             } else if (sender == 3) {
                 if (!context.getTimer().equals(0)) {
-                //    context.timer!.fire()
                 }
                 context.startTimer(0.5,  true);
             } else if (sender == 4) {
@@ -66,7 +69,6 @@ public class MemoryScanState implements MachineState {
                             machineData.memoryScanChannels[i] = false;
                         }
                     }
-                    //machineData.memoryScanChannels[index!] = false;
                     machineData.memoryScanNumber -= 1;
                     context.startTimer( 0.5,  true);
                 }
@@ -144,8 +146,8 @@ public class MemoryScanState implements MachineState {
         ScreenLabels screenLabels = context.getScreenLabels();
         MachineData machineData = context.getMachineData();
 
-        //screenLabels.mid2 = MachineUtils.powerLabel(context);
-        //screenLabels.mid3 = MachineUtils.userLabel(context);
+        screenLabels.mid2 = MachineUtils.powerLabel(context);
+        screenLabels.mid3 = MachineUtils.userLabel(context);
         screenLabels.bigChan = machineData.workingChannel;
     }
 
