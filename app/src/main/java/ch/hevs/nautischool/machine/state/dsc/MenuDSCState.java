@@ -46,7 +46,11 @@ public class MenuDSCState  implements MachineState {
     public void power() {
 
     }
-
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
         if (!longClick) {
@@ -66,6 +70,10 @@ public class MenuDSCState  implements MachineState {
         }
 
     }
+
+    /**
+     * Method to navigate in Modes
+     */
     private void navigateBackToRad() {
         switch (context.getMachineData().currentMode) {
             case MachineData.MACHINEMODE_DUALWATCH: //dualwatch:

@@ -44,7 +44,11 @@ public class TriWatchState implements MachineState {
     public void power() {
 
     }
-
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
         if (!longClick) {
@@ -52,7 +56,6 @@ public class TriWatchState implements MachineState {
                 context.setState(new MenuDSCState( context));
             } else if (sender == 2) {
                 if ( !context.getTimer().equals(0)) {
-                    //context.timer!.fire();
                 }
                 context.startTimer(0.5,true);
             }

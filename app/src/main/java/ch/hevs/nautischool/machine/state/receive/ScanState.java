@@ -44,7 +44,11 @@ public class ScanState implements MachineState {
     public void power() {
 
     }
-
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
         if (!longClick) {
@@ -55,13 +59,11 @@ public class ScanState implements MachineState {
             } else if (sender == 3) {
                 if (context.getTimer() != null) {
                     int index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
-                   // machineData.scanChannels[index!] = false;
                     machineData.scanNumber -= 1;
                     context.startTimer(0.5, true);
                 }
             } else if (sender == 4) {
                 if (context.getTimer() == null) {
-                    //context.timer!.fire()
                 }
                 context.startTimer(0.5, true);
             }

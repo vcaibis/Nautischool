@@ -76,6 +76,11 @@ public class SelectChanState implements MachineState{
         context.setState(this);
     }
 
+    /**
+     * Method to Manage the softkeys and change the context state
+     * @param sender
+     * @param longClick
+     */
     @Override
     public void softkey(int sender, boolean longClick) {
 
@@ -100,7 +105,6 @@ public class SelectChanState implements MachineState{
                     }
 
                     if (!machineData.memoryScanChannels[index]) {
-                        //machineData.memoryScanChannels[index!] = !machineData.memoryScanChannels[index!];
                         index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
                     }
                     break;
@@ -115,7 +119,7 @@ public class SelectChanState implements MachineState{
                         machineData.scanNumber += 1;
                     }
                     if (!machineData.memoryScanChannels[index]) {
-                        //machineData.memoryScanChannels[index!] = !machineData.memoryScanChannels[index!];
+
                         index = Arrays.asList(machineData.channels).indexOf(machineData.workingChannel);
                     }
                     break;
