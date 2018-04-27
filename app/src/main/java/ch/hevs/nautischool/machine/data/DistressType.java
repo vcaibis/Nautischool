@@ -4,8 +4,12 @@ package ch.hevs.nautischool.machine.data;
  * Created by GCI on 10.03.2018.
  */
 
+/**
+ * All the distress type
+ */
+
 public class DistressType {
-    // All the distress type
+
     public final static String UNDEFINED = "Undefined";
     public final static String ABANDONING = "Abandoning";
     public final static String PIRACY = "Piracy";
