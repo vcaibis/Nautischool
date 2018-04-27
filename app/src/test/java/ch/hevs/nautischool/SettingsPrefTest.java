@@ -75,7 +75,7 @@ public class SettingsPrefTest {
         when(test.getServer()).thenReturn(SERVER);
 
         // ...then the result should be the expected one.
-        assertEquals(test.getServer(),"85.1.228.64");
+        assertEquals(test.getServer(),"xx.x.xxx.xx");
 
 
     }
