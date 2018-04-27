@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.arjun.nautischool.ch.example.arjun.nautischool.MenuActivity"
+    tools:context=".MenuActivity"
     android:orientation="vertical">
 
     <!-- Menu Bar  -->
@@ -25,6 +25,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
             android:background="@null"
+            android:contentDescription="@string/back"
             android:onClick="btnbackMain_onClick"
             android:scaleType="fitCenter"
             android:src="@drawable/back" />
@@ -85,8 +86,7 @@
                 android:id="@+id/list_DSC_messages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true" >
+                >
             </ListView>
 
 
@@ -111,8 +111,7 @@
                 android:id="@+id/list_vocal_messages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true" >
+                >
             </ListView>
 
 
