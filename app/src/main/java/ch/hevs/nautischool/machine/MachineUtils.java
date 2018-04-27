@@ -3,12 +3,11 @@ package ch.hevs.nautischool.machine;
 /**
  * Created by Helder on 02.03.2018.
  */
-//TODO: Helder
 
 import java.util.Arrays;
 
 /**
- * STATIC GLOBAL variables, méthodes
+ * Static public variables, attributes and methods of machine
  */
 public class MachineUtils {
 
@@ -57,8 +56,8 @@ public class MachineUtils {
     public static String powerLabel(MachineContext context ){
         MachineData machineData = context.getMachineData();
 
-        if (machineData.isHighPower || machineData.workingChannel == "15"
-                || machineData.workingChannel == "17") {
+        if (machineData.isHighPower || machineData.workingChannel.equals("15")
+                || machineData.workingChannel.equals("17")) {
             return "Lo";
         } else {
             return "Hi";
@@ -79,7 +78,7 @@ public class MachineUtils {
     public static String userLabel(MachineContext context ){
         MachineData machineData = context.getMachineData();
 
-        if (machineData.userChannel == machineData.workingChannel) {
+        if (machineData.userChannel.equals(machineData.workingChannel)) {
             return "User";
         } else {
             return " ";
@@ -89,7 +88,7 @@ public class MachineUtils {
 
     // Change the channel when dual watch is activated
     public static String switchChannel(MachineData machineData ){
-        if (machineData.workingChannel == machineData.dualWatchChannel) {
+        if (machineData.workingChannel.equals(machineData.dualWatchChannel)) {
             return "16";
         } else {
             return machineData.dualWatchChannel;

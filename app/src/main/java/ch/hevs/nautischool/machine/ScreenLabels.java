@@ -3,14 +3,14 @@ package ch.hevs.nautischool.machine;
 /**
  * Created by Helder on 02.03.2018.
  */
-//TODO: Helder
 
 /**
- * contient les Valeurs des LABEL de l'écran
+ * Class contains the values of the labels of the screen
  */
 public class ScreenLabels {
-
-    //Mark : Attributes
+    /**
+     * Attributes
+     */
     public String left1 = " ";
     public String left2 = " ";
     public String left3 = " ";

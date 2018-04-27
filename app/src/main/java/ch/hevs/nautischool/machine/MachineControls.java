@@ -4,6 +4,9 @@ package ch.hevs.nautischool.machine;
  * Created by GCI on 16.03.2018.
  */
 
+/**
+ * Interface implemented by MachineState for standard control of machine
+ */
 public interface MachineControls {
 
     // Handle the alphanumerical buttons

@@ -5,7 +5,8 @@ package ch.hevs.nautischool.machine;
  */
 
 /**
- * qui herite MachineControls = Interface State
+ * Generic Interface State which extends MachineControls
+ * for all states implemented of machine
  */
 public interface MachineState extends MachineControls{
 
