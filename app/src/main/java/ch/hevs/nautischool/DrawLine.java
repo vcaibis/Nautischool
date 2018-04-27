@@ -11,14 +11,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class DrawLine extends View {
+
     private Paint paint = new Paint();
-    private PointF pointA, pointB;
-    private PointF pointC, pointD;
-    private PointF pointE, pointF;
-    private PointF pointG;
-
-
-    private PointF pointH;
+    /**
+     * Create 8 points into view
+     */
+    private PointF  pointA, pointB,
+                    pointC,pointD,
+                    pointE, pointF,
+                    pointG, pointH;
 
     public DrawLine(Context context) {
         super(context);
@@ -36,7 +37,7 @@ public class DrawLine extends View {
      *
      * @param canvas
      * choose lign color and width
-     * draw 4 line between:
+     * set the 8 points and draw 4 line between:
      * right1-sk1
      * right2-sk2
      * right3-sk3
